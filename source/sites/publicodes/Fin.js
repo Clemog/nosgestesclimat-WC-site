@@ -49,7 +49,7 @@ export default ({ }) => {
 				.map(([category, ...rest]) => [category, 1000 * +rest.join('')])
 				// Here we convert categories with an old name to the new one
 				// 'biens divers' was renamed to 'divers'
-				.map(([category, ...rest]) => 
+				.map(([category, ...rest]) =>
 					category === 'b' ? ['d', ...rest] : [category, ...rest]
 				)
 
@@ -73,13 +73,18 @@ export default ({ }) => {
 				details={Object.fromEntries(rehydratedDetails)}
 				headlessMode={headlessMode}
 			/>
-			<Dialog title={title} text={text} isOpen={isOpen} onReject={onReject} onAccept={onAccept} />
+			<Dialog
+				title={title}
+				text={text}
+				isOpen={isOpen}
+				onReject={onReject}
+				onAccept={onAccept}
+			/>
 		</div>
 	)
 }
 
 const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
-
 	const backgroundColor = getBackgroundColor(value).toHexString(),
 		backgroundColor2 = getBackgroundColor(value + 2000).toHexString(),
 		textColor = findContrastedTextColor(backgroundColor, true),
