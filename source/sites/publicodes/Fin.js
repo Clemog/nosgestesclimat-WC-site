@@ -73,13 +73,7 @@ export default ({ }) => {
 				details={Object.fromEntries(rehydratedDetails)}
 				headlessMode={headlessMode}
 			/>
-			<Dialog
-				title={title}
-				text={text}
-				isOpen={isOpen}
-				onReject={onReject}
-				onAccept={onAccept}
-			/>
+			<IframeDataShareModal data={rehydratedDetails} />
 		</div>
 	)
 }
