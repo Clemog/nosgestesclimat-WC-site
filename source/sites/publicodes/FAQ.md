@@ -1,20 +1,20 @@
-
 ## GENERAL
-### Pourquoi me demande-t-on le nombre de semaines dont je dispose ? 
 
-C'est un moyen d'obtenir le nombre de semaines travaillées. Cette donnée est importante dans l'estimation de votre empreinte carbone individuelle professionnelle car elle intervient à de nombreux endroits du calcul. Par exemple, cette donnée est nécessaire pour calculer l'impact carbone de votre alimentation ou encore l'impact carbone de vos déplacements domicile-travail. 
+### Pourquoi me demande-t-on le nombre de semaines dont je dispose ?
+
+C'est un moyen d'obtenir le nombre de semaines travaillées. Cette donnée est importante dans l'estimation de votre empreinte carbone individuelle professionnelle car elle intervient à de nombreux endroits du calcul. Par exemple, cette donnée est nécessaire pour calculer l'impact carbone de votre alimentation ou encore l'impact carbone de vos déplacements domicile-travail.
 
 ## ALIMENTATION
 
-### Pourquoi me demande-t-on les types de repas que je consomme durant la semaine le midi ? 
+### Pourquoi me demande-t-on les types de repas que je consomme durant la semaine le midi ?
 
-Nous avons besoin du type de repas que vous consommez pour calculer l'impact carbone de votre alimentation au travail. Cet impact doit être comptabilisé dans le bilan carbone de votre entreprise car, bien souvent, bien que les choix alimentaires soient personnels, elle a un levier d'action dessus. 
+Nous avons besoin du type de repas que vous consommez pour calculer l'impact carbone de votre alimentation au travail. Cet impact doit être comptabilisé dans le bilan carbone de votre entreprise car, bien souvent, bien que les choix alimentaires soient personnels, elle a un levier d'action dessus.
 
 ## TRANSPORT
 
 ### Pourquoi dois-je renseigner mes déplacements domicile-travail ?
 
-L'impact carbone de vos déplacements pour vous rendre au travail doit être comptabilisé dans le scope 3 de votre entreprise. Là encore, si les moyens de transports empruntés sont des choix personnels, l'entreprise dispose tout de même de leviers d'action. Par exemple, elle peut mettre en place des primes vélos, des douches et des parkings sécurisés pour encourager la pratique du vélo pour venir sur le lieu de travail. 
+L'impact carbone de vos déplacements pour vous rendre au travail doit être comptabilisé dans le scope 3 de votre entreprise. Là encore, si les moyens de transports empruntés sont des choix personnels, l'entreprise dispose tout de même de leviers d'action. Par exemple, elle peut mettre en place des primes vélos, des douches et des parkings sécurisés pour encourager la pratique du vélo pour venir sur le lieu de travail.
 
 ### Je n'ai pas de voiture mais on me demande quand même toutes ses informations…
 
