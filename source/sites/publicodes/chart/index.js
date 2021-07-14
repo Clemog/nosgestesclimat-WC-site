@@ -27,7 +27,7 @@ export default ({ details, noText, noAnimation, noCompletion, valueColor }) => {
 	const objectifs = useSelector(objectifsSelector)
 	const rules = useSelector((state) => state.rules)
 	const engine = useEngine(objectifs)
-	const categories = extractCategories(rules, engine, details)
+	const categories = extractCategories(rules, engine, details).filter((category) => category.name != "profil")
 	const nextQuestions = useNextQuestions()
 	const completedCategories = categories
 		.filter(
