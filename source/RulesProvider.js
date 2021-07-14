@@ -39,14 +39,14 @@ export default ({ children, rulesURL, dataBranch }) => {
 		if (NODE_ENV === 'development' && !dataBranch) {
 			// Rules are stored in nested yaml files
 			const req = require.context(
-				'../../nosgestesclimat/data/',
+				'../../nosgestesclimat-WC-model/data/',
 				true,
 				/\.(yaml)$/
 			)
 
 			// Bigger rule explanations are stored in nested .md files
 			const reqPlus = require.context(
-				'raw-loader!../../nosgestesclimat/data/actions/plus/',
+				'raw-loader!../../nosgestesclimat-WC-model/data/actions/plus/',
 				true,
 				/\.(md)$/
 			)
