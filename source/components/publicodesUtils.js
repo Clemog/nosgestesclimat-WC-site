@@ -24,7 +24,7 @@ export const ruleFormula = (rule) =>
 
 export const ruleSumNode = (rule) => {
 	const formula = ruleFormula(rule)
-	console.log('FOR', formula)
+	// console.log('FOR', formula)
 
 	if (formula.nodeKind !== 'somme') return null
 	return formula.explanation.map((node) => node.dottedName)
@@ -40,7 +40,7 @@ export const extractCategories = (
 	const rule = engine.getRule(parentRule),
 		sumNodes = ruleSumNode(rule)
 
-	console.log(sumNodes)
+	// console.log(sumNodes)
 
 	const categories = sumNodes.map((dottedName) => {
 		const node = engine.evaluate(dottedName)
