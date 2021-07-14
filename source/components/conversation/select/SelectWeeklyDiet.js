@@ -9,7 +9,7 @@ import { updateSituation } from 'Actions/actions'
 import { Mosaic } from './UI'
 
 // This is the number of possible answers in this very custom input component
-const chipsTotal = 14
+const chipsTotal = 5
 
 export default function SelectWeeklyDiet({
 	name,
