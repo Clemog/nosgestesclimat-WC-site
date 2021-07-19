@@ -53,13 +53,7 @@ export default function Root({}) {
 				//...retrievePersistedState(),
 				previousSimulation: retrievePersistedSimulation(),
 			}}
-			rulesURL={`https://${
-				branch
-					? `${branch}--`
-					: pullRequestNumber
-					? `deploy-preview-${pullRequestNumber}--`
-					: ''
-			}ngc-wc-model.netlify.app/co2.json`}
+			rulesURL={`https://ngc-wc-model.netlify.app/co2.json`}
 			dataBranch={branch || pullRequestNumber}
 		>
 			<Router />
