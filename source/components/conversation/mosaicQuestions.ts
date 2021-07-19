@@ -1,5 +1,9 @@
 import SelectWeeklyDiet from './select/SelectWeeklyDiet'
 import SelectDevices from './select/SelectDevices'
+import SelectWeeklyTransport from './select/SelectWeeklyTransport'
+import SelectVehicule from './select/SelectVehicule'
+import SelectMoyenPro from './select/SelectMoyenPro'
+import SelectAnnualPlane from './select/SelectAnnualPlane'
 import { DottedName } from 'Rules'
 
 const mosaicQuestions: Array<{
@@ -11,35 +15,53 @@ const mosaicQuestions: Array<{
 }> = [
 	{
 		dottedName: "numérique . liste d'appareils",
-		question: 'Quels appareils numériques de moins de 10 ans possédez-vous ?',
+		question: 'Dans le cadre professionnel, de quels équipements disposez-vous ',
 		description: `
-L'essentiel de l'empreinte du numérique réside dans les appareils que nous achetons.
-
-> ✨️ Par simplicité, ne renseignez que les appareils récents : un smartphone utilisé depuis 5 ans a déjà été bien amorti.
+L'essentiel de l'empreinte du numérique provient des appareils eux-mêmes.
 
 Renseignez ici vos appareils parmi ces choix limités.
 
-> 📡 Nous ajouterons au fur et à mesure d'autres types d'appareils : box internet, box TV, 2ème TV, imprimante, etc..
+> 📡 Nous ajouterons au fur et à mesure d'autres types d'appareils.
 			`,
 		isApplicable: (dottedName: DottedName) =>
 			dottedName.includes('numérique') && dottedName.includes(' . présent'),
 		component: SelectDevices,
 	},
 	{
-		dottedName: "divers . électroménager . liste d'appareils",
+		dottedName: "déplacements professionnels . véhicule fonction . liste véhicules",
 		question:
-			'Quels appareils électroménagers de moins de 10 ans possédez-vous ?',
+			'Quel est le type de véhicule dont vous disposez ?',
 		description: `
-L'essentiel de l'empreinte de l'électroménager réside dans les appareils que nous achetons.
-
-> ✨️ Par simplicité, ne renseignez que les appareils récents : un smartphone utilisé depuis 5 ans a déjà été bien amorti.
-
-Si tous vos appareils ne sont pas proposés dans cette liste, ce n'est pas grave, ce test ne se veut pas exhaustif.
+A compléter 
 			`,
 		isApplicable: (dottedName: DottedName) =>
-			dottedName.includes('divers . électroménager') &&
+			dottedName.includes('déplacements professionnels . moyen . véhicule de fonction') &&
+			dottedName.includes(' . détient'),
+		component: SelectVehicule,
+	},
+	{
+		dottedName: "déplacements professionnels . moyen . liste moyens",
+		question:
+			'Quel(s) moyen(s) de transport utilisez-vous pour vos déplacements professionnels  ?',
+		description: `
+A compléter 
+			`,
+		isApplicable: (dottedName: DottedName) =>
+			dottedName.includes('déplacements professionnels . moyen') &&
 			dottedName.includes(' . présent'),
-		component: SelectDevices,
+		component: SelectMoyenPro,
+	},
+	{
+		dottedName: "déplacements professionnels . moyen . avion . heures",
+		question:
+			'Combien d’heures par an voyagez-vous en avion dans le cadre de vos déplacements professionnels ?',
+		description: `
+A compléter 
+			`,
+		isApplicable: (dottedName: DottedName) =>
+			dottedName.includes('déplacements professionnels . moyen . avion') &&
+			dottedName.includes(' . heures'),
+		component: SelectAnnualPlane,
 	},
 	{
 		dottedName: 'alimentation . régime',
@@ -57,6 +79,22 @@ Choisissez 5 plats qui représentent votre semaine type dans le cadre profession
 			dottedName.includes(' . nombre'),
 		component: SelectWeeklyDiet,
 	},
+	{
+		dottedName: 'transport . domicile-travail . moyens de transport',
+		question:
+			'Quelle à la répartition d’usage des différents modes de transports que vous utilisez ? ',
+		description: `
+
+A compléter 
+
+> A compléter
+
+		`,
+		isApplicable: (dottedName: DottedName) =>
+			dottedName.includes('déplacements domicile-travail . moyens de transport') &&
+			dottedName.includes(' . pourcent'),
+		component: SelectWeeklyTransport,
+	},	
 ]
 
 export default mosaicQuestions
