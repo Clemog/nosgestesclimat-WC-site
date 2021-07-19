@@ -59,7 +59,7 @@ export default function Root({}) {
 					: pullRequestNumber
 					? `deploy-preview-${pullRequestNumber}--`
 					: ''
-			}ecolab-data.netlify.app/co2.json`}
+			}ngc-wc.netlify.app/co2.json`}
 			dataBranch={branch || pullRequestNumber}
 		>
 			<Router />
