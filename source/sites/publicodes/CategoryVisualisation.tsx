@@ -48,7 +48,7 @@ export default ({ questionCategory }) => {
 						}
 					`}
 				>
-					<SubCategoriesChart
+					{/* <SubCategoriesChart
 						{...{
 							color: questionCategory.color,
 							rules,
@@ -56,7 +56,7 @@ export default ({ questionCategory }) => {
 							sumToDisplay,
 							total,
 						}}
-					/>
+					/> */}
 				</div>
 			)}
 		</div>
