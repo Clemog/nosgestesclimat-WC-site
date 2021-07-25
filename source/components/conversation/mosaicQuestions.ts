@@ -1,9 +1,9 @@
 import SelectWeeklyDiet from './select/SelectWeeklyDiet'
 import SelectDevices from './select/SelectDevices'
 import SelectWeeklyTransport from './select/SelectWeeklyTransport'
-import SelectVehicule from './select/SelectVehicule'
 import SelectMoyenPro from './select/SelectMoyenPro'
 import SelectAnnualPlane from './select/SelectAnnualPlane'
+import SelectWeeklyMetroBus from './select/SelectWeeklyMetroBus'
 import { DottedName } from 'Rules'
 
 const mosaicQuestions: Array<{
@@ -28,18 +28,6 @@ Renseignez ici vos appareils parmi ces choix limités.
 		component: SelectDevices,
 	},
 	{
-		dottedName: "déplacements professionnels . véhicule fonction . liste véhicules",
-		question:
-			'Quel est le type de véhicule dont vous disposez ?',
-		description: `
-A compléter 
-			`,
-		isApplicable: (dottedName: DottedName) =>
-			dottedName.includes('déplacements professionnels . moyen . véhicule de fonction') &&
-			dottedName.includes(' . détient'),
-		component: SelectVehicule,
-	},
-	{
 		dottedName: "déplacements professionnels . moyen . liste moyens",
 		question:
 			'Quel(s) moyen(s) de transport utilisez-vous pour vos déplacements professionnels  ?',
@@ -47,7 +35,7 @@ A compléter
 A compléter 
 			`,
 		isApplicable: (dottedName: DottedName) =>
-			dottedName.includes('déplacements professionnels . moyen') &&
+			dottedName.includes('déplacements . déplacements professionnels . moyen') &&
 			dottedName.includes(' . présent'),
 		component: SelectMoyenPro,
 	},
@@ -59,9 +47,21 @@ A compléter
 A compléter 
 			`,
 		isApplicable: (dottedName: DottedName) =>
-			dottedName.includes('déplacements professionnels . moyen . avion') &&
+			dottedName.includes('déplacements . déplacements professionnels . moyen . avion') &&
 			dottedName.includes(' . heures'),
 		component: SelectAnnualPlane,
+	},
+	{
+		dottedName: "déplacements professionnels . moyen . transports en commun . heures",
+		question:
+			'Combien d’heures par semaine voyagez-vous en transports en commun dans le cadre de vos déplacements professionnels ?',
+		description: `
+A compléter 
+			`,
+		isApplicable: (dottedName: DottedName) =>
+			dottedName.includes('déplacements . déplacements professionnels . moyen . transports en commun') &&
+			dottedName.includes(' . heures'),
+		component: SelectWeeklyMetroBus,
 	},
 	{
 		dottedName: 'alimentation . régime',
@@ -91,7 +91,7 @@ A compléter
 
 		`,
 		isApplicable: (dottedName: DottedName) =>
-			dottedName.includes('déplacements domicile-travail . moyens de transport') &&
+			dottedName.includes('déplacements . déplacements domicile-travail . moyens de transport') &&
 			dottedName.includes(' . pourcent'),
 		component: SelectWeeklyTransport,
 	},	
