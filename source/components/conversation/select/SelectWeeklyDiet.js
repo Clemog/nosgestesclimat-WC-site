@@ -41,7 +41,13 @@ export default function SelectWeeklyDiet({
 
 	const choiceElements = (
 		<div>
-			<Mosaic>
+			<Mosaic
+				css={`
+				li {
+					margin: 0 0.5rem 0;
+				}
+			`}
+			>
 				{selectedRules.map(
 					([
 						{
