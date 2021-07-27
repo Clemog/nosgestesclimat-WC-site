@@ -24,7 +24,8 @@ Renseignez ici vos appareils parmi ces choix limités.
 > 📡 Nous ajouterons au fur et à mesure d'autres types d'appareils.
 			`,
 		isApplicable: (dottedName: DottedName) =>
-			dottedName.includes('numérique') && dottedName.includes(' . présent'),
+			dottedName.includes('numérique . équipements') &&
+			dottedName.includes(' . présent'),
 		component: SelectDevices,
 	},
 	{
