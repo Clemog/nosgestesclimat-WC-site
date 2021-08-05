@@ -1,5 +1,6 @@
 import SelectWeeklyDiet from './select/SelectWeeklyDiet'
 import SelectDevices from './select/SelectDevices'
+import SelectAgeDevice from './select/SelectAgeDevice'
 import SelectWeeklyTransport from './select/SelectWeeklyTransport'
 import SelectMoyenPro from './select/SelectMoyenPro'
 import SelectAnnualPlane from './select/SelectAnnualPlane'
@@ -36,7 +37,7 @@ Renseignez ici vos appareils parmi ces choix limités.
 A compléter 
 			`,
 		isApplicable: (dottedName: DottedName) =>
-			dottedName.includes('déplacements . déplacements professionnels . moyen') &&
+			dottedName.includes('déplacements professionnels . moyen') &&
 			dottedName.includes(' . présent'),
 		component: SelectMoyenPro,
 	},
@@ -48,7 +49,7 @@ A compléter
 A compléter 
 			`,
 		isApplicable: (dottedName: DottedName) =>
-			dottedName.includes('déplacements . déplacements professionnels . moyen . avion') &&
+			dottedName.includes('déplacements professionnels . moyen . avion') &&
 			dottedName.includes(' . heures'),
 		component: SelectAnnualPlane,
 	},
@@ -60,7 +61,7 @@ A compléter
 A compléter 
 			`,
 		isApplicable: (dottedName: DottedName) =>
-			dottedName.includes('déplacements . déplacements professionnels . moyen . transports en commun') &&
+			dottedName.includes('déplacements professionnels . moyen . transports en commun') &&
 			dottedName.includes(' . heures'),
 		component: SelectWeeklyMetroBus,
 	},
@@ -92,7 +93,7 @@ A compléter
 
 		`,
 		isApplicable: (dottedName: DottedName) =>
-			dottedName.includes('déplacements . déplacements domicile-travail . moyens de transport') &&
+			dottedName.includes('trajets domicile-travail . moyens de transport') &&
 			dottedName.includes(' . pourcent'),
 		component: SelectWeeklyTransport,
 	},	
