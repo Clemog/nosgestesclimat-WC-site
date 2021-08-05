@@ -4,6 +4,7 @@ import SelectAgeDevice from './select/SelectAgeDevice'
 import SelectWeeklyTransport from './select/SelectWeeklyTransport'
 import SelectMoyenPro from './select/SelectMoyenPro'
 import SelectAnnualPlane from './select/SelectAnnualPlane'
+import SelectAnnualTrain from './select/SelectAnnualTrain'
 import SelectWeeklyMetroBus from './select/SelectWeeklyMetroBus'
 import { DottedName } from 'Rules'
 
@@ -52,6 +53,18 @@ A compléter
 			dottedName.includes('déplacements professionnels . moyen . avion') &&
 			dottedName.includes(' . heures'),
 		component: SelectAnnualPlane,
+	},
+	{
+		dottedName: "déplacements professionnels . moyen . train . heures",
+		question:
+			'Combien d’heures par an voyagez-vous en train dans le cadre de vos déplacements professionnels ?',
+		description: `
+A compléter 
+			`,
+		isApplicable: (dottedName: DottedName) =>
+			dottedName.includes('déplacements professionnels . moyen . train') &&
+			dottedName.includes(' . heures'),
+		component: SelectAnnualTrain,
 	},
 	{
 		dottedName: "déplacements professionnels . moyen . transports en commun . heures",
