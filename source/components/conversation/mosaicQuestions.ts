@@ -2,6 +2,7 @@ import SelectWeeklyDiet from './select/SelectWeeklyDiet'
 import SelectDevices from './select/SelectDevices'
 import SelectAgeDevice from './select/SelectAgeDevice'
 import SelectWeeklyTransport from './select/SelectWeeklyTransport'
+import SelectWeeklyTrain from './select/SelectWeeklyTrain'
 import SelectMoyenPro from './select/SelectMoyenPro'
 import SelectAnnualPlane from './select/SelectAnnualPlane'
 import SelectAnnualTrain from './select/SelectAnnualTrain'
@@ -109,7 +110,23 @@ A compléter
 			dottedName.includes('trajets domicile-travail . moyens de transport') &&
 			dottedName.includes(' . pourcent'),
 		component: SelectWeeklyTransport,
-	},	
+	},
+	{
+		dottedName: 'transport . domicile-travail . moyens de transport . train',
+		question:
+			'Combien de temps (en heures), en moyenne, dure votre trajet domicile-travail en train (aller simple) ? ',
+		description: `
+
+A compléter 
+
+> A compléter
+
+		`,
+		isApplicable: (dottedName: DottedName) =>
+			dottedName.includes('trajets domicile-travail . moyens de transport . train') &&
+			dottedName.includes(' . heures par trajet'),
+		component: SelectWeeklyTrain,
+	},		
 ]
 
 export default mosaicQuestions
