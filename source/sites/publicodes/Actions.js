@@ -101,14 +101,24 @@ const ActionList = animated(({}) => {
 		actions.filter((action) =>
 			category ? splitName(action.dottedName)[0] === category : true
 		)
+	
+	const individualActions = (a) =>
+		actions.filter((a) =>
+			rules[a.dottedName].type === 'individuel'
+		)
+	
+	const collectiveActions = (a) =>
+		actions.filter((a) =>
+			rules[a.dottedName].type === 'collectif'
+		)
 
-	const effortScale = { modéré: 2, conséquent: 3, faible: 1, undefined: 0 }
+	const effortScale = { conséquent: 3, modéré: 2, faible: 1, undefined: 0 }
 	const sortedActionsByMode =
-			mode === 'guidé'
+			mode === 'individuel'
 				? sortBy((a) => effortScale[rules[a.dottedName].effort])(
-						actions.filter((a) => rules[a.dottedName].effort != null)
+					individualActions(actions).filter((a) => rules[a.dottedName].effort != null)
 				  )
-				: sortBy((a) => (radical ? -1 : 1) * correctValue(a))(actions),
+				: sortBy((a) => (radical ? -1 : 1) * correctValue(a))(collectiveActions(actions)),
 		sortedActions = sortBy((action) => {
 			const flatRule = rules[action.dottedName]
 			return disabledAction(flatRule, action.nodeValue)
@@ -117,9 +127,12 @@ const ActionList = animated(({}) => {
 	const finalActions = filterByCategory(sortedActions)
 
 	const categories = extractCategories(rules, engine)
-	const countByCategory = actions.reduce((memo, next) => {
+	const countByCategoryIndividual = individualActions(actions).reduce((memo, next) => {
 		const category = splitName(next.dottedName)[0]
-
+		return { ...memo, [category]: (memo[category] || 0) + 1 }
+	}, {})
+	const countByCategoryCollective = collectiveActions(actions).reduce((memo, next) => {
+		const category = splitName(next.dottedName)[0]
 		return { ...memo, [category]: (memo[category] || 0) + 1 }
 	}, {})
 
@@ -142,17 +155,23 @@ const ActionList = animated(({}) => {
 						Comment réduire mon empreinte ?
 					</h1>
 					<button
-						css="margin-bottom: .8rem; display: inline-block"
+						className="ui__ small button"
+						css={`
+							margin-bottom: .8rem;
+							display: inline-block;
+						`}
 						onClick={() => dispatch(setActionMode(null))}
 					>
-						Mode {mode}
+						<span css="font-size: 80%;">
+							Revenir à la page précédente
+						</span>
 					</button>
 					<CategoryFilters
 						categories={categories}
 						selected={category}
-						countByCategory={countByCategory}
+						countByCategory={mode === 'individuel' ? countByCategoryIndividual : countByCategoryCollective}
 					/>
-					{mode === 'autonome' && (
+					{/* {mode === 'collectif' && (
 						<button onClick={() => setRadical(!radical)}>
 							Trié par :{' '}
 							{radical ? (
@@ -161,7 +180,7 @@ const ActionList = animated(({}) => {
 								<span>le moins d'impact{emoji('📈')}</span>
 							)}
 						</button>
-					)}
+					)} */}
 					{finalActions.map((evaluation) => (
 						<ActionVignette
 							key={evaluation.dottedName}
@@ -169,7 +188,7 @@ const ActionList = animated(({}) => {
 							evaluation={evaluation}
 							total={bilans.length ? bilans[0].nodeValue : null}
 							effort={
-								mode === 'guidé' &&
+								mode === 'individuel' &&
 								effortScale[rules[evaluation.dottedName].effort]
 							}
 						/>

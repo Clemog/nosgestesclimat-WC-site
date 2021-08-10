@@ -142,13 +142,13 @@ const ActionValue = ({
 				justify-content: space-start;
 				width: 100%;
 				div:first-child {
-					width: 6rem;
+					width: 1rem;
 				}
 			`}
 		>
-			<div>Impact&nbsp;</div>
+			<div>&nbsp;</div>
 			{noFormula ? (
-				'🤷'
+				' '
 			) : disabled ? (
 				'Non applicable'
 			) : (

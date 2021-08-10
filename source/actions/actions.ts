@@ -166,7 +166,7 @@ export const explainVariable = (variableName: DottedName | null = null) =>
 		variableName,
 	} as const)
 
-export const setActionMode = (mode: 'guidé' | 'autonome') =>
+export const setActionMode = (mode: 'individuel' | 'collectif') =>
 	({
 		type: 'SET_ACTION_MODE',
 		mode,

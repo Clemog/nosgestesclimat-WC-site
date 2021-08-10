@@ -21,26 +21,26 @@ export default ({}) => {
 			</div>
 			<div>
 				<IllustratedButton
-					icon="🐣"
+					icon="👤"
 					to="/actions"
-					onClick={() => dispatch(setActionMode('guidé'))}
+					onClick={() => dispatch(setActionMode('individuel'))}
 				>
 					<div>
-						<div>Guidé</div>
+						<div>Individuel</div>
 						<p>
-							<small>On vous propose une sélection graduelle de gestes.</small>
+							<small>On vous propose une sélection graduelles d'actions individuelles.</small>
 						</p>
 					</div>
 				</IllustratedButton>
 				<IllustratedButton
 					to="/actions"
-					icon="🐓"
-					onClick={() => dispatch(setActionMode('autonome'))}
+					icon="👥"
+					onClick={() => dispatch(setActionMode('collectif'))}
 				>
 					<div>
-						<div>Autonome</div>
+						<div>Collectif</div>
 						<p>
-							<small>A vous de choisir vos gestes à la carte.</small>
+							<small>Les actions collectives c'est ici !</small>
 						</p>
 					</div>
 				</IllustratedButton>
