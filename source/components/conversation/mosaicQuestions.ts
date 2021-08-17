@@ -17,8 +17,7 @@ const mosaicQuestions: Array<{
 		dottedName: "numérique . liste d'appareils",
 		question: 'Dans le cadre professionnel, de quels équipements informatiques disposez-vous ?',
 		description: `
-Indiquez, ici, les équipements mis à disposition par votre organisation pour votre activité professionnelle. 
-La majorité de l’impact du numérique ne provient pas de l’usage mais bien de l’équipement. 
+Indiquez, ici, les équipements mis à disposition par votre organisation pour votre activité professionnelle. La majorité de l’impact du numérique ne provient pas de l’usage mais bien de l’équipement. L'essentiel de l'empreinte du numérique provient des appareils eux-mêmes. 
 			`,
 		isApplicable: (dottedName: DottedName) =>
 			dottedName.includes('numérique . équipements') &&
@@ -69,7 +68,7 @@ Ces moyens de transports ont des impacts différents, c’est pourquoi nous vous
 		question:
 			'Choisissez les plats que vous consommez les midis d’une semaine type dans le cadre professionnel (5 repas) ?',
 		description: `
-Indiquez, ici, 5 repas représentatifs de votre consommation pendant une semaine de travail. 
+Choisissez 5 plats qui représentent votre semaine type dans le cadre professionnel : 5 repas du midi. 
 			`,
 		isApplicable: (dottedName: DottedName) =>
 			dottedName.includes('alimentation . plats') &&
