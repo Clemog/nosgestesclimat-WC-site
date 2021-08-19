@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useEngine } from 'Components/utils/EngineContext'
 import { useLocation } from 'react-router';
 import { situationSelector } from 'Selectors/simulationSelectors'
 import { AddAnswer } from '../sites/publicodes/API';
@@ -7,11 +8,20 @@ import './PopUpEnd.css';
 
 const PopUpEnd = ({ isOpen, closeModal, children }) => {
 
-  const situation = useSelector(situationSelector),
-    query = new URLSearchParams(useLocation().search),
-    score = query.get('total')
+	const situation = useSelector(situationSelector),
+		engine = useEngine(),
+		evaluation = engine.evaluate('alimentation . plats . viande 1 . nombre'),
+		{ nodeValue: rawNodeValue, dottedName, unit, rawNode } = evaluation
+	const rules = useSelector((state) => state.rules)
+  
+  console.log(situation)
 
-  situation["total"] = score
+  for (var key in situation) {
+    if (situation.hasOwnProperty(key)) {
+        console.log(key + " -> " + situation[key] + " and CO2e is " + engine.evaluate(key).nodeValue);
+    }
+}
+  console.log(evaluation)
 
   if (!isOpen) return null;
   return (
