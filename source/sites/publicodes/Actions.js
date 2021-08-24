@@ -9,7 +9,6 @@ import emoji from 'react-easy-emoji'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect, useLocation, useParams } from 'react-router'
 import { Link, Route, Switch } from 'react-router-dom'
-import { animated } from 'react-spring'
 import { objectifsSelector } from 'Selectors/simulationSelectors'
 import tinygradient from 'tinygradient'
 import { setActionMode } from '../../actions/actions'
@@ -19,6 +18,7 @@ import {
 	configSelector,
 } from '../../selectors/simulationSelectors'
 import Action from './Action'
+import ActionsList from './ActionsList'
 import ActionPlus from './ActionPlus'
 import ActionVignette, { disabledAction } from './ActionVignette'
 import { extractCategories } from 'Components/publicodesUtils'
@@ -46,7 +46,7 @@ export default ({}) => {
 					<ListeActionPlus />
 				</Route>
 				<Route exact path="/actions/catégorie/:category">
-					<ActionList />
+					<ActionsList />
 				</Route>
 				<Route path="/actions/plus/:encodedName+">
 					<ActionPlus />
@@ -56,7 +56,7 @@ export default ({}) => {
 				</Route>
 
 				<Route path="/actions">
-					<ActionList />
+					<ActionsList />
 				</Route>
 			</Switch>
 		</>
