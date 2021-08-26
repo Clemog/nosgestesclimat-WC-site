@@ -26,8 +26,8 @@ html {
 
 body {
 	font-weight: 400;
-	color: #040e19;
-	color: var(--darkColor);
+	color: #1B2769;
+	color: var(--darkestColor);
 	font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -46,6 +46,7 @@ h3 {
 	margin-top: 1rem;
 	margin-bottom: 0.6rem;
 	font-size: 1.2rem;
+	color: var(--darkestColor)
 }
 h4 {
 	margin-top: 0.6rem;
@@ -70,7 +71,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: var(--darkColor);
+	color: var(--darkestColor);
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: 600;
 	scroll-margin-top: 1rem; /* Add a margin for anchor links */
@@ -87,7 +88,7 @@ ul {
 p.ui__.lead {
 	font-size: 120%;
 	line-height: 2rem;
-	color: var(--darkColor);
+	color: var(--darkestColor);
 }
 ul {
 	list-style: '› ';
@@ -107,7 +108,7 @@ a {
 	text-decoration: underline;
 	text-underline-offset: 4px;
 	color: rgb(41, 117, 209);
-	color: var(--color);
+	color: var(--darkestColor);
 }
 
 p img {

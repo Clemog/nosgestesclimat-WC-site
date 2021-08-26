@@ -76,7 +76,7 @@
 	background: none;
 	border: 1px solid var(--color) !important;
 	text-transform: none !important;
-	background-color: white;
+	background-color: #F2FDFD;
 	color: var(--textColorOnWhite) !important;
 }
 .step label.userAnswerButton.selected {
