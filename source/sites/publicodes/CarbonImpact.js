@@ -14,7 +14,7 @@ import { lightenColor } from '../../components/utils/colors'
 import Progress from 'Components/ui/Progress'
 import { useSimulationProgress } from 'Components/utils/useNextQuestion'
 
-export default ({}) => {
+export default ({ }) => {
 	const objectif = useSelector(objectifsSelector)[0],
 		// needed for this component to refresh on situation change :
 		situation = useSelector(situationSelector),
@@ -39,9 +39,9 @@ export default ({}) => {
 			css={`
 				background: rgba(0, 0, 0, 0)
 					linear-gradient(
-						60deg,
-						${color ? color : 'var(--color)'} 0%,
-						${color ? lightenColor(color, -20) : 'var(--lightColor)'} 100%
+						109deg,
+						${color ? color : '#FFBF79'} 0%,
+						${color ? lightenColor(color, -20) : '#24D0CA'} 100%
 					)
 					repeat scroll 0% 0%;
 				color: var(--textColor);

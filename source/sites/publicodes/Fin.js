@@ -16,25 +16,24 @@ import Meta from '../../components/utils/Meta'
 import DefaultFootprint from './DefaultFootprint'
 
 import PopUpEnd from 'Components/PopUpEnd'
+import { Degrees } from 'faunadb'
 
 const gradient = tinygradient([
-		'#78e08f',
-		'#e1d738',
-		'#f6b93b',
-		'#b71540',
-		'#000000',
-	]),
+	{ color: '#ffbf79', pos: 0.2 },
+	{ color: '#6ad7ca', pos: 0.3 },
+	{ color: '#24D0CA', pos: 0.8 },
+]),
 	colors = gradient.rgb(20)
 
 const getBackgroundColor = (score) =>
 	colors[
-		Math.round((score < 2000 ? 0 : score > 20000 ? 19000 : score - 2000) / 1000)
+	Math.round((score < 2000 ? 0 : score > 20000 ? 19000 : score - 2000) / 1000)
 	]
 
 const sumFromDetails = (details) =>
 	details.reduce((memo, [name, value]) => memo + value, 0)
 
-export default ({}) => {
+export default ({ }) => {
 	const query = new URLSearchParams(useLocation().search)
 	const details = query.get('details')
 
@@ -58,10 +57,10 @@ export default ({}) => {
 	const { value } = headlessMode
 		? { value: score }
 		: useSpring({
-				config: { mass: 1, tension: 150, friction: 150, precision: 1000 },
-				value: score,
-				from: { value: 0 },
-		  })
+			config: { mass: 1, tension: 150, friction: 150, precision: 1000 },
+			value: score,
+			from: { value: 0 },
+		})
 
 	return (
 		<AnimatedDiv
@@ -83,7 +82,7 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 			window.location.origin +
 			'/.netlify/functions/ending-screenshot?pageToScreenshot=' +
 			window.location
-			
+
 	const [open, setOpen] = useState(false);
 
 	useEffect(() => {
@@ -109,11 +108,10 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 				className=""
 				id="fin"
 				css={`
-					background: ${backgroundColor};
 					background: linear-gradient(
-						180deg,
-						${backgroundColor} 0%,
-						${backgroundColor2} 100%
+						109deg,
+						#ffbf79 0%,
+						#24D0CA 100%
 					);
 					color: ${textColor};
 					margin: 0 auto;
@@ -165,7 +163,7 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 								<div>
 									<span>
 										{emoji('🇫🇷 ')}
-										moyenne{' '}
+										Moyenne{' '}
 									</span>{' '}
 									<strong>
 										{' '}
@@ -175,7 +173,7 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 								<div>
 									<span>
 										{emoji('🎯 ')}
-										objectif{' '}
+										Objectif{' '}
 									</span>
 									<strong>2 tonnes</strong>
 								</div>
@@ -245,9 +243,8 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 						`}
 					>
 						<h3>On a besoin de vous ! </h3>
-						<p><b>Félicitations</b>, vous avez réalisé votre <b>bilan carbone professionnel</b>, directement lié à votre activité à Centrale Nantes. L'équipe projet NCO2 a maintenant besoin de vous : la collecte des informations relatives à vos habitudes à l'ECN est un réel enjeu dans l'optique d'améliorer la précision du calcul du Bilan Carbone de l'école. Nous aimerions donc collecter les données de votre simulation pour nos études statistiques !</p>
-						<p>Si vous estimez que la simulation que vous venez de réaliser est représentative de vos habitudes, aidez-nous et cliquez sur <b>"Je partage ma simulation"</b> ! Les données de votre simulation seront sauvegardées de manière anonyme dans l'unique but de contribuer à la précision du calcul.</p>
-						<p>La méthode de sauvegarde actuelle ne permet pas de vérifier le nombre d'envoi de simulations par personne. Il est donc nécessaire que vous ne partagiez qu'<b>une seule fois vos résultats</b>. Nous vous remercions par avance !</p>
+						<p><b>Félicitations</b>, vous avez réalisé votre <b>bilan carbone individuel professionnel</b>. La collecte des informations relatives à vos habitudes dans le cadre professionnel est nécessaire pour le calcul du bilan carbone de l’entreprise. Nous aimerions donc collecter les données pour les ajouter au calcul du bilan carbone de l’entreprise mais aussi pour proposer des actions de réduction à l’échelle de l’entreprise qui soient adaptées à vos habitudes. </p>
+						<p>Si vous estimez que la simulation que vous venez de réaliser est représentative de vos habitudes, cliquez sur <b>"Je partage ma simulation"</b>. Les données de votre simulation seront sauvegardées de manière anonyme dans l'unique but de contribuer à la précision du calcul.</p>
 					</div>
 				}>
 			</PopUpEnd>
@@ -283,7 +280,7 @@ const ActionButton = () => (
 			`}
 		>
 			<img src={StartingBlock} />
-			Passer à l'action
+			Passez à l'action
 		</div>
 	</Link>
 )
