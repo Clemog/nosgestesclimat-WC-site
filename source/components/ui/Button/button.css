@@ -30,16 +30,16 @@
 	cursor: pointer;
 
 	/* ie11 */
-	border-color: rgb(41, 117, 209);
+	border-color: #1B2769;
 	border-color: var(--color);
 	/* ie11 */
-	color: rgb(41, 117, 209);
+	color: #1B2769;
 	color: var(--color);
 	background-image: linear-gradient(
 		50deg,
-		rgba(39, 69, 195, 0.87) 5%,
-		rgb(41, 117, 209) 50%,
-		rgba(255, 255, 255, 0.52) 55%
+		#4653AB 5%,
+		#1b2769 50%,
+		#24D0CA 55%
 	);
 	background-image: linear-gradient(
 		50deg,
@@ -53,14 +53,14 @@
 .ui__.button.plain {
 	background-image: linear-gradient(
 		50deg,
-		rgba(39, 69, 195, 0.87) 5%,
-		rgb(41, 117, 209) 50%,
-		rgba(41, 117, 209, 0.9) 55%
+		#4653AB 5%,
+		#1b2769 5%,
+		#24d0ca 55%
 	);
 	background-image: linear-gradient(
 		50deg,
 		var(--darkColor) -50%,
-		var(--color) 50%,
+		var(--color) 5%,
 		var(--lightColor) 55%
 	);
 
