@@ -17,21 +17,23 @@ import Actions from './Actions'
 import Contribution from './Contribution'
 import Fin from './Fin'
 import Landing from './Landing'
-import Logo, { InlineLogo } from './Logo'
+//import Logo, { InlineLogo } from './Logo'
 import Documentation from './pages/Documentation'
 import Personas from './Personas.tsx'
 import Privacy from './Privacy'
 import Simulateur from './Simulateur'
 import sitePaths from './sitePaths'
+import wecount from './images/wecount.png'
 const ConferenceLazy = React.lazy(() => import('./conference/Conference'))
 import ConferenceBarLazy from './conference/ConferenceBarLazy'
+
 
 let tracker = devTracker
 if (NODE_ENV === 'production') {
 	tracker = new Tracker()
 }
 
-export default function Root({}) {
+export default function Root({ }) {
 	const { language } = useTranslation().i18n
 	const paths = sitePaths()
 
@@ -53,13 +55,12 @@ export default function Root({}) {
 				//...retrievePersistedState(),
 				previousSimulation: retrievePersistedSimulation(),
 			}}
-			rulesURL={`https://${
-				branch
-					? `${branch}--`
-					: pullRequestNumber
+			rulesURL={`https://${branch
+				? `${branch}--`
+				: pullRequestNumber
 					? `deploy-preview-${pullRequestNumber}--`
 					: ''
-			}ngc-wc-model.netlify.app/co2.json`}
+				}ngc-wc-model.netlify.app/co2.json`}
 			dataBranch={branch || pullRequestNumber}
 		>
 			<Router />
@@ -67,7 +68,7 @@ export default function Root({}) {
 	)
 }
 
-const Router = ({}) => {
+const Router = ({ }) => {
 	const location = useLocation()
 	return (
 		<>
@@ -87,7 +88,13 @@ const Router = ({}) => {
 							}
 						`}
 					>
-						{location.pathname === '/' ? <Logo /> : <InlineLogo />}
+						<a href="https://www.wecount.io">
+							<img
+								css="height: 4.5rem"
+								src={wecount}
+							/>
+						</a>
+						{location.pathname === wecount}
 					</Link>
 				</nav>
 				<Switch>
