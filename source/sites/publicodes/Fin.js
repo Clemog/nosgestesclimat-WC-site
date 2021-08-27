@@ -177,16 +177,6 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 									</span>
 									<strong>2 tonnes</strong>
 								</div>
-								{!headlessMode && (
-									<div css="margin-top: .2rem;justify-content: flex-end !important">
-										<a
-											css="color: inherit"
-											href="https://datagir.ademe.fr/blog/budget-empreinte-carbone-c-est-quoi/"
-										>
-											Comment ça ?
-										</a>
-									</div>
-								)}
 							</div>
 						</div>
 					</div>
