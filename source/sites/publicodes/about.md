@@ -2,25 +2,16 @@
 
 ## Qu'est-ce que c'est ?
 
-Ce simulateur vous permet d'évaluer votre empreinte carbone individuelle annuelle totale et par grandes catégories (alimentation, transport, logement, divers, services publics, numérique), de la situer par rapport aux objectifs climatiques et surtout de passer à l’action à votre niveau avec des gestes personnalisés en fonction de vos réponses.
-
-Basé sur une [analyse des calculateurs existants début 2020](https://www.associationbilancarbone.fr/wp-content/uploads/2020/12/analyse-des-calculateurs-dempreinte-carbone-individuelle-a-lorigine-de-nos-gestes-climat-vf-.pdf), il s'appuie sur le modèle MicMac des associations [Avenir Climatique](https://avenirclimatique.org/les-outils/) et [TaCa](https://www.taca.asso.fr/).
+Ce simulateur vous permet d'évaluer votre empreinte carbone individuelle professionnelle (liée à vos activités professionnelles) et par grandes catégories (alimentation, déplacements domicile-travail, déplacements professionnels, véhicules de fonction, numérique) et surtout de passer à l’action. Nous sommes conscients que le changement de pratiques et en particulier en entreprise prend du temps. Nous avons fait le choix d’inclure des pistes d’action de réduction des émissions de gaz à effet de serre à l’échelle de l’entreprise car nous sommes convaincus que ces actions collectives sont nécessaires à la réduction des émissions de gaz à effet de serre. Les actions individuelles et collectives proposées apparaissent en fonction de vos réponses.
 
 ## Qui le développe ?
 
-Ce calculateur carbone est développé par l'équipe [Datagir](https://datagir.ademe.fr/) de l’[Agence de la transition écologique](https://www.ademe.fr/) (ADEME) et [beta.gouv.fr](https://beta.gouv.fr/), en partenariat avec l’[Association Bilan Carbone](https://www.associationbilancarbone.fr/) (ABC).
-
-## Nouveautés
-
-Le simulateur est amélioré en continu.
-
-[✨️ Découvrez les dernières nouveautés et les notes de versions](/nouveautés).
+Ce calculateur carbone est développé par [WeCount](https://wecount.io/).
+Il est inspiré du simulateur développé par l'équipe de [Datagir] (https://datagir.ademe.fr) de l’[Agence de la transition écologique](https://www.ademe.fr/) (ADEME) et [beta.gouv.fr](https://beta.gouv.fr/), en partenariat avec l’[Association Bilan Carbone](https://www.associationbilancarbone.fr/) (ABC).
 
 ## Vie privée
 
-Nous collectons des données anonymisées uniquement pour améliorer ce simulateur.
-
-[🍪 En savoir plus](/vie-privée)
+Nous collectons des données anonymisées nécessaires au calcul du Bilan Carbone de votre entreprise.
 
 ## Comment intégrer ce simulateur dans votre site ?
 
@@ -28,23 +19,15 @@ On vous dit tout sur notre page [diffuser](/diffuser).
 
 ## Nous contacter
 
-contact@nosgestesclimat.fr
+contact@wecount.io
 
 ## Mentions légales
 
-Siège social de l'ADEME :
+Siège social de WeCount :
 
-20, avenue du Grésillé
+57, rue Joliot Curie
 
-BP 90406
-
-49004 Angers Cedex 01
-
-Tél. : 02 41 20 41 20
-
-### Directeur de publication
-
-Martin Régner - ADEME
+69005 Lyon
 
 ### Prestataire d'hébergement
 

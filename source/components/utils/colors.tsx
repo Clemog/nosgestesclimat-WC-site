@@ -3,7 +3,7 @@ import React, { createContext, useEffect, useRef } from 'react'
 
 /*
 	Hex to RGB conversion:
- 	http://www.javascripter.net/faq/hextorgb.htm
+		http://www.javascripter.net/faq/hextorgb.htm
 */
 const cutHex = (h: string) => (h.startsWith('#') ? h.substring(1, 7) : h),
 	hexToR = (h: string) => parseInt(cutHex(h).substring(0, 2), 16),
@@ -12,7 +12,7 @@ const cutHex = (h: string) => (h.startsWith('#') ? h.substring(1, 7) : h),
 
 /*
 	Given a background color, should you write on it in black or white ?
-   	Taken from http://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color#comment61936401_3943023
+			Taken from http://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color#comment61936401_3943023
 */
 export function findContrastedTextColor(color: string, simple: boolean) {
 	const r = hexToR(color),
@@ -57,20 +57,20 @@ const deriveAnalogousPalettes = (hex: string) => {
 
 const generateTheme = (themeColor?: string) => {
 	const // Use the default theme color if the host page hasn't made a choice
-		color = themeColor || '#5758BB',
-		lightColor = lightenColor(color, 10),
-		darkColor = lightenColor(color, -20),
-		lighterColor = lightenColor(color, 39),
-		lightestColor = lightenColor(color, 42),
-		darkestColor = lightenColor(color, -100),
+		color = themeColor || '#1B2769',
+		lightColor = '#24D0CA',
+		darkColor = '#24D0CA',
+		lighterColor = '#6AD7CA',
+		lightestColor = '#F2FDFD',
+		darkestColor = '#1B2769',
 		grayColor = '#00000099',
 		textColor = findContrastedTextColor(color, true), // the 'simple' version feels better...
-		inverseTextColor = textColor === '#ffffff' ? '#000' : '#fff',
+		inverseTextColor = textColor === '#F2FDFD' ? '#F2FDFD' : '#1B2769',
 		lightenTextColor = (textColor: string) =>
-			textColor === '#ffffff' ? 'rgba(255, 255, 255, .7)' : 'rgba(0, 0, 0, .7)',
+			textColor === '#F2FDFD' ? 'rgba(255, 255, 255, .7)' : 'rgba(0, 0, 0, .7)',
 		lighterTextColor = darkColor + 'cc',
 		lighterInverseTextColor = lightenTextColor(inverseTextColor),
-		textColorOnWhite = textColor === '#ffffff' ? color : '#333',
+		textColorOnWhite = textColor === '#1B2769' ? color : '#1B2769',
 		palettes = deriveAnalogousPalettes(color)
 
 	return {

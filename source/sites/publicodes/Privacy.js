@@ -9,20 +9,11 @@ export default () => (
 		/>
 		<h1>Données personnelles</h1>
 		<p>
-			La simulation se fait sur votre navigateur, donc les réponses aux
-			questions restent chez vous, nous n'en collectons aucune.
+			A la fin de la simulation, nous vous proposons ou bien de partager votre simulation ou bien de ne pas la partager. Nous vous prions de partager votre simulation la plus proche de la réalité de vos habitudes afin de pouvoir inclure ces résultats dans le bilan carbone de l'entreprise. Nous ne collectons uniquement les données nécessaires au calcul du bilan carbone de l'entreprise.
 		</p>
 		<p>
-			Cependant, nous suivons quelques informations sur votre utilisation de ce
-			simulateur, telles que les pages consultées et le temps passé, dans
-			l'unique but de l'améliorer.{' '}
+			Si vous décidez de ne pas partager votre simulation, alors nous ne collectons aucune donnée.
 		</p>
-		<p>
-			En particulier, nous suivons l'adresse de la page de fin de simulation,
-			qui contient le total de votre empreinte et sa répartition en grande
-			catégories (transport, logement, ...).
-		</p>
-		<p>Vous pouvez en savoir plus et désactiver ce suivi ci-dessous.</p>
 
 		<iframe
 			css="border: 0; height: 200px; width: 600px;"

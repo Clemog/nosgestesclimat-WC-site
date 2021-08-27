@@ -6,9 +6,10 @@
 @import './Fonts.css';
 
 :root {
-	--color: rgb(41, 117, 209);
-	--darkColor: rgb(24, 69, 123);
-	--textColor: rgb(24, 69, 123);
+	--color: #4653AB;
+	--darkColor: #1B2769;
+	--textColor: #1B2769;
+	--darkestColor: #1B2769;
 }
 @media (min-width: 400px) {
 	:focus:not(:active):not(input) {
@@ -80,7 +81,7 @@ blockquote {
 }
 
 .ui__.dark-bg * {
-	color: #f3f3f3;
+	color: #F2FDFD;
 }
 
 .ui__.light-border {

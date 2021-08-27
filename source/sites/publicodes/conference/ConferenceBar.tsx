@@ -90,7 +90,7 @@ export default () => {
 						90deg,
 						white -10%,
 						var(--color) 10%,
-						#b71540 90%,
+						#6AD7CA 90%,
 						white 110%
 					);
 					background-size: 400% 400%;

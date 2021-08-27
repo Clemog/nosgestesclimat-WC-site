@@ -96,15 +96,8 @@ export default () => {
 			<p>
 				{emoji('🕵 ')}En participant, vous acceptez de partager vos résultats
 				agrégés de simulation avec les autres participants de la conférence : le
-				total et les catégories (transport, logement, etc.). En revanche, nos
+				total et les catégories (déplacements domicile-travail, alimentation, etc.). En revanche, nos
 				serveurs ne les stockent pas : cela fonctionne en P2P (pair à pair).
-			</p>
-			<p>
-				Seul le nom de la salle de conférence sera indexé dans{' '}
-				<a href="https://nosgestesclimat.fr/vie-privée">
-					les statistiques d'utilisation
-				</a>{' '}
-				de Nos Gestes Climat.{' '}
 			</p>
 		</div>
 	)
@@ -142,13 +135,6 @@ const NamingBlock = ({ newRoom, setNewRoom }) => {
 			>
 				{emoji('🔃')} Générer un autre nom
 			</button>
-			<p>
-				<em>
-					{emoji('🕵️‍♀️')} Le nom apparaitra dans nos{' '}
-					<a href="https://nosgestesclimat.fr/vie-privée">stats</a>.
-				</em>
-			</p>
-
 			{newRoom && newRoom.length < 10 && (
 				<p>
 					⚠️ Votre nom de salle est court, vous risquez de vous retrouver avec
@@ -165,7 +151,7 @@ const UserBlock = ({ users, username, room }) => (
 			{emoji('👤 ')}
 			Qui est connecté ?
 		</h2>
-		<span css="color: #78b159; font-weight: bold">
+		<span css="color: #24D0CA; font-weight: bold">
 			{emoji('🟢')} {users.length} participant{plural(users)}
 		</span>
 		<UserList users={users} username={username} />
@@ -211,7 +197,7 @@ const Instructions = ({ room, newRoom, setNewRoom }) => (
 			index="1"
 			title={
 				<span>
-					{emoji('💡 ')} Choisissez un nom de salle pour lancer une conf
+					{emoji('💡 ')} Choisissez un nom de salle pour lancer une conférence
 				</span>
 			}
 		>
@@ -260,7 +246,7 @@ const Instructions = ({ room, newRoom, setNewRoom }) => (
 				</span>
 			}
 		>
-			Les résultats pour chaque catégorie (alimentation, transport, logement
+			Les résultats pour chaque catégorie (alimentation, déplacements domicile-travail, numérique
 			...) s'affichent progressivement et en temps réel pour l'ensemble du
 			groupe.
 		</InstructionBlock>
