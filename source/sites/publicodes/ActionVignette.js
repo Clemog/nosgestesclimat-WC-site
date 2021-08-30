@@ -50,13 +50,7 @@ export default ({ evaluation, total, rule, effort }) => {
 							{emoji(icons)}
 						</div>
 					)}
-					<div
-						css={`
-							display: none;
-						`}
-					>
-						<ActionValue {...{ total, nodeValue, unit, disabled, noFormula }} />
-					</div>
+					<ActionValue {...{ total, nodeValue, unit, disabled, noFormula }} />
 				</div>
 			</div>
 		</Link>
@@ -76,6 +70,8 @@ const ActionValue = ({
 	return (
 		<div
 			css={`
+				margin-top: 1.6rem;
+				font-size: 120%;
 				strong {
 					background: var(--lightColor);
 					border-radius: 0.3rem;
