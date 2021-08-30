@@ -90,16 +90,16 @@ Indiquez, ici, 5 repas représentatifs de votre consommation pendant une semaine
 			dottedName.includes('alimentation . plats') &&
 			dottedName.includes(' . nombre'),
 		component: NumberedMosaic,
-		options: { chipsTotal: 14 },
+		options: { chipsTotal: 5 },
 	},
-	{
-		dottedName: 'divers . textile',
-		question: 'Quels vêtements achetez-vous en général dans une année ?',
-		isApplicable: (dottedName: DottedName) =>
-			dottedName.includes('divers . textile') &&
-			dottedName.includes(' . nombre'),
-		component: NumberedMosaic,
-	},
+	// {
+	// 	dottedName: 'divers . textile',
+	// 	question: 'Quels vêtements achetez-vous en général dans une année ?',
+	// 	isApplicable: (dottedName: DottedName) =>
+	// 		dottedName.includes('divers . textile') &&
+	// 		dottedName.includes(' . nombre'),
+	// 	component: NumberedMosaic,
+	// },
 	{
 		dottedName: 'transport . domicile-travail . moyens de transport',
 		question:
