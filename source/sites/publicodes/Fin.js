@@ -203,7 +203,7 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 					</div>
 				</div>
 
-				<div css="display: flex; flex-direction: column; margin: 1rem 0">
+				{/* <div css="display: flex; flex-direction: column; margin: 1rem 0">
 					<ShareButton
 						text="Voilà mon empreinte climat. Mesure la tienne !"
 						url={window.location}
@@ -211,7 +211,7 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 						color={textColor}
 						label="Partager mes résultats"
 					/>
-				</div>
+				</div> */}
 			</motion.div>
 			<PopUpEnd
 				isOpen={open}
