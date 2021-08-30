@@ -43,7 +43,7 @@ export default () => {
 						{emoji('👥')} Faire le test à plusieurs
 					</Link>
 				</div>
-				<NewsBanner />
+				{/* <NewsBanner /> Suppression Bannières nouveautés*/}
 			</div>
 
 			<footer>
