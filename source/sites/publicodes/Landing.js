@@ -16,6 +16,10 @@ export default () => {
 					font-size: 140%;
 					line-height: 1.2em;
 				}
+				h2 {
+					font-size: 100%;
+					font-style: italic;
+				}
 				> div > a {
 				}
 				text-align: center;
@@ -30,19 +34,20 @@ export default () => {
 				}
 			`}
 		>
-			<h1>Connaissez-vous votre empreinte sur le climat ?</h1>
-			<img src={Illustration} />
+			<h1> Ce questionnaire permet aux salariés de calculer les émissions de CO2e liées à leur activité professionnelle. </h1>
+	    <h2> Il est anonyme, seul les données agrégées seront exploitées. </h2>
+			{/*<img src={Illustration} /> Suppression image landing */}
 			<div css="margin-bottom: 1rem">
 				<div css="margin: 1rem 0 .6rem;">
 					<Link to="/simulateur/bilan" className="ui__ plain button">
-						Faire le test
+						Lancer le calcul
 					</Link>
 				</div>
-				<div css="margin: .6rem 0 1rem;">
+			{/*<div css="margin: .6rem 0 1rem;">
 					<Link to="/conférence" className="ui__ button small">
 						{emoji('👥')} Faire le test à plusieurs
 					</Link>
-				</div>
+				</div>  Suppression mode conférence pour le moment */}
 				{/* <NewsBanner /> Suppression Bannières nouveautés*/}
 			</div>
 
