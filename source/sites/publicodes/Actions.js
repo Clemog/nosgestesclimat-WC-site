@@ -196,7 +196,7 @@ const ActionList = animated(({}) => {
 					<div css="font-size: 100%; text-align: center">
 						<em>en CO₂e / an et proportion de votre total</em>
 					</div>
-					<IllustratedButton to={'/actions/plus'} icon="📚">
+					{/* <IllustratedButton to={'/actions/plus'} icon="📚">
 						<div>
 							<div>Comprendre les actions</div>
 							<p>
@@ -206,7 +206,7 @@ const ActionList = animated(({}) => {
 								</small>
 							</p>
 						</div>
-					</IllustratedButton>
+					</IllustratedButton> */}
 				</>
 			)}
 		</div>
