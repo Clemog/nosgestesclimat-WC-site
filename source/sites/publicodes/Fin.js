@@ -141,7 +141,7 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 								</span>{' '}
 								tonnes
 							</div>
-							<div
+							{/* <div
 								css={`
 									background: #ffffff3d;
 									border-radius: 0.6rem;
@@ -187,7 +187,7 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 										</a>
 									</div>
 								)}
-							</div>
+							</div> */}
 						</div>
 					</div>
 					<ActionButton />
