@@ -1,4 +1,4 @@
-import SelectWeeklyDiet from './select/SelectWeeklyDiet'
+import NumberedMosaic from './select/NumberedMosaic'
 import SelectDevices from './select/SelectDevices'
 import SelectAgeDevice from './select/SelectAgeDevice'
 import SelectWeeklyTransport from './select/SelectWeeklyTransport'
@@ -89,7 +89,16 @@ Indiquez, ici, 5 repas représentatifs de votre consommation pendant une semaine
 		isApplicable: (dottedName: DottedName) =>
 			dottedName.includes('alimentation . plats') &&
 			dottedName.includes(' . nombre'),
-		component: SelectWeeklyDiet,
+		component: NumberedMosaic,
+		options: { chipsTotal: 14 },
+	},
+	{
+		dottedName: 'divers . textile',
+		question: 'Quels vêtements achetez-vous en général dans une année ?',
+		isApplicable: (dottedName: DottedName) =>
+			dottedName.includes('divers . textile') &&
+			dottedName.includes(' . nombre'),
+		component: NumberedMosaic,
 	},
 	{
 		dottedName: 'transport . domicile-travail . moyens de transport',
