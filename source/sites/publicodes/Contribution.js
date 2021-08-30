@@ -66,7 +66,7 @@ export default ({}) => {
 			<div className="ui__ card" css="padding-bottom: 1rem">
 				<Markdown escapeHtml={false} source={FAQ} />
 			</div>
-			<h2 css="font-size: 180%">{emoji('🙋‍♀️')}J'ai une autre question</h2>
+			{/* <h2 css="font-size: 180%">{emoji('🙋‍♀️')}J'ai une autre question</h2>
 			<p>
 				{emoji('➡ ')}Vous connaissez Github ? Dans ce cas, venez contribuer
 				directement sur le projet{' '}
@@ -147,7 +147,7 @@ ${fromLocation ? `Depuis la page : \`${fromLocation}\`` : ''}
 						cliquant sur <a href={URL}>ce lien</a>.
 					</p>
 				)}
-			</div>
+			</div> */}
 		</div>
 	)
 }
