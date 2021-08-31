@@ -67,18 +67,20 @@ export default ({ }) => {
 
 	return (
 		<div>
-			<AnimatedDiv
-				value={value}
-				score={score}
-				details={Object.fromEntries(rehydratedDetails)}
-				headlessMode={headlessMode}
-			/>
+			<animate.appear>
+				<AnimatedDiv
+					value={value}
+					score={score}
+					details={Object.fromEntries(rehydratedDetails)}
+					headlessMode={headlessMode}
+				/>
+			</animate.appear>
 			<IframeDataShareModal data={rehydratedDetails} />
 		</div>
 	)
 }
 
-const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
+const AnimatedDiv = ({ score, value, details, headlessMode }) => {
 	const backgroundColor = getBackgroundColor(value).toHexString(),
 		backgroundColor2 = getBackgroundColor(value + 2000).toHexString(),
 		textColor = findContrastedTextColor(backgroundColor, true),
@@ -248,7 +250,7 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 			</motion.div>
 		</div>
 	)
-})
+}
 const ActionButton = () => (
 	<Link
 		to="/actions"
