@@ -223,7 +223,7 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 							</div> */}
 						</div>
 					</div>
-					<ActionButton />
+					{!integratorActionText && <ActionButton text="Passer à l'action" />}
 					<div css="padding: 1rem">
 						<Chart
 							details={details}
@@ -254,8 +254,9 @@ const ActionButton = () => (
 		to="/actions"
 		className="ui__ button plain"
 		css={`
-			margin: 0.6rem 0;
-			width: 100%;
+			margin: 0.6rem auto;
+			width: 90%;
+
 			img {
 				transform: scaleX(-1);
 				height: 2rem;
