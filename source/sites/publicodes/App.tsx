@@ -27,6 +27,7 @@ import sitePaths from './sitePaths'
 import wecount from './images/wecount.png'
 const ConferenceLazy = React.lazy(() => import('./conference/Conference'))
 import ConferenceBarLazy from './conference/ConferenceBarLazy'
+import SessionBar, { sessionBarMargin } from '../../components/SessionBar'
 
 
 let tracker = devTracker
@@ -79,7 +80,7 @@ const Router = ({ }) => {
 	const location = useLocation()
 	return (
 		<>
-			<div className="ui__ container">
+			<div className="ui__ container" css={sessionBarMargin}>
 				<ConferenceBarLazy />
 				<nav css="display: flex; justify-content: center; margin: .6rem auto">
 					<Link
@@ -104,6 +105,7 @@ const Router = ({ }) => {
 						{location.pathname === wecount}
 					</Link>
 				</nav>
+				{location.pathname !== '/' && <SessionBar />}
 				<Switch>
 					<Route exact path="/" component={Landing} />
 					{/* Removes trailing slashes */}

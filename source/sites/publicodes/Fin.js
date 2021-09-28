@@ -110,7 +110,6 @@ const AnimatedDiv = ({ score, value, details, headlessMode }) => {
 				padding: 0 0.3rem 1rem;
 				max-width: 600px;
 				margin: 0 auto;
-				${sessionBarMargin}
 			`}
 		>
 			<Meta
@@ -119,7 +118,6 @@ const AnimatedDiv = ({ score, value, details, headlessMode }) => {
 				image={shareImage}
 				url={window.location}
 			/>
-			<SessionBar noResults />
 			<motion.div
 				animate={{ scale: [0.9, 1] }}
 				transition={{ duration: headlessMode ? 0 : 0.6 }}
