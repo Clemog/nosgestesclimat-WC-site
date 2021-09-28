@@ -20,6 +20,7 @@ import Landing from './Landing'
 //import Logo, { InlineLogo } from './Logo'
 import Documentation from './pages/Documentation'
 import Personas from './Personas.tsx'
+import Profil from './Profil.tsx'
 import Privacy from './Privacy'
 import Simulateur from './Simulateur'
 import sitePaths from './sitePaths'
@@ -130,6 +131,7 @@ const Router = ({ }) => {
 					<Route path="/diffuser" component={Diffuser} />
 					<Route path="/vie-privée" component={Privacy} />
 					<Route path="/nouveautés" component={News} />
+					<Route path="/profil" component={Profil} />
 					<Route path="/conférence/:room?">
 						<Suspense fallback="Chargement">
 							<ConferenceLazy />
