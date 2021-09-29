@@ -170,6 +170,7 @@ export const explainVariable = (variableName: DottedName | null = null) =>
 
 export const setActionMode = (mode: 'individuel' | 'collectif') =>
 	({
-		type: 'SET_ACTION_MODE',
-		mode,
+		type: 'SET_ACTION_CHOICE',
+		action,
+		choice,
 	} as const)
