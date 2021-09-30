@@ -7,7 +7,7 @@ import {
 	objectifsSelector,
 	situationSelector,
 } from '../../selectors/simulationSelectors'
-import SimulationHumanWeight from './HumanWeight'
+import HumanWeight from './HumanWeight'
 import { useEngine } from 'Components/utils/EngineContext'
 import { correctValue, splitName } from '../../components/publicodesUtils'
 import { lightenColor } from '../../components/utils/colors'
@@ -23,16 +23,12 @@ export default ({ }) => {
 		rules = useSelector((state) => state.rules),
 		evaluation = engine.evaluate(objectif),
 		{ nodeValue: rawNodeValue, dottedName, unit, rawNode } = evaluation
-	const foldedSteps = useSelector((state) => state.simulation?.foldedSteps),
-		simulationStarted = foldedSteps && foldedSteps.length,
-		persona = useSelector((state) => state.simulation?.persona)
+	const persona = useSelector((state) => state.simulation?.persona)
 
 	const nodeValue = correctValue({ nodeValue: rawNodeValue, unit })
 
 	const category = rules[splitName(dottedName)[0]],
 		color = category && category.couleur
-
-	const isMainSimulation = objectif === 'bilan'
 
 	const progress = useSimulationProgress()
 	return (
@@ -107,20 +103,20 @@ export default ({ }) => {
 							width: 80%;
 						`}
 					>
-						{isMainSimulation &&
-							!persona &&
-							(!simulationStarted ? (
-								<em>{emoji('🇫🇷 ')} Un Français émet en moyenne</em>
-							) : (
-								<em>Votre total provisoire</em>
-							))}
 						{persona && (
 							<em>
 								{emoji('👤')} {persona}
 							</em>
 						)}
 						<div>
-							<SimulationHumanWeight nodeValue={nodeValue} />
+							{!actionMode ? (
+								<HumanWeight
+									nodeValue={nodeValue}
+									overrideValue={actionMode && actionTotal !== 0 && actionTotal}
+								/>
+							) : (
+								<DiffHumanWeight {...{ nodeValue, engine, rules }} />
+							)}
 						</div>
 					</div>
 					<div>
@@ -146,5 +142,35 @@ export default ({ }) => {
 				)}
 			</Link>
 		</div>
+	)
+}
+
+const DiffHumanWeight = ({ nodeValue, engine, rules }) => {
+	// Here we compute the sum of all the actions the user has chosen
+	// we could also use publicode's 'actions' variable sum,
+	// but each action would need to have a "chosen" question,
+	// and disactivation rules
+	const actionChoices = useSelector((state) => state.actionChoices)
+
+	const actions = rules['actions'].formule.somme.map((dottedName) =>
+			engine.evaluate(dottedName)
+		),
+		actionTotal = actions.reduce((memo, action) => {
+			const correctedValue = correctValue({
+				nodeValue: action.nodeValue,
+				unit: action.unit,
+			})
+			if (actionChoices[action.dottedName]) {
+				return memo + correctedValue || 0
+			} else return memo
+		}, 0)
+
+	console.log(actions, actionTotal)
+
+	return (
+		<HumanWeight
+			nodeValue={nodeValue}
+			overrideValue={actionTotal !== 0 && actionTotal}
+		/>
 	)
 }
