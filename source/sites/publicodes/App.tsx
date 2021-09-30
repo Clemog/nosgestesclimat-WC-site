@@ -27,7 +27,7 @@ import sitePaths from './sitePaths'
 import wecount from './images/wecount.png'
 const ConferenceLazy = React.lazy(() => import('./conference/Conference'))
 import ConferenceBarLazy from './conference/ConferenceBarLazy'
-import SessionBar, { sessionBarMargin } from '../../components/SessionBar'
+import SessionBar, { sessionBarMargin } from 'Components/SessionBar'
 
 
 let tracker = devTracker
