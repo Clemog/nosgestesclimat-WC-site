@@ -67,6 +67,17 @@ export default ({ }) => {
 
 	return (
 		<div>
+			<Link
+				to="/simulateur/bilan"
+				css="display: block; text-align: center"
+				onClick={() => {
+					dispatch(goToQuestion(last(answeredQuestions)))
+				}}
+			>
+				<button class="ui__ simple small push-left button">
+					← Revenir à la simulation
+				</button>
+			</Link>
 			<animate.appear>
 				<AnimatedDiv
 					value={value}
