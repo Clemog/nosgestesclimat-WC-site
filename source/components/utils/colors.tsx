@@ -75,6 +75,7 @@ const generateTheme = (themeColor?: string) => {
 
 	return {
 		color,
+		rgbColor,
 		textColor,
 		inverseTextColor,
 		lighterTextColor,
