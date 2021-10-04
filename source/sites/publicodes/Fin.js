@@ -5,8 +5,10 @@ import tinygradient from 'tinygradient'
 import { animated, useSpring } from 'react-spring'
 import ShareButton from 'Components/ShareButton'
 import { findContrastedTextColor } from 'Components/utils/colors'
+import { AddAnswer } from '../publicodes/API';
+import { useEngine } from 'Components/utils/EngineContext'
 import { AnimatePresence, motion } from 'framer-motion'
-
+import { useSelector } from 'react-redux'
 import BallonGES from './images/ballonGES.svg'
 import StartingBlock from './images/starting block.svg'
 import SessionBar from 'Components/SessionBar'
@@ -15,7 +17,7 @@ import { Link } from 'react-router-dom'
 import Meta from '../../components/utils/Meta'
 import DefaultFootprint from './DefaultFootprint'
 import { sessionBarMargin } from '../../components/SessionBar'
-
+import { situationSelector } from 'Selectors/simulationSelectors'
 import PopUpEnd from 'Components/PopUpEnd'
 import { Degrees } from 'faunadb'
 
@@ -89,15 +91,13 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 			'/.netlify/functions/ending-screenshot?pageToScreenshot=' +
 			window.location
 
-	const [open, setOpen] = useState(false);
 
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setOpen(true);
-		}, 3000);
-		return () => clearTimeout(timer);
-	}, []);
 
+	let situation = useSelector(situationSelector),
+		engine = useEngine(),
+		evaluation = engine.evaluate('alimentation . plats . viande 1 . nombre'),
+		{ nodeValue: rawNodeValue, dottedName, unit, rawNode } = evaluation
+	const rules = useSelector((state) => state.rules)
 
 	return (
 		<div
@@ -243,45 +243,9 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 					/>
 				</div> */}
 			</motion.div>
-			<PopUpEnd
-				isOpen={open}
-				closeModal={() => setOpen(false)}
-				children={
-					<div
-						css={`
-							text-align: justify;
-							padding: 25px 30px;
-							padding-bottom: 0;
-							h3 {
-								font-size: 140%;
-								color:#102648;
-								text-align: center;
-							}
-							h3:last-of-type {
-								margin-top: 0;
-								margin-bottom: 20px;
-							}
-							a {
-								color:#102648;
-								text-decoration: underline;
-							}
-							p {
-								color:#102648;
-								margin-bottom: 10px;
-								line-height:125%;
-							}
-						`}
-					>
-						<h3>On a besoin de vous ! </h3>
-						<p><b>Félicitations</b>, vous avez réalisé votre <b>bilan carbone individuel professionnel</b>. La collecte des informations relatives à vos habitudes dans le cadre professionnel est nécessaire pour le calcul du bilan carbone de l’entreprise. Nous aimerions donc collecter les données pour les ajouter au calcul du bilan carbone de l’entreprise mais aussi pour proposer des actions de réduction à l’échelle de l’entreprise qui soient adaptées à vos habitudes. </p>
-						<p>Si vous estimez que la simulation que vous venez de réaliser est représentative de vos habitudes, cliquez sur <b>"Je partage ma simulation"</b>. Les données de votre simulation seront sauvegardées de manière anonyme dans l'unique but de contribuer à la précision du calcul.</p>
-					</div>
-				}>
-			</PopUpEnd>
 		</div>
 	)
 })
-
 const ActionButton = () => (
 	<Link
 		to="/actions"
@@ -313,4 +277,15 @@ const ActionButton = () => (
 			Passez à l'action
 		</div>
 	</Link>
+
 )
+
+document.addEventListener('DOMContentLoaded', function () {
+	AddAnswer(this.situation).then((response) => {
+		console.log('API response', response)
+		// set app state
+	}).catch((error) => {
+		console.log('API error', error)
+	})
+
+}, false);
