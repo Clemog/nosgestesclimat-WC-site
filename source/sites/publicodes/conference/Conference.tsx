@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
+import QRCode from 'qrcode.react'
 import emoji from 'react-easy-emoji'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
@@ -21,6 +22,7 @@ import {
 import Checkbox from '../../../components/ui/Checkbox'
 import ShareButton from '../../../components/ShareButton'
 import { ScrollToTop } from '../../../components/utils/Scroll'
+import { ThemeColorsContext } from '../../../components/utils/colors'
 
 export default () => {
 	const [rawElements, setElements] = useState([])
@@ -276,8 +278,84 @@ const Instructions = ({ room, newRoom, setNewRoom }) => (
 					</Link>
 				</p>
 			</InstructionBlock>
-		)}
-	</div>
-)
+			<InstructionBlock
+				index="2"
+				title={
+					<span>
+						{emoji('🔗 ')} Partagez le lien à vos amis, collègues, etc.
+					</span>
+				}
+			>
+				{!newRoom && !room ? (
+					<p>Choississez d'abord un nom</p>
+				) : (
+					<div
+						css={`
+							display: flex;
+							flex-wrap: wrap;
+							justify-content: center;
+							align-items: center;
+						`}
+					>
+						<QRCode
+							value={shareURL}
+							size={200}
+							bgColor={'#ffffff'}
+							fgColor={color}
+							level={'L'}
+							includeMargin={false}
+							renderAs={'canvas'}
+						/>
+						<ShareButton
+							text="Faites un test d'empreinte climat avec moi"
+							url={shareURL}
+							title={'Nos Gestes Climat Conférence'}
+						/>
+					</div>
+				)}
+			</InstructionBlock>
+			<InstructionBlock
+				index="3"
+				title={
+					<span>{emoji('👆 ')} Faites toutes et tous votre simulation</span>
+				}
+			>
+				{room ? (
+					<Link to={'/simulateur/bilan'}>
+						<button className="ui__ button plain">Faites votre test </button>
+					</Link>
+				) : (
+					<p>
+						Au moment convenu, ouvrez ce lien tous en même temps et
+						commencez&nbsp; votre simulation.
+					</p>
+				)}
+			</InstructionBlock>
+			<InstructionBlock
+				index="4"
+				title={
+					<span>
+						{emoji('🧮 ')}Visualisez ensemble les résultats de votre groupe
+					</span>
+				}
+			>
+				Les résultats pour chaque catégorie (alimentation, transport, logement
+				...) s'affichent progressivement et en temps réel pour l'ensemble du
+				groupe.
+			</InstructionBlock>
+			{newRoom !== '' && !room && (
+				<InstructionBlock index="5" title="Prêt à démarrer ?">
+					<p>
+						<Link to={'/conférence/' + newRoom}>
+							<button type="submit" className="ui__ button small plain">
+								C'est parti !{' '}
+							</button>
+						</Link>
+					</p>
+				</InstructionBlock>
+			)}
+		</div>
+	)
+}
 
 const plural = (list) => (list.length > 1 ? 's' : '')
