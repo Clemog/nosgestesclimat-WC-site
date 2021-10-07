@@ -118,11 +118,21 @@ const Router = ({ }) => {
 						css={`
 							display: flex;
 							align-items: center;
+							justify-content: center;
 							text-decoration: none;
 							font-size: 170%;
-							margin-bottom: 0.4rem;
-							@media (max-width: 800px) {
-								margin-bottom: 0;
+							margin-bottom: 0;
+							#blockLogo {
+								display: none;
+							}
+							@media (min-width: 800px) {
+								margin-bottom: 0.4rem;
+								#inlineLogo {
+									display: none;
+								}
+								#blockLogo {
+									display: block;
+								}
 							}
 						`}
 					>
