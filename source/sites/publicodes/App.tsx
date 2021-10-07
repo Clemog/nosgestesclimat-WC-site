@@ -102,7 +102,7 @@ const Router = ({ }) => {
 
 						@media (min-width: 800px) {
 							flex-shrink: 0;
-							width: 200px;
+							width: 14rem;
 							height: 100vh;
 							overflow: auto;
 							position: sticky;
@@ -130,7 +130,9 @@ const Router = ({ }) => {
 								#inlineLogo {
 									display: none;
 								}
+								justify-content: start;
 								#blockLogo {
+									margin: 1rem;
 									display: block;
 								}
 							}
