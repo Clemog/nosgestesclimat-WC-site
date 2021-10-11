@@ -44,7 +44,6 @@ export default () => {
 			const provider = new WebrtcProvider(room, ydoc, {})
 			dispatch({ type: 'SET_CONFERENCE', room, ydoc, provider })
 		} else {
-			console.log('yo')
 			const { room } = conference
 
 			const ydoc = conference.ydoc,
