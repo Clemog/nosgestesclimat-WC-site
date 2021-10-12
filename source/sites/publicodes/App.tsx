@@ -1,10 +1,11 @@
 import Route404 from 'Components/Route404'
+import { sessionBarMargin } from 'Components/SessionBar'
 import 'Components/ui/index.css'
 import News from 'Pages/News'
 import React, { Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Redirect, useLocation } from 'react-router'
-import { Link, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Provider from '../../Provider'
 import {
 	persistSimulation,
@@ -12,22 +13,20 @@ import {
 } from '../../storage/persistSimulation'
 import Tracker, { devTracker } from '../../Tracker'
 import About from './About'
-import Diffuser from './Diffuser'
 import Actions from './Actions'
 import Contribution from './Contribution'
+import Diffuser from './Diffuser'
 import Fin from './Fin'
 import Landing from './Landing'
 //import Logo, { InlineLogo } from './Logo'
 import Documentation from './pages/Documentation'
 import Personas from './Personas.tsx'
-import Profil from './Profil.tsx'
 import Privacy from './Privacy'
+import Profil from './Profil.tsx'
 import Simulateur from './Simulateur'
 import sitePaths from './sitePaths'
 import wecount from './images/wecount.png'
 const ConferenceLazy = React.lazy(() => import('./conference/Conference'))
-import ConferenceBarLazy from './conference/ConferenceBarLazy'
-import SessionBar, { sessionBarMargin } from 'Components/SessionBar'
 
 
 let tracker = devTracker
@@ -73,77 +72,50 @@ export default function Root({ }) {
 				}ngc-wc-model.netlify.app/co2.json`}
 			dataBranch={branch || pullRequestNumber}
 		>
-			<Router />
+			<Main />
 		</Provider>
 	)
 }
 
 const Router = ({ }) => {
 	const location = useLocation()
-	const homePage = location.pathname === '/'
+	const isHomePage = location.pathname === '/'
 	return (
-		<>
-			<div
-				className="ui__ container"
-				css={`
-					@media (min-width: 800px) {
-						display: flex;
-						min-height: 100vh;
-					}
+		<div
+			className="ui__ container"
+			css={`
+				@media (min-width: 800px) {
+					display: flex;
+					min-height: 100vh;
+				}
 
-					@media (min-width: 1200px) {
-						${!homePage &&
-						`
+				@media (min-width: 1200px) {
+					${!isHomePage &&
+					`
 						transform: translateX(-4vw);
 						`}
+				}
+				${sessionBarMargin}
+			`}
+		>
+			<Navigation isHomePage={isHomePage} />
+			<main
+				css={`
+					@media (min-width: 800px) {
+						flex-grow: 1;
+						padding: 1rem;
 					}
-					${sessionBarMargin}
 				`}
 			>
-				<ConferenceBarLazy />
-				<nav
-					css={`
-						display: flex;
-						justify-content: center;
-						margin: 0.6rem auto;
-
-						@media (min-width: 800px) {
-							flex-shrink: 0;
-							width: 12rem;
-							height: 100vh;
-							overflow: auto;
-							position: sticky;
-							top: 0;
-							flex-direction: column;
-							justify-content: start;
-							border-right: 1px solid #eee;
-						}
-						${homePage && `display: none`}
-					`}
-				>
-					<Link
-						to="/"
+				{isHomePage && (
+					<nav
 						css={`
 							display: flex;
 							align-items: center;
 							justify-content: center;
 							text-decoration: none;
 							font-size: 170%;
-							margin-bottom: 0;
-							#blockLogo {
-								display: none;
-							}
-							@media (min-width: 800px) {
-								margin-bottom: 0.4rem;
-								#inlineLogo {
-									display: none;
-								}
-								justify-content: start;
-								#blockLogo {
-									margin: 1rem;
-									display: block;
-								}
-							}
+							margin-bottom: 1rem;
 						`}
 					>
 						<a href="https://www.wecount.io">
