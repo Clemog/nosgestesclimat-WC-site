@@ -63,6 +63,7 @@ export default function Root({ }) {
 				previousSimulation: persistedSimulation,
 				iframeOptions: { iframeShareData },
 				actionChoices: persistedSimulation?.actionChoices || {},
+				tutorials: persistedSimulation?.tutorials || {},
 			}}
 			rulesURL={`https://${branch
 				? `${branch}--`
