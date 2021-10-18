@@ -65,17 +65,23 @@ export default () => {
 						}
 					`}
 				>
-					<img css="height: 6rem; margin-right: .6rem" src={Marianne} />
+					<img
+						css="height: 6rem; margin-right: .6rem"
+						src={Marianne}
+						alt="Logo Marianne de la République Française"
+					/>
 					<a href="https://ademe.fr">
 						<img
 							css="height: 5rem; margin-right: .6rem"
 							src="https://www.ademe.fr/sites/all/themes/ademe/logo.png"
+							alt="Logo de l'ADEME"
 						/>
 					</a>
 					<a href="https://www.associationbilancarbone.fr/">
 						<img
 							css="height: 2.5rem"
 							src="https://www.associationbilancarbone.fr/wp-content/themes/abc/assets/images/brand/abc_main_logo.svg"
+							alt="Logo de l'Association Bilan Carbone"
 						/>
 					</a>
 				</div>
