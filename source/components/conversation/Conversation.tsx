@@ -185,7 +185,6 @@ export default function Conversation({
 				}
 			`}
 		>
-			<Aide />
 			<div style={{ outline: 'none' }}>
 				{orderByCategories && questionCategory && (
 					<CategoryVisualisation questionCategory={questionCategory} />
@@ -208,6 +207,7 @@ export default function Conversation({
 							/>
 						)}
 					</h3>
+					<Aide />
 					<fieldset>
 						<RuleInput
 							dottedName={currentQuestion}
