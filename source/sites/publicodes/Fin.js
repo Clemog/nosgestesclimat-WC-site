@@ -270,8 +270,8 @@ const ActionButton = () => (
 			width: 90%;
 
 			img {
-				transform: scaleX(-1);
-				height: 2rem;
+				height: 2.6rem;
+				filter: invert(100%);
 				margin: 0 0.6rem;
 				display: inline-block;
 			}
