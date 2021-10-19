@@ -12,6 +12,7 @@ import { useSimulationProgress } from '../../../components/utils/useNextQuestion
 import { extractCategories } from 'Components/publicodesUtils'
 import { computeHumanMean } from './Stats'
 import { filterExtremes } from './utils'
+import { backgroundConferenceAnimation } from './conferenceStyle'
 
 export default () => {
 	const conference = useSelector((state) => state.conference)
