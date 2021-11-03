@@ -192,11 +192,54 @@ export default ({}) => {
 							onClick={(e) => {
 								if (buttonDisabled) return null
 
-								e.preventDefault()
-								disableButton(true)
-								const augmentedComment =
-									comment +
-									`
+					<div className="ui__ card" css="padding: 1rem 0">
+						{!URL ? (
+							<form css={formStyle}>
+								<label css="color: var(--color)">
+									Le titre bref de votre problème
+									<input
+										value={sujet}
+										onChange={(e) => setSujet(e.target.value)}
+										type="text"
+										name="sujet"
+										required
+									/>
+								</label>
+								<label css="color: var(--color)">
+									<p>La description complète de votre problème</p>
+									<p>
+										<small>
+											En indiquant le navigateur que vous utilisez (par exemple
+											Firefox version 93, Chrome version 95, Safari, etc.), et
+											la plateforme (iPhone, Android, ordinateur Windows, etc.),
+											vous nous aiderez à résoudre le bug plus rapidement.
+										</small>
+									</p>
+									<textarea
+										value={comment}
+										onChange={(e) => setComment(e.target.value)}
+										name="comment"
+										required
+									/>
+								</label>
+								<p>
+									<em>
+										Cette contribution sera publique : n'y mettez pas
+										d'informations sensibles
+									</em>
+								</p>
+								<button
+									className="ui__ button"
+									type="submit"
+									disabled={buttonDisabled}
+									onClick={(e) => {
+										if (buttonDisabled) return null
+
+										e.preventDefault()
+										disableButton(true)
+										const augmentedComment =
+											comment +
+											`
 
 ${fromLocation ? `Depuis la page : \`${fromLocation}\`` : ''}
 
