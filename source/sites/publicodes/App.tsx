@@ -96,7 +96,7 @@ const Router = ({ }) => {
 						transform: translateX(-4vw);
 						`}
 				}
-				${sessionBarMargin}
+				${!isHomePage && sessionBarMargin}
 			`}
 		>
 			<Navigation isHomePage={isHomePage} />
