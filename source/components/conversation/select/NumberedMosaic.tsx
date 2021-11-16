@@ -81,6 +81,7 @@ export default function NumberedMosaic({
 										type="number"
 										css={`
 											width: 1.5rem;
+											padding: 0; /* Necessary for iPhone Safari 7-12 at least */
 											height: 1.5rem;
 											font-size: 100%;
 											color: var(--darkColor);
