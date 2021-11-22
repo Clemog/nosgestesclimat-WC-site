@@ -56,14 +56,17 @@ export default ({ }) => {
 	return (
 		<div
 			css={`
+				${!demoMode &&
+				`
 				@media (max-width: 800px) {
 					margin: 0;
+					
 					position: fixed;
 					bottom: 4rem;
 					left: 0;
 					z-index: 10;
 					width: 100%;
-				}
+				}`}
 				background: rgba(0, 0, 0, 0)
 					linear-gradient(
 						60deg,
@@ -127,10 +130,12 @@ export default ({ }) => {
 							)}
 						</div>
 					</div>
-					{!actionMode && <DocumentationLink dottedName={dottedName} />}
+					{!demoMode && !actionMode && (
+						<DocumentationLink dottedName={dottedName} />
+					)}
 					{actionMode && <ActionCount count={actionsChosen} />}
 				</div>
-				{progress < 1 && (
+				{!demoMode && progress < 1 && (
 					<Progress progress={progress} style={!progress ? 'height: 0' : ''} />
 				)}
 			</Link>
