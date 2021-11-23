@@ -116,7 +116,7 @@ const Router = ({ }) => {
 							justify-content: center;
 							text-decoration: none;
 							font-size: 170%;
-							margin-bottom: 1rem;
+							margin: 1rem auto;
 						`}
 					>
 						<a href="https://www.wecount.io">
