@@ -265,6 +265,7 @@ const ActionButton = () => (
 	<Link
 		to="/actions"
 		className="ui__ button plain"
+		onClick={() => tracker.push(['trackEvent', 'NGC', 'Clic bouton action'])}
 		css={`
 			margin: 0.6rem auto;
 			width: 90%;
