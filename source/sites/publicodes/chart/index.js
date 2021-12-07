@@ -28,6 +28,7 @@ export default ({
 	noCompletion,
 	valueColor,
 	links,
+	demoMode,
 }) => {
 	// needed for this component to refresh on situation change :
 	const situation = useSelector(situationSelector)
@@ -96,6 +97,7 @@ export default ({
 							<Bar
 								{...{
 									...category,
+									demoMode,
 									noText,
 									empreinteMaximum,
 									completed:
