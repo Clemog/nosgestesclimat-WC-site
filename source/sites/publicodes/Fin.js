@@ -240,7 +240,6 @@ const AnimatedDiv = ({ score, value, details, headlessMode }) => {
 							details={details}
 							links
 							color={textColor}
-							noAnimation
 							noText
 							noCompletion
 							valueColor={textColor}
