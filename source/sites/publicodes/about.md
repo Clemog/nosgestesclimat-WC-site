@@ -21,6 +21,10 @@ On vous dit tout sur notre page [diffuser](/diffuser).
 
 contact@wecount.io
 
+## Accessibilité
+
+Le site n'est actuellement pas conforme aux normes d'accessibilité numérique, mais nous avons réalisé [un premier audit](https://github.com/datagir/nosgestesclimat-site/issues/350) et commencé à résoudre les problèmes.
+
 ## Mentions légales
 
 Siège social de WeCount :
