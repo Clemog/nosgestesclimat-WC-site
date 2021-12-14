@@ -34,5 +34,3 @@ Siège social de WeCount :
 Netlify, Inc
 2325 3rd Street, Suite 296,
 San Francisco, California 94107
-
-Les données sont hébergées en Europe.
