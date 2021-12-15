@@ -26,13 +26,9 @@ import {
 export default () => {
 	const [newRoom, setNewRoom] = useState(generateRoomName())
 	const { room } = useParams()
+	const [connectionType, setConnectionType] = useState('p2p')
 
-	const { rawElements, users, username } = useYjs(room)
-
-	console.log('ALLOQUOI', rawElements, users, username)
-
-	const elements = filterExtremes(rawElements),
-		extremes = getExtremes(rawElements)
+	const { elements, extremes, users, username } = useYjs(room, connectionType)
 
 	return (
 		<div>
@@ -64,7 +60,9 @@ export default () => {
 					<UserBlock {...{ users, extremes, username, room }} />
 				</div>
 			)}
-			<Instructions {...{ room, newRoom, setNewRoom }} />
+			<Instructions
+				{...{ room, newRoom, setNewRoom, connectionType, setConnectionType }}
+			/>
 			<h2>Et mes données ?</h2>
 			<p>
 				{emoji('🕵 ')}En participant, vous acceptez de partager vos résultats
@@ -241,6 +239,44 @@ const Instructions = ({ room, newRoom, setNewRoom }) => (
 			</InstructionBlock>
 			<InstructionBlock
 				index="2"
+				title={<span>{emoji('⏲️')} Choississez votre type de conférence</span>}
+			>
+				<div
+					css={`
+						display: flex;
+						label {
+							flex: auto;
+						}
+					`}
+				>
+					<label className="ui__ card box interactive">
+						<input
+							type="radio"
+							name="connectionType"
+							value="p2p"
+							checked={connectionType === 'p2p'}
+							onChange={(e) => setConnectionType(e.target.value)}
+						/>
+						Mode éphémère : parfait entre amis, ou pour une présentation
+						intéractive lors d'une conférence. Les données restent entre vous
+						(pair-à-pair), sans serveur.
+					</label>
+					<label className="ui__ card box interactive">
+						<input
+							type="radio"
+							name="connectionType"
+							value="database"
+							checked={connectionType === 'database'}
+							onChange={(e) => setConnectionType(e.target.value)}
+						/>
+						Mode sondage : les données sont stockées sur notre serveur, restent
+						accessibles dans le temps. Si votre entreprise bride votre réseau
+						interne, utilisez ce mode.
+					</label>
+				</div>
+			</InstructionBlock>
+			<InstructionBlock
+				index="3"
 				title={
 					<span>
 						{emoji('🔗 ')} Partagez le lien à vos amis, collègues, etc.
@@ -276,7 +312,7 @@ const Instructions = ({ room, newRoom, setNewRoom }) => (
 				)}
 			</InstructionBlock>
 			<InstructionBlock
-				index="3"
+				index="4"
 				title={
 					<span>{emoji('👆 ')} Faites toutes et tous votre simulation</span>
 				}
@@ -293,7 +329,7 @@ const Instructions = ({ room, newRoom, setNewRoom }) => (
 				)}
 			</InstructionBlock>
 			<InstructionBlock
-				index="4"
+				index="5"
 				title={
 					<span>
 						{emoji('🧮 ')}Visualisez ensemble les résultats de votre groupe
@@ -305,9 +341,9 @@ const Instructions = ({ room, newRoom, setNewRoom }) => (
 				groupe.
 			</InstructionBlock>
 			{newRoom !== '' && !room && (
-				<InstructionBlock index="5" title="Prêt à démarrer ?">
+				<InstructionBlock index="6" title="Prêt à démarrer ?">
 					<p>
-						<Link to={'/conférence/' + newRoom}>
+						<Link to={URLPath}>
 							<button type="submit" className="ui__ button plain">
 								C'est parti !{' '}
 							</button>
