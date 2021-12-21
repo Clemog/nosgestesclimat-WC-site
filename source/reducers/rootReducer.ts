@@ -183,6 +183,14 @@ function tracking(state = {}, { type, name, value }) {
 	} else return state
 }
 
+function storedTrajets(state = {}, { type, vehicule, trajets }) {
+	if (type === 'SET_TRAJETS') {
+		return { ...state, [vehicule]: trajets }
+	} else if (type === 'RESET_TRAJETS') {
+		return {}
+	} else return state
+}
+
 const mainReducer = (state: any, action: Action) =>
 	combineReducers({
 		explainedVariable,
