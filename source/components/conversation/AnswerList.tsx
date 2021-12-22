@@ -304,8 +304,9 @@ const Answer = ({ rule, dispatch, language, level }) => {
 						<details
 							className="ui__"
 							css={`
-								display: flex;
-								text-align: end !important;
+								max-width: 20rem;
+								margin-right: 0px;
+								margin-left: auto;
 							`}
 						>
 							<summary
