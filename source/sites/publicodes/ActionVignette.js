@@ -98,8 +98,8 @@ export const ActionListCard = ({
 			{icons && (
 				<div
 					css={`
-						font-size: 150%;
-						${noFormula && `font-size: 250%; `}
+						margin: 0.4rem 0;
+						font-size: 200%;
 					`}
 				>
 					{emoji(icons)}
@@ -127,11 +127,7 @@ export const ActionListCard = ({
 				<h2>{title}</h2>
 			</Link>
 
-			<div
-				css={`
-					position: relative;
-				`}
-			>
+			<div css="					margin-top: auto;">
 				<div
 					css={hasRemainingQuestions ? `filter: blur(1px) grayscale(1)` : ''}
 				>
@@ -162,12 +158,30 @@ export const ActionListCard = ({
 					title="Choisir l'action"
 					aria-pressed={actionChoices[dottedName]}
 					css={`
-						${hasRemainingQuestions && 'filter: grayscale(1)'}
+						position: relative;
+						margin-bottom: 1.4rem;
 					`}
-					onClick={(e) => {
-						if (hasRemainingQuestions) {
-							focusAction(dottedName)
-							return null
+				>
+					<div
+						css={hasRemainingQuestions ? `filter: blur(1px) grayscale(1)` : ''}
+					>
+						<ActionValue
+							{...{ dottedName, total, disabled, noFormula, engine }}
+						/>
+					</div>
+					{hasRemainingQuestions && (
+						<Stamp onClick={() => focusAction(dottedName)} clickable>
+							{remainingQuestions.length} question
+							{remainingQuestions.length > 1 && 's'}
+						</Stamp>
+					)}
+				</div>
+				<div
+					css={`
+						display: flex;
+						justify-content: space-evenly;
+						button img {
+							font-size: 200%;
 						}
 
 						dispatch(
@@ -199,7 +213,11 @@ export const ActionListCard = ({
 							setActionChoice(
 								dottedName,
 
-								actionChoices[dottedName] === false ? null : false
+							dispatch(
+								setActionChoice(
+									dottedName,
+									actionChoices[dottedName] === true ? null : true
+								)
 							)
 						)
 						tracker.push([
