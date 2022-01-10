@@ -12,7 +12,7 @@ import ShareButton from '../../../components/ShareButton'
 import { ThemeColorsContext } from '../../../components/utils/colors'
 import { ScrollToTop } from '../../../components/utils/Scroll'
 import Stats from './Stats'
-import UserList from './UserList'
+import { UserList, UserBlock } from './UserList'
 import useYjs from './useYjs'
 import {
 	extremeThreshold,
@@ -24,23 +24,12 @@ import {
 } from './utils'
 
 export default () => {
-	const [newRoom, setNewRoom] = useState(generateRoomName())
-	const { room } = useParams()
-	const location = useLocation(),
-		conferenceType = location.pathname.includes('/conférence')
-			? 'p2p'
-			: 'database'
-
-	const [connectionType, setConnectionType] = useState(conferenceType)
-
-	const { elements, extremes, users, username } = useYjs(room, connectionType)
+	const { elements, extremes, users, username } = useYjs(room, 'p2p')
 
 	return (
 		<div>
 			{room && <ScrollToTop />}
-			<h1>
-				Conférence
-			</h1>
+			<h1>Conférence</h1>
 			<h2
 				css={`
 					margin-top: 0.6rem;
@@ -65,9 +54,7 @@ export default () => {
 					<UserBlock {...{ users, extremes, username, room }} />
 				</div>
 			)}
-			<Instructions
-				{...{ room, newRoom, setNewRoom, connectionType, setConnectionType }}
-			/>
+			<Instructions {...{ room, newRoom, setNewRoom }} />
 			<h2>Et mes données ?</h2>
 			<p>
 				{emoji('🕵 ')}En participant, vous acceptez de partager vos résultats
