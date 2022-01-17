@@ -191,6 +191,12 @@ function storedTrajets(state = {}, { type, vehicule, trajets }) {
 	} else return state
 }
 
+function thenRedirectTo(state = null, { type, to }) {
+	if (type === 'SET_THEN_REDIRECT_TO') {
+		return to
+	} else return state
+}
+
 const mainReducer = (state: any, action: Action) =>
 	combineReducers({
 		explainedVariable,

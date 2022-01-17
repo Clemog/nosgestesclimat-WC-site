@@ -82,11 +82,18 @@ const Simulateur = (props) => {
 					}
 				/>
 			) : (
-				<Redirect to="/tutoriel" />
+				<TutorialRedirection />
 			)}
 			<BandeauContribuer />
 		</div>
 	)
+}
+
+const TutorialRedirection = () => {
+	const dispatch = useDispatch(),
+		to = useLocation().pathname
+	useEffect(() => dispatch({ type: 'SET_THEN_REDIRECT_TO', to }), [to])
+	return <Redirect to="/tutoriel" />
 }
 
 const RedirectionToEndPage = ({ rules, engine }) => {
