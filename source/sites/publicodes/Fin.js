@@ -103,7 +103,7 @@ const AnimatedDiv = ({ score, value, details, headlessMode }) => {
 		decimalValue = roundedValue.split(',')[1],
 		shareImage =
 			'https://aejkrqosjq.cloudimg.io/v7/' +
-			window.location.origin +, null, 
+			window.location.origin +
 			'/.netlify/functions/ending-screenshot?pageToScreenshot=' +
 			window.location
 
@@ -234,7 +234,9 @@ const AnimatedDiv = ({ score, value, details, headlessMode }) => {
 							</div> */}
 						</div>
 					</div>
-					{!integratorActionText && <ActionButton text="Passer à l'action" score={score}/>}
+					{!integratorActionText && (
+						<ActionButton text="Passer à l'action" score={score} />
+					)}
 					<div css="padding: 1rem">
 						<Chart
 							noAnimation
@@ -265,7 +267,15 @@ const ActionButton = () => (
 	<Link
 		to="/actions"
 		className="ui__ button plain"
-		onClick={() => tracker.push(['trackEvent', 'NGC', 'Clic bouton action page /fin', null, score])}
+		onClick={() =>
+			tracker.push([
+				'trackEvent',
+				'NGC',
+				'Clic bouton action page /fin',
+				null,
+				score,
+			])
+		}
 		css={`
 			margin: 0.6rem auto;
 			width: 90%;
