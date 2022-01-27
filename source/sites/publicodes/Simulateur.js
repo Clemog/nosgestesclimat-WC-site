@@ -50,6 +50,8 @@ const Simulateur = (props) => {
 
 	const introPassed = tutorials.testIntro
 
+	console.log(engine.evaluate('transport . voiture . aide km'))
+
 	return (
 		<div>
 			<Meta title={rule.title} title={evaluation.title || ''} />
