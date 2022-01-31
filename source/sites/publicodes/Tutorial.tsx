@@ -53,7 +53,9 @@ export default ({}) => {
 			dispatch(skipTutorial('testIntro'))
 	}, [tutorials])
 
-	if (tutorials['testIntro']) return <Redirect to={'/simulateur/bilan'} />
+	if (tutorials['testIntro'])
+		return <Redirect to={thenRedirectTo || '/simulateur/bilan'} />
+
 	// This results from a bug that introduced "slide5" in users' cache :/
 	// Here we avoid an error
 	if (slides[index] == null) return null
