@@ -280,24 +280,33 @@ const ActionButton = () => (
 			margin: 0.6rem auto;
 			width: 90%;
 
-			img {
-				height: 2.6rem;
-				filter: invert(100%);
-				margin: 0 0.6rem;
-				display: inline-block;
+	return (
+		<Link
+			to="/actions"
+			className="ui__ button plain"
+			onClick={() =>
+				tracker.push([
+					'trackEvent',
+					'NGC',
+					'Clic bouton action page /fin',
+					null,
+					score,
+				])
 			}
-			a {
-				color: var(--textColor);
-				text-decoration: none;
-			}
-		`}
-	>
-		<div
 			css={`
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				width: 100%;
+				margin: 0.6rem auto;
+				width: 90%;
+
+				img {
+					height: 2.6rem;
+					filter: invert(100%);
+					margin: 0 0.6rem;
+					display: inline-block;
+				}
+				a {
+					color: var(--textColor);
+					text-decoration: none;
+				}
 			`}
 		>
 			<img src={StartingBlock} />
