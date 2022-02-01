@@ -80,6 +80,19 @@ Ces moyens de transports ont des impacts différents, c’est pourquoi nous vous
 		component: SelectWeeklyMetroBus,
 	},
 	{
+		dottedName: 'transport . vacances',
+		options: { defaultsToFalse: true },
+		question: 'Que possédez-vous pour vos week-end, vos vacances ?',
+		description: `
+A compléter
+
+			`,
+		isApplicable: (dottedName: DottedName) =>
+			dottedName.includes('transport . vacances') &&
+			dottedName.includes(' . propriétaire'),
+		component: SelectDevices,
+	},
+	{
 		dottedName: 'alimentation . régime',
 		question:
 			'Choisissez les plats que vous consommez les midis d’une semaine type dans le cadre professionnel (5 repas) ?',
