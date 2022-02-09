@@ -82,7 +82,7 @@ Ces moyens de transports ont des impacts différents, c’est pourquoi nous vous
 	{
 		dottedName: 'transport . vacances',
 		options: { defaultsToFalse: true },
-		question: 'Que possédez-vous pour vos week-end, vos vacances ?',
+		question: 'Que possédez-vous pour vos week-ends, vos vacances ?',
 		description: `
 A compléter
 
