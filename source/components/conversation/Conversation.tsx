@@ -30,6 +30,7 @@ import { ExplicableRule } from './Explicable'
 import SimulationEnding from './SimulationEnding'
 import QuestionFinder from './QuestionFinder'
 import emoji from '../emoji'
+import { useQuery } from '../../utils'
 
 export type ConversationProps = {
 	customEndMessages?: React.ReactNode
@@ -62,10 +63,9 @@ export default function Conversation({
 	
 	const unfoldedStep = useSelector((state) => state.simulation.unfoldedStep)
 	const isMainSimulation = objectifs.length === 1 && objectifs[0] === 'bilan',
-		currentQuestion = !isMainSimulation
-			? nextQuestions[0]
-			: unfoldedStep || sortedQuestions[0]
+		currentQuestion = !isMainSimulation ? nextQuestions[0] : sortedQuestions[0]
 
+	console.log(focusedCategory, currentQuestion, unfoldedStep)
 	const currentQuestionIsAnswered =
 		currentQuestion && isMosaic(currentQuestion)
 			? true
@@ -81,14 +81,14 @@ export default function Conversation({
 	}, [previousAnswers, tracker])
 
 	useEffect(() => {
+		// This hook lets the user click on the "next" button. Without it, the conversation switches to the next question as soon as an answer is provided.
+		// It introduces a state
 		// It is important to test for "previousSimulation" : if it exists, it's not loaded yet. Then currentQuestion could be the wrong one, already answered, don't put it as the unfoldedStep
-		// TODO this is really unclear
 		if (
 			currentQuestion &&
 			!previousSimulation &&
 			currentQuestion !== unfoldedStep
 		) {
-			console.log('dispatch', currentQuestion)
 			dispatch(goToQuestion(currentQuestion))
 		}
 	}, [dispatch, currentQuestion, previousAnswers, unfoldedStep, objectifs])
@@ -167,7 +167,7 @@ export default function Conversation({
 		[]
 	)
 
-	if (!currentQuestion)
+	if (!nextQuestions.length)
 		return <SimulationEnding {...{ customEnd, customEndMessages }} />
 
 	const questionCategoryName = splitName(currentQuestion)[0],
