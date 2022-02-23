@@ -10,6 +10,7 @@ import Illustration from './images/ecolab-climat-dessin.svg'
 import Marianne from './images/Marianne.svg'
 import { useProfileData } from './Profil'
 import animate from 'Components/ui/animate'
+import Meta from '../../components/utils/Meta'
 
 export default () => {
 	const tracker = useContext(TrackerContext)
