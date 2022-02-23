@@ -273,9 +273,10 @@ export default function Conversation({
 					<CategoryVisualisation questionCategory={questionCategory} />
 				)}
 				<div className="step">
-					<h3
+					<h2
 						css={`
 							margin: 0.4rem 0;
+							font-size: 120%;
 						`}
 					>
 						{questionText}{' '}
@@ -287,7 +288,7 @@ export default function Conversation({
 								}
 							/>
 						)}
-					</h3>
+					</h2>
 					<Aide />
 					<fieldset>
 						<RuleInput
