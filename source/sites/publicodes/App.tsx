@@ -105,6 +105,8 @@ const Router = ({ }) => {
 		>
 			<Navigation isHomePage={isHomePage} />
 			<main
+				tabIndex="0"
+				id="mainContent"
 				css={`
 					@media (min-width: 800px) {
 						flex-grow: 1;
