@@ -16,7 +16,7 @@ export default () => (
 		</p>
 
 		<iframe
-			css="border: 0; height: 200px; width: 600px;"
+			css="border: 2px dashed var(--color); max-height: 200px; width: 600px;"
 			src="https://stats.data.gouv.fr/index.php?module=CoreAdminHome&action=optOut&language=fr&backgroundColor=&fontColor=&fontSize=&fontFamily="
 		></iframe>
 	</div>
