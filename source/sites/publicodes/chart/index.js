@@ -118,7 +118,7 @@ export default ({
 									<Link
 										to={
 											'/documentation/' +
-											utils.encodeRuleName(category.dottedName)
+											utils.encodeRuleName(category.documentationDottedName)
 										}
 									>
 										{bar}
