@@ -20,7 +20,6 @@ import Fin from './Fin'
 import Landing from './Landing'
 //import Logo, { InlineLogo } from './Logo'
 import Documentation from './pages/Documentation'
-import Stats from './pages/Stats'
 import Personas from './Personas.tsx'
 import Privacy from './Privacy'
 import Profil from './Profil.tsx'
@@ -29,6 +28,7 @@ import Simulateur from './Simulateur'
 import sitePaths from './sitePaths'
 import wecount from './images/wecount.png'
 const ConferenceLazy = React.lazy(() => import('./conference/Conference'))
+const StatsLazy = React.lazy(() => import('./pages/Stats'))
 
 
 let tracker = devTracker
