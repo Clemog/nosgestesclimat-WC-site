@@ -1,11 +1,13 @@
-import React from 'react'
+import { Markdown } from 'Components/utils/markdown'
+import content from 'raw-loader!./confidentialité.md'
+import { Link } from 'react-router-dom'
 import Meta from '../../components/utils/Meta'
 
 export default () => (
-	<div>
+	<section className="ui__ container">
 		<Meta
 			title="Données personnelles"
-			description="Nos gestes climat fonctionne sans serveur, donc vos données restent chez vous. Nous collectons anonymement des données aggregées pour améliorer le simulateur."
+			description="Nos gestes climat, hors mode groupe, fonctionne sans serveur, donc vos données restent chez vous. Nous collectons anonymement des données aggregées pour améliorer le simulateur."
 		/>
 		<h1>Données personnelles</h1>
 		<p>
