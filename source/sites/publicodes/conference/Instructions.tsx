@@ -34,7 +34,6 @@ export default ({
 	const URLbase = `https://${window.location.hostname}`
 	const URLPath = `/${mode}/${room || newRoom}`,
 		shareURL = URLbase + URLPath
-
 	return (
 		<div>
 			{!room && (
@@ -212,6 +211,20 @@ export default ({
 			{newRoom !== '' && !room && (
 				<InstructionBlock index="6" title="Prêt à démarrer ?">
 					<LoadingButton {...{ mode, URLPath, room: room || newRoom }} />
+				</InstructionBlock>
+			)}
+			{room && (
+				<InstructionBlock
+					noIndex={started}
+					title={
+						<span>
+							{emoji('📊')} Analysez les résultats et animez les discussions !
+						</span>
+					}
+				>
+					Les résultats sont là, que faire ? Notre guide vous accompagne dans
+					vos réflexions et vos discussions !{' '}
+					<Link to={URLGuide}>{URLGuide}</Link>
 				</InstructionBlock>
 			)}
 		</div>
