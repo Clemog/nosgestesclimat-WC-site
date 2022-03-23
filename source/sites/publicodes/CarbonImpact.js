@@ -54,7 +54,6 @@ export default ({ }) => {
 				text-align: center;
 				box-shadow: 2px 2px 10px #bbb;
 
-	const endURL = buildEndURL(rules, engine)
 	return (
 		<div
 			css={`
@@ -89,24 +88,19 @@ export default ({ }) => {
 					display: flex;
 					justify-content: space-evenly;
 					align-items: center;
-					> div {
-						display: flex;
-						justify-content: center;
-						align-items: center;
-					}
 					padding: 0.4rem;
 					min-height: 4rem;
 				`}
 			>
-				<Link
-					to={demoMode ? '#' : endURL}
-					title="Page de fin de simulation"
+				<div
 					css={`
 						:hover {
 							opacity: 1 !important;
 						}
 
-						text-decoration: none;
+						a {
+							text-decoration: none;
+						}
 						display: flex;
 						justify-content: space-evenly;
 						flex-direction: row;
@@ -118,7 +112,10 @@ export default ({ }) => {
 							{emoji('👤')} {persona}
 						</em>
 					)}
-					<div>
+					<Link
+						to={demoMode ? '#' : buildEndURL(rules, engine)}
+						title="Page de fin de simulation"
+					>
 						{!actionMode ? (
 							<div css="display:flex; align-items:center">
 								<img
@@ -135,9 +132,14 @@ export default ({ }) => {
 								{...{ nodeValue, engine, rules, actionChoices }}
 							/>
 						)}
-					</div>
-					<PetrolScore />
-				</Link>
+					</Link>
+					<Link
+						to={demoMode ? '#' : buildEndURL(rules, engine, 'pétrogaz')}
+						title="Page de fin de simulation"
+					>
+						<PetrolScore />
+					</Link>
+				</div>
 				{/* TODO désactivation de l'explication dans le contexte de l'ajout du pétrole : mieux vaut sûrement 
 				mettre le lien d'explication sur l'écran vers lequel les deux métriques pointent. Probablement deux diapo 
 				de la page fin.
