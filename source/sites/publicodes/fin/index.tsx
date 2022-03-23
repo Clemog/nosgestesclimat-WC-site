@@ -33,6 +33,18 @@ const getBackgroundColor = (score) =>
 	Math.round((score < 2000 ? 0 : score > 20000 ? 19000 : score - 2000) / 1000)
 	]
 
+// details=a2.6t2.1s1.3l1.0b0.8f0.2n0.1
+const rehydrateDetails = (encodedDetails) =>
+	encodedDetails &&
+	encodedDetails
+		.match(/[a-z][0-9]+\.[0-9][0-9]/g)
+		.map(([category, ...rest]) => [category, 1000 * +rest.join('')])
+		// Here we convert categories with an old name to the new one
+		// 'biens divers' was renamed to 'divers'
+		.map(([category, ...rest]) =>
+			category === 'b' ? ['d', ...rest] : [category, ...rest]
+		)
+
 const sumFromDetails = (details) =>
 	details.reduce((memo, [name, value]) => memo + value, 0)
 
@@ -40,18 +52,7 @@ export default ({ }) => {
 	const query = new URLSearchParams(useLocation().search)
 	const details = query.get('details')
 
-	// details=a2.6t2.1s1.3l1.0b0.8f0.2n0.1
-	const encodedDetails = details,
-		rehydratedDetails =
-			encodedDetails &&
-			encodedDetails
-				.match(/[a-z][0-9]+\.[0-9][0-9]/g)
-				.map(([category, ...rest]) => [category, 1000 * +rest.join('')])
-				// Here we convert categories with an old name to the new one
-				// 'biens divers' was renamed to 'divers'
-				.map(([category, ...rest]) =>
-					category === 'b' ? ['d', ...rest] : [category, ...rest]
-				)
+	const rehydratedDetails = rehydrateDetails(encodedDetails)
 
 	const score = sumFromDetails(rehydratedDetails)
 	const headlessMode =
@@ -80,18 +81,19 @@ export default ({ }) => {
 				</button>
 			</Link>
 			<animate.appear>
-				<AnimatedDiv
-					value={value}
-					score={score}
-					details={Object.fromEntries(rehydratedDetails)}
-					headlessMode={headlessMode}
-				/>
+				<SlidesLayout>
+					<HorizontalSwipe {...{ next, previous }}>
+						<Component {...slideProps} />
+					</HorizontalSwipe>
+				</SlidesLayout>
 			</animate.appear>
 		</div>
 	)
 }
+const Petrogaz = () => <div>Pétrole et gaz</div>
+const Categories = () => <div>Catégories</div>
 
-const AnimatedDiv = ({ score, value, details, headlessMode }) => {
+const Budget = ({ score, value, details, headlessMode }) => {
 	const backgroundColor = getBackgroundColor(value).toHexString(),
 		backgroundColor2 = getBackgroundColor(value + 2000).toHexString(),
 		textColor = findContrastedTextColor(backgroundColor, true),
@@ -119,8 +121,8 @@ const AnimatedDiv = ({ score, value, details, headlessMode }) => {
 		<div
 			css={`
 				padding: 0 0.3rem 1rem;
-				max-width: 600px;
 				margin: 0 auto;
+				width: auto;
 			`}
 		>
 			<Meta
