@@ -56,7 +56,9 @@ export default ({ }) => {
 
 	const score = sumFromDetails(rehydratedDetails)
 	const headlessMode =
-		!window || window.navigator.userAgent.includes('HeadlessChrome')
+		true || // TODO temporary, since the slider breaks the animation of the slide
+		!window ||
+		window.navigator.userAgent.includes('HeadlessChrome')
 
 	const { value } = headlessMode
 		? { value: score }
@@ -90,9 +92,6 @@ export default ({ }) => {
 		</div>
 	)
 }
-const Petrogaz = () => <div>Pétrole et gaz</div>
-const Categories = () => <div>Catégories</div>
-
 const Budget = ({ score, value, details, headlessMode }) => {
 	const backgroundColor = getBackgroundColor(value).toHexString(),
 		backgroundColor2 = getBackgroundColor(value + 2000).toHexString(),
@@ -118,13 +117,7 @@ const Budget = ({ score, value, details, headlessMode }) => {
 	const rules = useSelector((state) => state.rules)
 
 	return (
-		<div
-			css={`
-				padding: 0 0.3rem 1rem;
-				margin: 0 auto;
-				width: auto;
-			`}
-		>
+		<div>
 			<Meta
 				title="Mon empreinte climat"
 				description={`Mon empreinte climat est de ${roundedValue} tonnes de CO2e. Mesure la tienne !`}
