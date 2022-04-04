@@ -126,6 +126,7 @@ export default ({ }) => {
 								var(--darkestColor) 100%
 							)
 							repeat scroll 0% 0%;
+						border-left-style: solid;
 					`}
 					to={demoMode ? '#' : buildEndURL(rules, engine, 'pétrogaz')}
 					title="Page de fin de simulation"
