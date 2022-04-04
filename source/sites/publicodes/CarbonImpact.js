@@ -67,13 +67,6 @@ export default ({ }) => {
 					z-index: 10;
 					width: 100%;
 				}`}
-				background: rgba(0, 0, 0, 0)
-					linear-gradient(
-						60deg,
-						${color ? color : 'var(--color)'} 0%,
-						${color ? lightenColor(color, -20) : 'var(--lightColor)'} 100%
-					)
-					repeat scroll 0% 0%;
 				color: var(--textColor);
 				a {
 					color: inherit;
@@ -87,22 +80,33 @@ export default ({ }) => {
 					display: flex;
 					justify-content: space-evenly;
 					align-items: center;
-					padding: 0.4rem;
-					min-height: 4rem;
-					a {
+					height: 4rem;
+					> a {
+						height: 100%;
 						text-decoration: none;
+						padding: 0.4rem;
 					}
 				`}
 			>
 				<Link
+					css={`
+						flex-grow: 1;
+						background: rgba(0, 0, 0, 0)
+							linear-gradient(
+								60deg,
+								${color ? lightenColor(color, -20) : 'var(--lightColor)'} 0%,
+								${color ? color : 'var(--color)'} 100%
+							)
+							repeat scroll 0% 0%;
+					`}
 					to={demoMode ? '#' : buildEndURL(rules, engine)}
 					title="Page de fin de simulation"
 				>
 					{!actionMode ? (
-						<div css="display:flex; align-items:center">
+						<div css="display:flex; align-items:center; justify-content: center">
 							<img
 								src={'/images/climate-change-small.svg'}
-								css="width:3rem;margin-right: .4rem;"
+								css="width:3rem;margin-right: .8rem;"
 							/>
 							<HumanWeight
 								nodeValue={nodeValue}
@@ -114,6 +118,15 @@ export default ({ }) => {
 					)}
 				</Link>
 				<Link
+					css={`
+						background: rgba(0, 0, 0, 0)
+							linear-gradient(
+								60deg,
+								var(--darkColor) 0%,
+								var(--darkestColor) 100%
+							)
+							repeat scroll 0% 0%;
+					`}
 					to={demoMode ? '#' : buildEndURL(rules, engine, 'pétrogaz')}
 					title="Page de fin de simulation"
 				>
