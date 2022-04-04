@@ -84,6 +84,7 @@ const generateTheme = (themeColor?: string) => {
 		grayColor,
 		darkColor,
 		lightColor,
+		lightColor2,
 		lighterColor,
 		lightestColor,
 		darkestColor,
