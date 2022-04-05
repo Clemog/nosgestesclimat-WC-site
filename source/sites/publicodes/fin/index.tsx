@@ -92,7 +92,28 @@ export default ({ }) => {
 		</div>
 	)
 }
-const Budget = ({ score, value, details, headlessMode }) => {
+const Budget = ({ score, details, headlessMode }) => {
+	//	Configuration is try and test, feeling, really
+	const valueSpring = useSpring(0, {
+		mass: 10,
+		tension: 10,
+		stiffness: 50,
+		friction: 500,
+		damping: 60,
+	})
+
+	const [value, setValue] = useState(0)
+
+	useEffect(() => {
+		const unsubscribe = valueSpring.onChange((v) => {
+			setValue(v)
+		})
+
+		headlessMode ? setValue(score) : valueSpring.set(score)
+
+		return () => unsubscribe()
+	})
+
 	const backgroundColor = getBackgroundColor(value).toHexString(),
 		backgroundColor2 = getBackgroundColor(value + 2000).toHexString(),
 		textColor = findContrastedTextColor(backgroundColor, true),
