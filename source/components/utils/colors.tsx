@@ -88,6 +88,7 @@ const generateTheme = (themeColor?: string) => {
 		lighterColor,
 		lightestColor,
 		darkestColor,
+		darkerColor,
 		palettes,
 	}
 }
