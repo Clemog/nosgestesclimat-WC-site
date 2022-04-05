@@ -1,19 +1,17 @@
+import { useEngine } from 'Components/utils/EngineContext'
 import { utils } from 'publicodes'
 import React from 'react'
 import emoji from 'react-easy-emoji'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { correctValue, splitName } from '../../components/publicodesUtils'
+import { buildEndURL } from '../../components/SessionBar'
+import { lightenColor } from '../../components/utils/colors'
 import {
 	objectifsSelector,
 	situationSelector,
 } from '../../selectors/simulationSelectors'
 import HumanWeight, { DiffHumanWeight } from './HumanWeight'
-import { useEngine } from 'Components/utils/EngineContext'
-import { correctValue, splitName } from '../../components/publicodesUtils'
-import { lightenColor } from '../../components/utils/colors'
-import Progress from 'Components/ui/Progress'
-import { useSimulationProgress } from 'Components/utils/useNextQuestion'
-import { buildEndURL } from '../../components/SessionBar'
 import PetrolScore from './PetrolScore'
 
 export default ({ }) => {
@@ -129,9 +127,6 @@ export default ({ }) => {
 				)}
 				*/}
 			</div>
-			{!demoMode && progress < 1 && (
-				<Progress progress={progress} style={!progress ? 'height: 0' : ''} />
-			)}
 		</div>
 	)
 }
