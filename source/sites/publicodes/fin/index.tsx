@@ -266,7 +266,7 @@ const Budget = ({ score, details, headlessMode }) => {
 
 				{/* <div css="display: flex; flex-direction: column; margin: 1rem 0">
 					<ShareButton
-						text="Voilà mon empreinte climat. Mesure la tienne !"
+						text="Voilà mon empreinte 🌍️climat. Mesure la tienne !"
 						url={window.location}
 						title={'Nos Gestes Climat'}
 						color={textColor}
