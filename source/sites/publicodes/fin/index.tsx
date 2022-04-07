@@ -4,6 +4,7 @@ import emoji from 'react-easy-emoji'
 import tinygradient from 'tinygradient'
 import { animated, useSpring } from 'react-spring'
 import ShareButton from 'Components/ShareButton'
+import animate from 'Components/ui/animate'
 import { findContrastedTextColor } from 'Components/utils/colors'
 import { AddAnswer } from '../publicodes/API';
 import { useEngine } from 'Components/utils/EngineContext'
