@@ -96,9 +96,7 @@ const Budget = ({ score, details, headlessMode }) => {
 	//	Configuration is try and test, feeling, really
 	const valueSpring = useSpring(0, {
 		mass: 10,
-		tension: 10,
 		stiffness: 50,
-		friction: 500,
 		damping: 60,
 	})
 
