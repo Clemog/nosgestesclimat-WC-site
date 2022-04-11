@@ -97,6 +97,7 @@ export const ActionListCard = ({
 				justify-content: center;
 				align-items: center;
 				height: 14.5rem;
+				${noFormula && 'height: 13rem;'}
 				${hasRemainingQuestions && `background: #eee !important; `}
 				position: relative;
 				> div {
