@@ -322,14 +322,36 @@ export const ActionValue = ({
 				'Non applicable'
 			) : (
 				<div>
-					<strong>
-						{sign} {stringValue} {unit}
-					</strong>{' '}
-					{total && (
-						<span css="margin-left: .4rem">
-							{sign}&nbsp;{Math.abs(relativeValue)}%
-						</span>
-					)}
+					{sign}&nbsp;
+					<span
+						css={`
+							background: var(--lightColor);
+							border-radius: 0.3rem;
+							color: var(--textColor);
+							padding: 0rem 0.4rem;
+							padding-right: 0;
+							border: 1px solid var(--lightColor);
+							border-radius: 0.3rem;
+							${correctedValue < 0 && `background: #e33e3e`};
+						`}
+					>
+						<strong>{stringValue}</strong>&nbsp;
+						<span>{unit}</span>
+						{total && (
+							<span
+								css={`
+									margin-left: 0.4rem;
+									padding: 0 0.2rem;
+									background: var(--lighterColor);
+									color: var(--color);
+									border-top-right-radius: 0.3rem;
+									border-bottom-right-radius: 0.3rem;
+								`}
+							>
+								{Math.abs(relativeValue)}%
+							</span>
+						)}
+					</span>
 				</div>
 			)}
 		</div>
