@@ -77,7 +77,7 @@ const Simulateur = (props) => {
 					}
 					explanations={
 						<>
-							<Chart />
+							<SimulateurChart />
 						</>
 					}
 				/>

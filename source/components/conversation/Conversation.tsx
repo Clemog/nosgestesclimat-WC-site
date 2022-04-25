@@ -18,16 +18,17 @@ import {
 	answeredQuestionsSelector,
 	situationSelector,
 } from 'Selectors/simulationSelectors'
-import { objectifsSelector } from '../../selectors/simulationSelectors'
 import { setTrackingVariable } from '../../actions/actions'
-import CategoryVisualisation from '../../sites/publicodes/CategoryVisualisation'
-import { splitName, title } from '../publicodesUtils'
+import Meta from '../../components/utils/Meta'
+import { objectifsSelector } from '../../selectors/simulationSelectors'
+import { useQuery } from '../../utils'
+import { questionCategoryName, splitName, title } from '../publicodesUtils'
 import useKeypress from '../utils/useKeyPress'
+import { useSimulationProgress } from '../utils/useNextQuestion'
 import Aide from './Aide'
 import CategoryRespiration from './CategoryRespiration'
 import './conversation.css'
 import { ExplicableRule } from './Explicable'
-import SimulationEnding from './SimulationEnding'
 import QuestionFinder from './QuestionFinder'
 import emoji from '../emoji'
 import { sortBy, useQuery } from '../../utils'
@@ -217,12 +218,11 @@ export default function Conversation({
 		return <SimulationEnding {...{ customEnd, customEndMessages }} />
 	}
 
-	const questionCategoryName = splitName(currentQuestion)[0],
-		questionCategory =
-			orderByCategories &&
-			orderByCategories.find(
-				({ dottedName }) => dottedName === questionCategoryName
-			)
+	const questionCategory =
+		orderByCategories &&
+		orderByCategories.find(
+			({ dottedName }) => dottedName === questionCategoryName(currentQuestion)
+		)
 
 	const isCategoryFirstQuestion =
 		questionCategory &&
@@ -312,9 +312,6 @@ export default function Conversation({
 					e.preventDefault()
 				}}
 			>
-				{orderByCategories && questionCategory && (
-					<CategoryVisualisation questionCategory={questionCategory} />
-				)}
 				<div className="step">
 					<h2
 						role="heading"
