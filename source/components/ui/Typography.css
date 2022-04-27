@@ -1,6 +1,7 @@
 html {
 	transition: none !important;
 	line-height: 1.7rem;
+	font-family: 'Marianne', Arial, sans-serif;
 }
 @media (max-width: 500px) {
 	html {
