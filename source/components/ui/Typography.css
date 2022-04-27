@@ -25,6 +25,7 @@ html {
 }
 
 body {
+	font-family: 'Marianne', Arial, sans-serif;
 	font-weight: 400;
 	color: #1B2769;
 	color: var(--darkestColor);
