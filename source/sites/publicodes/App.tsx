@@ -5,7 +5,7 @@ import News from 'Pages/News'
 import React, { Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Redirect, useLocation } from 'react-router'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Provider from '../../Provider'
 import {
 	persistSimulation,
