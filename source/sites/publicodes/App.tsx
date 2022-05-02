@@ -30,6 +30,7 @@ const ConferenceLazy = React.lazy(() => import('./conference/Conference'))
 const StatsLazy = React.lazy(() => import('./pages/Stats'))
 
 
+const GuideGroupeLazy = React.lazy(() => import('./pages/GuideGroupe'))
 let tracker = devTracker
 if (NODE_ENV === 'production') {
 	tracker = new Tracker()
