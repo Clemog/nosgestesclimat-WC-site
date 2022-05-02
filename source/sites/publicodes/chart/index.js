@@ -19,6 +19,7 @@ import { useNextQuestions } from '../../../components/utils/useNextQuestion'
 import { currentQuestionSelector } from '../../../selectors/simulationSelectors'
 import CategoryVisualisation from '../CategoryVisualisation'
 import Bar from './Bar'
+import useContinuousCategory from './useContinuousCategory'
 
 export default ({
 	details,
