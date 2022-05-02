@@ -31,6 +31,11 @@ const StatsLazy = React.lazy(() => import('./pages/Stats'))
 
 
 const GuideGroupeLazy = React.lazy(() => import('./pages/GuideGroupe'))
+
+const DocumentationContexteLazy = React.lazy(
+	() => import('./pages/DocumentationContexte')
+)
+
 let tracker = devTracker
 if (NODE_ENV === 'production') {
 	tracker = new Tracker()
