@@ -102,6 +102,7 @@ export default ({ }) => {
 						<img
 							src={'/images/climate-change-small.svg'}
 							css="width:3rem;margin-right: .8rem;"
+							alt="Planète représentant le changement climatique"
 						/>
 						{!actionMode ? (
 							<HumanWeight
