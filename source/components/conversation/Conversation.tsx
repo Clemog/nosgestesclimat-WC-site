@@ -20,7 +20,7 @@ import {
 } from 'Selectors/simulationSelectors'
 import { objectifsSelector } from '../../selectors/simulationSelectors'
 import CategoryVisualisation from '../../sites/publicodes/CategoryVisualisation'
-import { splitName } from '../publicodesUtils'
+import { splitName, title } from '../publicodesUtils'
 import useKeypress from '../utils/useKeyPress'
 import Aide from './Aide'
 import CategoryRespiration from './CategoryRespiration'
@@ -104,6 +104,7 @@ export default function Conversation({
 	const questionText = mosaicQuestion
 		? mosaicQuestion.question
 		: rules[currentQuestion]?.rawNode?.question
+
 	const questionsToSubmit = mosaicQuestion
 		? Object.entries(rules)
 				.filter(([dottedName, value]) =>
@@ -276,7 +277,9 @@ export default function Conversation({
 							font-size: 120%;
 						`}
 					>
-						{questionText}{' '}
+						<span id={'id-question-' + title(rules[currentQuestion])}>
+							{questionText}{' '}
+						</span>
 						{hasDescription && (
 							<ExplicableRule
 								dottedName={
