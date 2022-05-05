@@ -63,7 +63,9 @@ export default function NumberedMosaic({
 								>
 									{icônes && emoji(icônes)}
 								</div>
-								<p>{description && description.split('\n')[0]}</p>
+								<p id={'description ' + title}>
+									{description && description.split('\n')[0]}
+								</p>
 								<div css={' span {margin: .8rem; font-size: 120%}'}>
 									<button
 										className={`ui__ button small plain ${
@@ -75,12 +77,13 @@ export default function NumberedMosaic({
 												updateSituation(question.dottedName, nodeValue - 1)
 											)
 										}
-										title={`Enlever un repas ${title.toLowerCase()}`}
+										title={`Enlever ${title.toLowerCase()}`}
 									>
 										-
 									</button>
 									<input
 										type="number"
+										aria-describedby={'description ' + title}
 										id={question.dottedName}
 										css={`
 											width: 1.5rem;
@@ -112,7 +115,7 @@ export default function NumberedMosaic({
 												updateSituation(question.dottedName, nodeValue + 1)
 											)
 										}
-										title={`Ajouter un repas ${title.toLowerCase()}`}
+										title={`Ajouter ${title.toLowerCase()}`}
 									>
 										+
 									</button>
