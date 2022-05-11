@@ -94,6 +94,7 @@ export default ({ }) => {
 								${color ? color : 'var(--color)'} 100%
 							)
 							repeat scroll 0% 0%;
+						color: white !important;
 					`}
 					to={demoMode ? '#' : buildEndURL(rules, engine)}
 					title="Page de fin de simulation"
