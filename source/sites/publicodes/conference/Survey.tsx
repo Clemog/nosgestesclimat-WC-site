@@ -122,7 +122,7 @@ export default () => {
 						</button>
 					</div>
 					<DownloadInteractiveButton
-						url={answersURL + survey.room + '?format=csv'}
+						url={answersURL + room + '?format=csv'}
 						isRegisteredSurvey={isRegisteredSurvey}
 					/>
 				</>
