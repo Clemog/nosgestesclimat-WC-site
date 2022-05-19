@@ -1,7 +1,7 @@
 import { Markdown } from 'Components/utils/markdown'
 import React, { useState } from 'react'
 import { renderToString } from 'react-dom/server'
-import SpanEmoji from '../../components/SpanEmoji'
+import emoji from 'Components/emoji'
 import Meta from '../../components/utils/Meta'
 import { useQuery } from '../../utils'
 import FAQ from './FAQ.yaml'
