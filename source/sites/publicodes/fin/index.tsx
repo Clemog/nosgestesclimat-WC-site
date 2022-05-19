@@ -208,11 +208,18 @@ const Budget = ({ score, details, headlessMode }) => {
 									background: #ffffff3d;
 									border-radius: 0.6rem;
 									padding: 0.4rem 1rem;
-
-									> div {
+									> ul {
+										padding: 0;
+										margin: 0;
+									}
+									> div,
+									li {
 										display: flex;
 										justify-content: space-between;
 										flex-wrap: wrap;
+									}
+									li {
+										padding: 0;
 									}
 									strong {
 										font-weight: bold;
