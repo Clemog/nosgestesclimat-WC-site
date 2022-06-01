@@ -72,7 +72,11 @@ export default () => {
 						}
 					`}
 				>
-					<Marianne css="height: 6rem; margin-right: .6rem" />
+					<Marianne
+						role="img"
+						aria-label="Logo République Française"
+						css="height: 6rem; margin-right: .6rem"
+					/>
 					<a href="https://ademe.fr">
 						<LogoADEME />
 					</a>
