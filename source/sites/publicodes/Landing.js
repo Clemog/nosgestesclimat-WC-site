@@ -74,7 +74,7 @@ export default () => {
 				>
 					<Marianne
 						role="img"
-						aria-label="Logo République Française"
+						aria-label="République Française"
 						css="height: 6rem; margin-right: .6rem"
 					/>
 					<a href="https://ademe.fr">
@@ -84,7 +84,7 @@ export default () => {
 						<img
 							css="height: 2.5rem"
 							src="/images/ABC.svg"
-							alt="Logo de l'Association Bilan Carbone"
+							alt="Association Bilan Carbone"
 						/>
 					</a>
 				</div>
