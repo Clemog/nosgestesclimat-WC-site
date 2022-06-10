@@ -12,7 +12,10 @@
 	--darkestColor: #1B2769;
 }
 @media (min-width: 400px) {
-	:focus:not(:active):not(input) {
+	:focus:not(.focus-visible) {
+		outline: none;
+	}
+	:focus-visible:not(:active):not(input) {
 		outline: 3px solid var(--lightColor);
 	}
 }
