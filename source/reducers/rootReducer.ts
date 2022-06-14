@@ -211,7 +211,8 @@ function tracking(
 	state = {
 		endEventFired: false,
 		firstQuestionEventFired: false,
-		progressEventFired: false,
+		progress50EventFired: false,
+		progress90EventFired: false,
 	},
 	{ type, name, value }
 ) {
