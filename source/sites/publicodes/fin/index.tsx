@@ -283,6 +283,7 @@ const Budget = ({ score, details, headlessMode }) => {
 						title={'Nos Gestes Climat'}
 						color={textColor}
 						label="Partager mes résultats"
+						score={score}
 					/>
 				</div> */}
 			</motion.div>
