@@ -69,12 +69,6 @@ export default ({ }) => {
 			from: { value: 0 },
 		})
 
-	const tracker = useContext(TrackerContext)
-	useEffect(() => {
-		console.log('+1')
-		tracker.push(['trackEvent', 'NGC', 'Swipe page de fin'])
-	}, [Component])
-
 	return (
 		<div>
 			<IframeDataShareModal data={rehydratedDetails} />
