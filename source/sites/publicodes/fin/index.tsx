@@ -79,9 +79,16 @@ export default ({ }) => {
 					dispatch(goToQuestion(last(answeredQuestions)))
 				}}
 			>
-				<button class="ui__ simple small push-left button">
-					← Revenir à la simulation
-				</button>
+				{!answeredQuestions.length ? (
+					<button class="ui__ button plain cta"> Faire mon test</button>
+				) : nextQuestions.length > 1 ? (
+					<button class="ui__ button plain"> ← Terminer ma simulation</button>
+				) : (
+					<button className="ui__ simple small push-left button">
+						{' '}
+						← Revenir à ma simulation
+					</button>
+				)}
 			</Link>
 			<animate.appear>
 				<SlidesLayout
