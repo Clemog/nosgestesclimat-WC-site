@@ -24,6 +24,7 @@ export default () => {
 		'surveyContext',
 		{}
 	)
+	const [contextRules, setContextRules] = useState()
 	const [isRegisteredSurvey, setIsRegisteredSurvey] = useState(false)
 	const dispatch = useDispatch()
 
@@ -96,15 +97,20 @@ export default () => {
 				>
 					{existContext && (
 						<ContextConversation
-							survey={survey}
 							surveyContext={surveyContext}
 							setSurveyContext={setSurveyContext}
+							contextRules={contextRules}
+							setContextRules={setContextRules}
 						/>
 					)}
 					{!hasDataState ? (
 						<NoTestMessage setHasDataState={setHasDataState}></NoTestMessage>
 					) : (
-						<Results room={survey.room} existContext={existContext} />
+						<Results
+							room={survey.room}
+							existContext={existContext}
+							contextRules={contextRules}
+						/>
 					)}
 				</div>
 			)}
@@ -201,14 +207,13 @@ const DownloadInteractiveButton = ({ url, isRegisteredSurvey }) => {
 	)
 }
 
-const Results = ({ room, existContext }) => {
+const Results = ({ room, existContext, contextRules }) => {
 	const [cachedSurveyIds] = usePersistingState('surveyIds', {})
 	const survey = useSelector((state) => state.survey)
 	const [threshold, setThreshold] = useState(defaultThreshold)
 	const answerMap = survey.answers
 	const username = cachedSurveyIds[survey.room]
 	if (!answerMap || !Object.values(answerMap) || !username) return null
-
 	return (
 		<Stats
 			elements={getElements(
@@ -220,6 +225,7 @@ const Results = ({ room, existContext }) => {
 			username={username}
 			threshold={threshold}
 			setThreshold={setThreshold}
+			contextRules={contextRules}
 		/>
 	)
 }
