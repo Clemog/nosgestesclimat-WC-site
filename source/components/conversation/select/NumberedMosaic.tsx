@@ -6,6 +6,7 @@ import { situationSelector } from 'Selectors/simulationSelectors'
 import styled from 'styled-components'
 import { useEngine } from '../../utils/EngineContext'
 import { Mosaic } from './UI'
+import MosaicInputSuggestions from '../MosaicInputSuggestions'
 
 // This is the number of possible answers in this very custom input component
 const chipsTotal = 5
@@ -13,10 +14,12 @@ const chipsTotal = 5
 export default function NumberedMosaic({
 	name,
 	setFormValue,
+	dottedName,
 	selectedRules,
 	value: currentValue,
 	question,
 	options: { chipsTotal },
+	suggestions,
 }) {
 	const dispatch = useDispatch()
 	const situation = useSelector(situationSelector)
@@ -153,9 +156,23 @@ export default function NumberedMosaic({
 		</div>
 	)
 
+	const relatedRuleNames = selectedRules.reduce(
+		(memo, arr) => [...memo, arr[1].dottedName],
+		[]
+	)
+
 	return (
-		<div css="margin-top: 0.6rem; display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end">
-			{choiceElements}
+		<div>
+			{Object.keys(suggestions).length > 0 && (
+				<MosaicInputSuggestions
+					dottedName={dottedName}
+					relatedRuleNames={relatedRuleNames}
+					suggestions={suggestions}
+				/>
+			)}
+			<div css="margin-top: 0.6rem; display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end">
+				{choiceElements}
+			</div>
 		</div>
 	)
 }
