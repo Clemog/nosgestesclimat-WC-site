@@ -93,12 +93,20 @@ A compléter
 		component: SelectDevices,
 	},
 	{
-		dottedName: 'alimentation . régime',
+		dottedName: 'alimentation . plats',
 		question:
 			'Choisissez les plats que vous consommez les midis d’une semaine type dans le cadre professionnel (5 repas) ?',
 		description: `
 Indiquez, ici, 5 repas représentatifs de votre consommation pendant une semaine de travail. 
 			`,
+		suggestions: {
+			'Je suis végétalien': {
+				'végétalien . nombre': 14,
+			},
+			'Je suis végétarien': {
+				'végétarien . nombre': 14,
+			},
+		},
 		isApplicable: (dottedName: DottedName) =>
 			dottedName.includes('alimentation . plats') &&
 			dottedName.includes(' . nombre'),
