@@ -27,4 +27,12 @@ for (var key in iframeAttributes) {
 }
 iframeResize({}, iframe)
 
+const link = document.createElement('a')
+
+link.setAttribute('src', 'https://nosgestesclimat.fr')
+link.setAttribute('target', '_blank')
+link.textContent = 'Visiter nosgestesclimat.fr'
+
+script.parentNode.insertBefore(link, script)
+
 script.parentNode.insertBefore(iframe, script)
