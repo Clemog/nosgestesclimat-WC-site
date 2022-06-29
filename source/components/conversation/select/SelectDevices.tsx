@@ -19,7 +19,7 @@ export default function SelectDevices({
 	const dispatch = useDispatch()
 	const situation = useSelector(situationSelector)
 
-	const choiceElements = (
+	return (
 		<div>
 			<Mosaic>
 				{selectedRules.map(
@@ -105,12 +105,6 @@ export default function SelectDevices({
 					}
 				)}
 			</Mosaic>
-		</div>
-	)
-
-	return (
-		<div css="margin-top: 0.6rem; display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end">
-			{choiceElements}
 		</div>
 	)
 }
