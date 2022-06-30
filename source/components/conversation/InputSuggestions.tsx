@@ -25,7 +25,7 @@ export default function InputSuggestions({
 				align-items: baseline;
 				justify-content: flex-end;
 				margin-bottom: 0.4rem;
-				flew-wrap: wrap;
+				flex-wrap: wrap;
 
 				@media (max-width: 800px) {
 					flex-wrap: nowrap;
@@ -43,7 +43,7 @@ export default function InputSuggestions({
 			{Object.entries(suggestions).map(([text, value]: [string, ASTNode]) => {
 				return (
 					<button
-						className="ui__ link-button"
+						className="ui__ suggestion plain button"
 						type="button"
 						key={text}
 						css={`
