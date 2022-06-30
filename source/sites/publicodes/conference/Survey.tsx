@@ -63,7 +63,7 @@ export default () => {
 	const history = useHistory()
 
 	if (!room || room === '') {
-		return <Redirect to="/groupe?mode=sondage" />
+		return <Navigation to="/groupe?mode=sondage" replace />
 	}
 	return (
 		<div>

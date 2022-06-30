@@ -21,7 +21,7 @@ import {
 import { setTrackingVariable, skipTutorial } from '../../actions/actions'
 import Meta from '../../components/utils/Meta'
 import { objectifsSelector } from '../../selectors/simulationSelectors'
-import { useQuery } from '../../utils'
+import { sortBy, useQuery } from '../../utils'
 import { questionCategoryName, splitName, title } from '../publicodesUtils'
 import useKeypress from '../utils/useKeyPress'
 import { useSimulationProgress } from '../utils/useNextQuestion'
