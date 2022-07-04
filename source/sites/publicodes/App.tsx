@@ -14,7 +14,6 @@ import {
 import Tracker, { devTracker } from '../../Tracker'
 import About from './About'
 import Actions from './Actions'
-import Contribution from './Contribution'
 import Diffuser from './Diffuser'
 import Fin from './fin'
 import Landing from './Landing'
