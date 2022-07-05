@@ -78,11 +78,7 @@ const Simulateur = (props) => {
 							<EndingCongratulations />
 						)
 					}
-					explanations={
-						<>
-							<SimulateurChart />
-						</>
-					}
+					explanations={<InlineCategoryChart />}
 				/>
 			) : (
 				<TutorialRedirection />
