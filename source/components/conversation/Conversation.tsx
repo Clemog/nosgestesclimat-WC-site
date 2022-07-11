@@ -300,7 +300,7 @@ export default function Conversation({
 			)}
 			{orderByCategories && (
 				<Meta
-					title={rules[objectifs[0]].title + ' - ' + questionCategory.title}
+					title={rules[objectifs[0]].title + ' - ' + questionCategory?.title}
 				/>
 			)}
 			<form
