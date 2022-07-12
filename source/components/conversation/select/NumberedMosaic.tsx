@@ -182,3 +182,6 @@ export const mosaicLabelStyle = `
 	margin-bottom: 0.4rem;
 	font-weight: bold;
 `
+const MosaicLabel = styled.label`
+	${mosaicLabelStyle}
+`
