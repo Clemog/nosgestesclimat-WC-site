@@ -128,7 +128,7 @@ export default ({
 						<p>
 							{emoji('💡')} Vous souhaitez ajouter des questions pour obtenir
 							des informations supplémentaires sur les répondants ?{' '}
-							<Link to={'/guide/documentation-contexte'}>
+							<Link to={'/groupe/documentation-contexte'}>
 								Découvrez la fonctionnalité "contextualisation de sondage !"{' '}
 							</Link>
 						</p>
