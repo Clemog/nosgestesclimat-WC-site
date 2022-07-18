@@ -1,6 +1,5 @@
 import { Markdown } from 'Components/utils/markdown'
 import content from 'raw-loader!./confidentialité.md'
-import { Link } from 'react-router-dom'
 import Meta from '../../components/utils/Meta'
 
 export default () => (
