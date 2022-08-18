@@ -64,14 +64,7 @@ export default ({ children }) => {
 
 			const rules = req.keys().reduce((memo, key) => {
 				const jsonRuleSet = req(key).default || {}
-				const ruleSetPlus = Object.fromEntries(
-					Object.entries(jsonRuleSet).map(([k, v]) =>
-						plusDottedNames[k]
-							? [k, { ...v, plus: plusDottedNames[k] }]
-							: [k, v]
-					)
-				)
-				return { ...memo, ...ruleSetPlus }
+				return { ...memo, ...jsonRuleSet }
 			}, {})
 
 			setRules(rules)
