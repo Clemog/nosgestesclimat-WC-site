@@ -148,7 +148,7 @@ const ProfileLink = () => {
 					<img
 						aria-hidden="true"
 						src={openmojiURL('profile')}
-						css="width: 2rem; filter: invert(1)"
+						css="width: 2rem"
 					/>
 				</Link>
 			</div>
