@@ -183,4 +183,7 @@ const Grid = styled.ul`
 	li img {
 		width: 2rem;
 	}
+	li img {
+		width: 2rem;
+	}
 `
