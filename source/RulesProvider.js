@@ -80,7 +80,6 @@ export default ({ children }) => {
 		}
 	}, [branchData.deployURL, branchData.loaded, branchData.shouldUseLocalFiles])
 
-	if (!rules) return null
 	return <EngineWrapper rules={rules}>{children}</EngineWrapper>
 }
 
