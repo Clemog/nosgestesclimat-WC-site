@@ -128,14 +128,8 @@ export default function SessionBar({
 	answerButtonOnly = false,
 	noResults = false,
 }) {
-	const dispatch = useDispatch()
-	const nextQuestions = useNextQuestions()
-	const answeredQuestions = useSelector(answeredQuestionsSelector)
-	const arePreviousAnswers = !!answeredQuestions.length
 	useSafePreviousSimulation()
-	const [showAnswerModal, setShowAnswerModal] = useState(false)
 
-	const objectifs = useSelector(objectifsSelector)
 	const conference = useSelector((state) => state.conference)
 	const survey = useSelector((state) => state.survey)
 	const rules = useSelector((state) => state.rules)
@@ -169,13 +163,6 @@ export default function SessionBar({
 		<Button
 			className="simple small"
 			url={'/simulateur/bilan'}
-			onClick={() => {
-				nextQuestions.length ? (
-					dispatch(goToQuestion(answeredQuestions.at(-1)))
-				) : (
-					<Navigate to={buildEndURL(rules, engine)} replace />
-				)
-			}}
 			css={`
 				${buttonStyle('simulateur')};
 			`}
