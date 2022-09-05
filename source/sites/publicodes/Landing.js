@@ -11,7 +11,6 @@ import { TrackerContext } from '../../components/utils/withTracker'
 import DocumentationButton from './DocumentationButton'
 import Illustration from 'Images/ecolab-climat-dessin.svg'
 import { useProfileData } from './Profil'
-import SurveyModal from './SurveyModal'
 
 const SurveyModal = React.lazy(() => import('./SurveyModal'))
 
