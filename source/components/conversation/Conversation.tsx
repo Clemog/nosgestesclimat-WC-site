@@ -11,7 +11,7 @@ import Notifications, { getCurrentNotification } from 'Components/Notifications'
 import { EngineContext } from 'Components/utils/EngineContext'
 import { useNextQuestions } from 'Components/utils/useNextQuestion'
 import { TrackerContext } from 'Components/utils/withTracker'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { Suspense, useContext, useEffect, useState } from 'react'
 import { Trans } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -299,7 +299,9 @@ export default function Conversation({
 			//border-bottom: 0.6rem solid ${questionCategory.color || 'transparent'};
 		>
 			{finder ? (
-				<QuestionFinder close={() => setFinder(false)} />
+				<Suspense fallback={<div>Chargement</div>}>
+					<QuestionFinder close={() => setFinder(false)} />
+				</Suspense>
 			) : (
 				<div
 					css={`
