@@ -167,7 +167,18 @@ export default function SessionBar({
 
 	const [chosenIp, chooseIp] = usePersistingState('IP', undefined)
 
+	const { _, i18n } = useTranslation()
+
 	let elements = [
+		<div>
+			{Object.keys(Lang)
+				.map((l) => getLangInfos(Lang[l]))
+				.map((info: LangInfos) => (
+					<Button url={location} onClick={() => i18n.changeLanguage(info.abrv)}>
+						{info.name}
+					</Button>
+				))}
+		</div>,
 		<Button
 			className="simple small"
 			url={'/simulateur/bilan'}
@@ -176,7 +187,7 @@ export default function SessionBar({
 			`}
 		>
 			<ProgressCircle />
-			Le test
+			<Trans>Le test</Trans>
 		</Button>,
 		<Button
 			className="simple small"
