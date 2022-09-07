@@ -363,7 +363,7 @@ export default function Conversation({
 						`}
 					>
 						<span
-							tabindex="0"
+							tabIndex="0"
 							id={'id-question-' + title(rules[currentQuestion])}
 						>
 							{questionText}{' '}
