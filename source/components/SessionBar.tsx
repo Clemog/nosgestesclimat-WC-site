@@ -65,6 +65,7 @@ const MenuButton = styled.div`
 		@media (max-width: 800px) {
 			margin: 0 !important;
 		}
+		height: auto;
 	}
 `
 
@@ -216,6 +217,8 @@ export default function SessionBar({
 					src={openmojiURL('personas')}
 					css="width: 2rem"
 					aria-hidden="true"
+					width="1"
+					height="1"
 				/>
 				Personas
 			</Button>
@@ -240,6 +243,8 @@ export default function SessionBar({
 						src={openmojiURL('github')}
 						css="width: 2rem"
 						aria-hidden="true"
+						width="1"
+						height="1"
 					/>
 					#{pullRequestNumber}
 				</a>
@@ -251,7 +256,12 @@ export default function SessionBar({
 						setPullRequestNumber(null)
 					}}
 				>
-					<img css="width: 1.2rem" src="/images/close-plain.svg" />
+					<img
+						css="width: 1.2rem"
+						src="/images/close-plain.svg"
+						width="1"
+						height="1"
+					/>
 				</button>
 			</MenuButton>
 		),
@@ -361,7 +371,13 @@ const GroupModeMenuEntry = ({ title, icon, url, children, buttonStyle }) => {
 					}
 				`}
 			>
-				<img src={icon} css="width: 2rem" aria-hidden="true" />
+				<img
+					src={icon}
+					css="width: 2rem"
+					aria-hidden="true"
+					width="1"
+					height="1"
+				/>
 				{title}
 			</Button>
 			<div
