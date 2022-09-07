@@ -1,7 +1,6 @@
 import Route404 from 'Components/Route404'
 import { sessionBarMargin } from 'Components/SessionBar'
 import 'Components/ui/index.css'
-import News from 'Pages/News'
 import React, { Suspense, useContext, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Redirect, useLocation } from 'react-router'
@@ -35,6 +34,7 @@ const GuideGroupeLazy = React.lazy(() => import('./pages/GuideGroupe'))
 const DocumentationContexteLazy = React.lazy(
 	() => import('./pages/DocumentationContexte')
 )
+const News = React.lazy(() => import('Pages/News'))
 
 let tracker = devTracker
 if (NODE_ENV === 'production') {
