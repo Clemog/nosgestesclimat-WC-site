@@ -115,7 +115,7 @@ const EngineWrapper = ({ rules, children }) => {
 	)
 }
 
-export const WithRules = ({ children }) => {
+export const WithEngine = ({ children }) => {
 	const dispatch = useDispatch()
 	const engineState = useSelector((state) => state.engineState)
 
