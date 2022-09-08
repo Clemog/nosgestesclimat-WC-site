@@ -9,7 +9,6 @@ import { DocumentationEndButton, generateImageLink } from '.'
 import { ActionButton, IntegratorActionButton } from './Buttons'
 import ClimateTargetChart from './ClimateTargetChart'
 import FinShareButton from './FinShareButton'
-const { encodeRuleName } = utils
 const gradient = tinygradient([
 		'#78e08f',
 		'#e1d738',
@@ -51,12 +50,12 @@ export default ({ score, details, headlessMode, nextSlide }) => {
 			maximumSignificantDigits: 2,
 			minimumSignificantDigits: 2,
 		}),
-		integerValue = roundedValue.split(',')[0],
-		decimalValue = roundedValue.split(',')[1],
 		shareImage = generateImageLink(window.location)
 
 	const { integratorYoutubeVideo, integratorActionText, integratorActionUrl } =
 		useContext(IframeOptionsContext)
+
+	const { t } = useTranslation()
 
 	return (
 		<div>
@@ -128,7 +127,9 @@ export default ({ score, details, headlessMode, nextSlide }) => {
 					</div>
 				)}
 
-				{integratorActionText && <ActionButton text="Réduire mon empreinte" />}
+				{integratorActionText && (
+					<ActionButton text={t('Réduire mon empreinte')} />
+				)}
 				<DocumentationEndButton ruleName={'bilan'} color={textColor} />
 			</motion.div>
 		</div>

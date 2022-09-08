@@ -167,11 +167,12 @@ export default function SessionBar({
 
 	const [chosenIp, chooseIp] = usePersistingState('IP', undefined)
 
-	const { _, i18n } = useTranslation()
+	const { i18n } = useTranslation()
 
 	let elements = [
 		<div>
 			{Object.keys(Lang)
+				.filter((l) => l != Lang.Default)
 				.map((l) => getLangInfos(Lang[l]))
 				.map((info: LangInfos) => (
 					<Button url={location} onClick={() => i18n.changeLanguage(info.abrv)}>
@@ -195,7 +196,7 @@ export default function SessionBar({
 			css={buttonStyle('/actions')}
 		>
 			<ActionsInteractiveIcon />
-			Agir
+			<Trans>Agir</Trans>
 		</Button>,
 		<Button className="simple small" url="/profil" css={buttonStyle('profil')}>
 			<div

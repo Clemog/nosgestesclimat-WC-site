@@ -2,7 +2,7 @@ import { Markdown } from 'Components/utils/markdown'
 import about from 'raw-loader!./about.md'
 import Meta from '../../../components/utils/Meta'
 
-export default () => (
+export default ({ t }) => (
 	<section className="ui__ container" id="about">
 		<Meta
 			title="À propos"

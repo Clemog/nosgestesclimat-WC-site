@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import emoji from 'react-easy-emoji'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import animate from 'Components/ui/animate'
+import { Trans } from 'react-i18next'
 
 export default () => {
 	const [visible, setVisible] = useState(false)

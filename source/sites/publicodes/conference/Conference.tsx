@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import emoji from 'react-easy-emoji'
+import { Trans } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { Navigate, useParams } from 'react-router'
 import { useNavigate } from 'react-router-dom'
@@ -39,18 +40,24 @@ export default () => {
 	}
 	const extremes = getExtremes(elements, threshold)
 
+	const { t } = useTranslation()
+
 	return (
 		<div>
 			<Meta
-				title={'Conférence ' + room}
+				title={t('Conférence') + ' ' + room}
 				description={
-					'Participez à la conférence ' +
+					t('Participez à la conférence') +
+					' ' +
 					room +
-					' et visualisez les résultats du groupe'
+					' ' +
+					t('et visualisez les résultats du groupe')
 				}
 			/>
 			{room && <ScrollToTop />}
-			<h1>Conférence</h1>
+			<h1>
+				<Trans>Conférence</Trans>
+			</h1>
 			<ConferenceTitle>
 				<img src={conferenceImg} alt="" />
 				<span css="text-transform: uppercase">«&nbsp;{room}&nbsp;»</span>
@@ -81,7 +88,7 @@ export default () => {
 					dispatch({ type: 'UNSET_CONFERENCE' })
 				}}
 			>
-				{emoji('🚪')} Quitter la conférence
+				{emoji('🚪') + t('Quitter la conférence')}
 			</button>
 			<Instructions {...{ room, started: true }} />
 			<h2>Et mes données ?</h2>

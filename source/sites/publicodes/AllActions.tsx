@@ -27,8 +27,6 @@ export default ({
 	focusAction,
 	radical,
 }) => {
-	const engine = useContext(EngineContext)
-
 	const actions = rawActions.map((a) => ({
 		...a,
 		value: correctValue({ nodeValue: a.nodeValue, unit: a.unit }),
@@ -79,14 +77,16 @@ export default ({
 						className="ui__ card box"
 						css="margin: 0 auto .6rem !important; "
 					>
-						<p>
-							Nous n'avons plus d'actions chiffrées très impactantes à vous
-							proposer {emoji('🤷')}
-						</p>
-						<p>
-							Découvrez plus bas quelques pistes pour agir autrement{' '}
-							{emoji('⏬')}
-						</p>
+						<Trans i18nKey={'publicodes.AllActions.msgPlusActions'}>
+							<p>
+								Nous n'avons plus d'actions chiffrées très impactantes à vous
+								proposer {emoji('🤷')}
+							</p>
+							<p>
+								Découvrez plus bas quelques pistes pour agir autrement{' '}
+								{emoji('⏬')}
+							</p>
+						</Trans>
 					</div>
 				</animate.fromTop>
 			)}
@@ -98,7 +98,7 @@ export default ({
 						src="/images/270A.svg"
 						css="filter: invert(1); height: 2rem; vertical-align: middle"
 					/>
-					Actions non chiffrées &#9660;
+					<Trans>Actions non chiffrées</Trans> &#9660;
 				</p>
 			</ThresholdSeparator>
 			<List
@@ -117,7 +117,7 @@ export default ({
 						src="/images/26D4.svg"
 						css="filter:invert(1); height: 2rem; vertical-align: middle; margin-right: .3rem"
 					/>
-					Actions négatives &#9660;
+					<Trans>Actions négatives</Trans> &#9660;
 				</p>
 			</ThresholdSeparator>
 			<List
@@ -132,7 +132,9 @@ export default ({
 			/>
 			{rejected.length > 0 && (
 				<div>
-					<h2>Actions écartées:</h2>
+					<h2>
+						<Trans>Actions écartées :</Trans>
+					</h2>
 					<List
 						{...{
 							actions: rejected,
@@ -147,27 +149,22 @@ export default ({
 			)}
 			<IllustratedButton icon="📚" to="/actions/plus">
 				<div>
-					<h2>Aller plus loin</h2>
-					<p>
-						<small>
-							Au-delà d'un simple chiffre, découvrez les enjeux qui se cachent
-							derrière chaque action.
-						</small>
-					</p>
+					<Trans i18nKey={'publicodes.AllActions.allerPlusLoin'}>
+						<h2>Aller plus loin</h2>
+						<p>
+							<small>
+								Au-delà d'un simple chiffre, découvrez les enjeux qui se cachent
+								derrière chaque action.
+							</small>
+						</p>
+					</Trans>
 				</div>
 			</IllustratedButton>
 		</div>
 	)
 }
 
-const List = ({
-	actions,
-	rules,
-	bilan,
-	actionChoices,
-	focusedAction,
-	focusAction,
-}) => (
+const List = ({ actions, rules, bilan, focusedAction, focusAction }) => (
 	<ul
 		css={`
 			display: flex;

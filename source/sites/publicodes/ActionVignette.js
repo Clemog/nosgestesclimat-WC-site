@@ -19,8 +19,7 @@ import {
 } from '../../selectors/simulationSelectors'
 import { humanWeight } from './HumanWeight'
 import { questionConfig } from './questionConfig'
-
-const { encodeRuleName, decodeRuleName } = utils
+import { useTranslation } from 'react-i18next'
 
 export const disabledAction = (flatRule, nodeValue) =>
 	flatRule.formule == null
@@ -56,7 +55,7 @@ export const ActionListCard = ({
 
 	const dispatch = useDispatch()
 	const rules = useSelector((state) => state.rules),
-		{ nodeValue, dottedName, title, unit } = evaluation,
+		{ nodeValue, dottedName, title } = evaluation,
 		{ icônes: icons } = rule
 	const actionChoices = useSelector((state) => state.actionChoices),
 		situation = useSelector(situationSelector),
@@ -82,6 +81,8 @@ export const ActionListCard = ({
 	const categoryColor = categories.find(
 		(cat) => cat.dottedName === splitName(dottedName)[0]
 	).color
+
+	const { t } = useTranslation()
 
 	return (
 		<div
@@ -196,7 +197,7 @@ export const ActionListCard = ({
 				`}
 			>
 				<button
-					title="Choisir l'action"
+					title={t("Choisir l'action")}
 					aria-pressed={actionChoices[dottedName]}
 					css={`
 						position: relative;
@@ -258,7 +259,7 @@ export const ActionListCard = ({
 					<img src="/images/2714.svg" css="width: 3rem" />
 				</button>
 				<button
-					title="Rejeter l'action"
+					title={t("Rejeter l'action")}
 					onClick={(e) => {
 						dispatch(
 							setActionChoice(
@@ -289,9 +290,9 @@ export const ActionListCard = ({
 	)
 }
 
-export const ActionGameCard = ({ evaluation, total, rule, effort }) => {
+export const ActionGameCard = ({ evaluation, total, rule }) => {
 	const rules = useSelector((state) => state.rules),
-		{ nodeValue, dottedName, title, unit } = evaluation,
+		{ nodeValue, dottedName, title } = evaluation,
 		{ icônes: icons } = rule
 
 	const flatRule = rules[dottedName],
@@ -305,7 +306,7 @@ export const ActionGameCard = ({ evaluation, total, rule, effort }) => {
 				text-decoration: none;
 				width: 100%;
 			`}
-			to={'/actions/' + encodeRuleName(dottedName)}
+			to={'/actions/' + utils.encodeRuleName(dottedName)}
 		>
 			<div css={``}>
 				<h2>{title}</h2>
@@ -334,8 +335,7 @@ export const ActionValue = ({
 	dottedName,
 	engine,
 }) => {
-	const situation = useSelector(situationSelector),
-		evaluation = engine.evaluate(dottedName),
+	const evaluation = engine.evaluate(dottedName),
 		rawValue = evaluation.nodeValue
 	const correctedValue = correctValue({
 		nodeValue: rawValue,
@@ -345,6 +345,8 @@ export const ActionValue = ({
 		relativeValue = Math.round(100 * (correctedValue / total))
 
 	const sign = correctedValue > 0 ? '-' : '+'
+
+	const { t } = useTranslation()
 
 	return (
 		<div
@@ -371,7 +373,7 @@ export const ActionValue = ({
 			{noFormula ? (
 				' '
 			) : disabled ? (
-				'Non applicable'
+				t('Non applicable')
 			) : (
 				<div>
 					{sign}&nbsp;

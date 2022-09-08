@@ -2,6 +2,7 @@ import emoji from 'Components/emoji'
 import { Markdown } from 'Components/utils/markdown'
 import { useState } from 'react'
 import { renderToString } from 'react-dom/server'
+import { useTranslation } from 'react-i18next'
 import Meta from '../../components/utils/Meta'
 import { useQuery } from '../../utils'
 import FAQ from './FAQ.yaml'
@@ -76,21 +77,27 @@ export default ({}) => {
 		[]
 	)
 
+	const { t } = useTranslation()
+
 	return (
 		<div className="ui__ container" css="padding-bottom: 1rem">
 			<Meta
-				title="Contribuer"
-				description="Découvrez les questions fréquentes sur Nos Gestes Climat, et comment en poser de nouvelles ou nous aider."
+				title={t('Contribuer')}
+				description={t('meta.publicodes.Contribution.description')}
 			>
 				<script type="application/ld+json">
 					{JSON.stringify(structuredFAQ)}
 				</script>
 			</Meta>
-			<h1>Questions fréquentes</h1>
+			<h1>
+				<Trans>Questions fréquentes</Trans>
+			</h1>
 			<p>
-				Vous trouverez ici les réponses aux questions les plus fréquentes. S’il
-				vous reste des interrogations ou si vous souhaitez nous proposer des
-				améliorations, rendez-vous tout en bas. Bonne lecture !
+				<Trans i18nKey={'publicodes.Contribution.description'}>
+					Vous trouverez ici les réponses aux questions les plus fréquentes.
+					S’il vous reste des interrogations ou si vous souhaitez nous proposer
+					des améliorations, rendez-vous tout en bas. Bonne lecture !
+				</Trans>
 			</p>
 			<div
 				css={`
@@ -194,7 +201,7 @@ export default ({}) => {
 						{!URL ? (
 							<form css={formStyle}>
 								<label css="color: var(--color)">
-									Le titre bref de votre problème
+									<Trans>Le titre bref de votre problème</Trans>
 									<input
 										aria-describedby="messageAttention"
 										value={sujet}
@@ -205,15 +212,20 @@ export default ({}) => {
 									/>
 								</label>
 								<label css="color: var(--color)">
-									<p>La description complète de votre problème</p>
-									<p>
-										<small>
-											En indiquant le navigateur que vous utilisez (par exemple
-											Firefox version 93, Chrome version 95, Safari, etc.), et
-											la plateforme (iPhone, Android, ordinateur Windows, etc.),
-											vous nous aiderez à résoudre le bug plus rapidement.
-										</small>
-									</p>
+									<Trans
+										i18nKey={'publicodes.Contribution.descriptionComplète'}
+									>
+										<p>La description complète de votre problème</p>
+										<p>
+											<small>
+												En indiquant le navigateur que vous utilisez (par
+												exemple Firefox version 93, Chrome version 95, Safari,
+												etc.), et la plateforme (iPhone, Android, ordinateur
+												Windows, etc.), vous nous aiderez à résoudre le bug plus
+												rapidement.
+											</small>
+										</p>
+									</Trans>
 									<textarea
 										aria-describedby="messageAttention"
 										value={comment}
@@ -224,8 +236,10 @@ export default ({}) => {
 								</label>
 								<p id="messageAttention">
 									<em>
-										Cette contribution sera publique : n'y mettez pas
-										d'informations sensibles
+										<Trans>
+											Cette contribution sera publique : n'y mettez pas
+											d'informations sensibles
+										</Trans>
 									</em>
 								</p>
 								<button
