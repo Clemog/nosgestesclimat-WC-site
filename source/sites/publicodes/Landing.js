@@ -11,6 +11,8 @@ import { TrackerContext } from '../../components/utils/withTracker'
 import DocumentationButton from './DocumentationButton'
 import Illustration from 'Images/ecolab-climat-dessin.svg'
 import { useProfileData } from './Profil'
+import landingMd from 'raw-loader!./landing.md'
+import Markdown from 'markdown-to-jsx'
 
 const SurveyModal = React.lazy(() => import('./SurveyModal'))
 
@@ -63,6 +65,7 @@ export default () => {
 				</div>  Suppression mode conférence pour le moment */}
 				{/* <NewsBanner /> Suppression Bannières nouveautés*/}
 			</div>
+			<Markdown>{landingMd}</Markdown>
 
 			<footer>
 				<div
