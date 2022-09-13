@@ -122,7 +122,7 @@ const EngineWrapper = ({ rules, children }) => {
 	)
 }
 
-export const WithEngine = ({ children }) => {
+export const WithEngine = ({ children, fallback = null }) => {
 	const dispatch = useDispatch()
 	const engineState = useSelector((state) => state.engineState)
 
