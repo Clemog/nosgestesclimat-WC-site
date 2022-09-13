@@ -1,27 +1,26 @@
+import Logo from 'Components/Logo'
 import Route404 from 'Components/Route404'
 import { sessionBarMargin } from 'Components/SessionBar'
 import 'Components/ui/index.css'
 import React, { Suspense, useContext, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Redirect, useLocation } from 'react-router'
+import { useLocation } from 'react-router'
 import { Route, Routes } from 'react-router-dom'
+import { TrackerContext } from '../../components/utils/withTracker'
 import Provider from '../../Provider'
+import { WithEngine } from '../../RulesProvider'
 import {
 	persistSimulation,
 	retrievePersistedSimulation,
 } from '../../storage/persistSimulation'
 import Tracker, { devTracker } from '../../Tracker'
-import { TrackerContext } from '../../components/utils/withTracker'
-import About from './pages/About'
 import Actions from './Actions'
-import Diffuser from './pages/Diffuser'
 import Fin from './fin'
 import Landing from './Landing'
 //import Logo, { InlineLogo } from './Logo'
 import Documentation from './pages/Documentation'
 import Personas from './Personas.tsx'
 import Profil from './Profil.tsx'
-import Tutorial from './Tutorial.tsx'
 import Simulateur from './Simulateur'
 import sitePaths from './sitePaths'
 import wecount from './images/wecount.png'
@@ -30,13 +29,13 @@ const StatsLazy = React.lazy(() => import('./pages/Stats'))
 
 
 const GuideGroupeLazy = React.lazy(() => import('./pages/GuideGroupe'))
-
 const DocumentationContexteLazy = React.lazy(
 	() => import('./pages/DocumentationContexte')
 )
 const News = React.lazy(() => import('Pages/News'))
 
 let tracker = devTracker
+
 if (NODE_ENV === 'production') {
 	tracker = new Tracker()
 }
