@@ -2,9 +2,8 @@ import ShareButton from 'Components/ShareButton'
 import { useEngine } from 'Components/utils/EngineContext'
 import Meta from 'Components/utils/Meta'
 import { motion, useSpring } from 'framer-motion'
-import { default as React, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import emoji from '../../../components/emoji'
+import { useEffect, useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
 import { correctValue } from '../../../components/publicodesUtils'
 import NeutralH1 from '../../../components/ui/NeutralH1'
 import { ActionButton } from './Buttons'
@@ -43,11 +42,15 @@ export default ({ headlessMode }) => {
 	}, [])
 	const gradientPosition = Math.round((1 - value / score) * 400 + 50)
 
+	const { t } = useTranslation()
+
 	return (
 		<div>
 			<Meta
-				title="Mon empreinte climat"
-				description={`Mon empreinte pétrole est de ${primaryValue} pleins de pétrole. Mesure la tienne !`}
+				title={t('Mon empreinte climat')}
+				description={t(`meta.publicodes.fin.Petrogaz.description`, {
+					empreinte: primaryValue,
+				})}
 				image={shareImage}
 				url={window.location}
 			/>
@@ -81,10 +84,11 @@ export default ({ headlessMode }) => {
 				<div id="shareImage" css="padding: 2rem 0 0">
 					<BigFigure {...{ primaryValue, secondaryValue, pleinVolume }} />
 					<div css="padding: 1rem; max-width: 30rem; margin: 0 auto; font-size: 90%">
-						<p>
-							C'est une estimation <em>a minima</em> de votre consommation de
-							pétrole brut à l'année.
-						</p>
+						<Trans i18nKey={`publicodes.fin.Petrogaz.explications`}>
+							<p>
+								C'est une estimation <em>a minima</em> de votre consommation de
+								pétrole brut à l'année.
+							</p>
 
 						<p>
 							Estimée via vos trajets en voiture, en avion, en bus, fioul pour
@@ -108,11 +112,11 @@ export default ({ headlessMode }) => {
 				</Link>
 				<div css="display: flex; flex-direction: column; margin: 1rem 0">
 					<ShareButton
-						text="Voilà mon empreinte ⛽️ pétrole. Mesure la tienne !"
+						text={t('Voilà mon empreinte ⛽️ pétrole. Mesure la tienne !')}
 						url={window.location}
 						title={'Nos Gestes Climat'}
 						color="white"
-						label="Partager mes résultats"
+						label={t('Partager mes résultats')}
 					/>
 				</div>
 				<DocumentationEndButton ruleName={petrolRuleName} />

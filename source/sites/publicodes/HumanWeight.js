@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { correctValue } from '../../components/publicodesUtils'
 import { disabledAction, supersededAction } from './ActionVignette'
 
@@ -25,9 +26,15 @@ const HumanWeight = ({
 	nodeValue,
 	overrideValue,
 	metric = 'climat',
-	unitSuffix = 'de CO₂-e / an',
+	unitSuffix = undefined,
 	longUnitSuffix,
 }) => {
+	const { t } = useTranslation()
+
+	if (!unitSuffix) {
+		unitSuffix = t('de') + ' CO₂-e / ' + t('an')
+	}
+
 	const [value, unit] =
 		metric === 'climat'
 			? humanWeight(nodeValue)

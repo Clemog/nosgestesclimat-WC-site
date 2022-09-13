@@ -1,4 +1,5 @@
 import emoji from 'react-easy-emoji'
+import { Trans, useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import lastRelease from '../data/last-release.json'
 import { usePersistingState } from './utils/persistState'
@@ -7,6 +8,7 @@ import { capitalise0 } from '../utils'
 
 export const localStorageKey = 'last-viewed-release'
 
+// TODO: support translations
 export const determinant = (word: string) =>
 	/^[aeiouy]/i.exec(word) ? 'd’' : 'de '
 

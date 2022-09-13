@@ -65,6 +65,8 @@ export default ({
 	const spotlightElement = elements.find((el) => el.username === spotlight),
 		spotlightValue = spotlightElement && formatTotal(spotlightElement.total)
 
+	const { t } = useTranslation()
+
 	return (
 		<div>
 			<div css=" text-align: center">
@@ -75,7 +77,7 @@ export default ({
 						{elements.length > 1 ? 's' : ''})
 					</span>
 				</p>
-				<Progress progress={meanProgress} label="Avancement du groupe" />
+				<Progress progress={meanProgress} label={t('Avancement du groupe')} />
 			</div>
 			<WithEngine>
 				<FilterBar
@@ -96,7 +98,7 @@ export default ({
 				{elements.length > 0 && (
 					<div>
 						<ul
-							title="Empreinte totale"
+							title={t('Empreinte totale')}
 							css={`
 								width: 100%;
 								position: relative;
@@ -124,7 +126,7 @@ export default ({
 
 										cursor: pointer;
 										${spotlight === username
-											? `background: yellow; opacity: 1; 
+											? `background: yellow; opacity: 1;
 										border-right: 2px dashed black;
 										border-left: 2px dashed black;
 										z-index: 1;

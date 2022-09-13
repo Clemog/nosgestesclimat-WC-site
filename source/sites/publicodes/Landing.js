@@ -15,6 +15,7 @@ import DocumentationButton from './DocumentationButton'
 import LandingContent from './LandingContent'
 import LandingExplanations from './LandingExplanations'
 import { useProfileData } from './Profil'
+import { useTranslation, Trans } from 'react-i18next'
 
 const fluidLayoutMinWidth = '1200px'
 
@@ -153,7 +154,12 @@ export default () => {
 
 const ProfileLink = () => {
 	const { hasData } = useProfileData()
-	if (!hasData) return null
+	const { t } = useTranslation()
+
+	if (!hasData) {
+		return null
+	}
+
 	return (
 		<animate.appear delay="1">
 			<div

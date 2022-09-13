@@ -1,7 +1,7 @@
 import { extractCategories } from 'Components/publicodesUtils'
 import { useEngine } from 'Components/utils/EngineContext'
 import { useNextQuestions } from 'Components/utils/useNextQuestion'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import {
 	objectifsSelector,
@@ -17,7 +17,6 @@ import { useQuery } from '../../../utils'
 
 export default ({}) => {
 	// needed for this component to refresh on situation change :
-	const situation = useSelector(situationSelector)
 	const objectifs = useSelector(objectifsSelector)
 	const rules = useSelector((state) => state.rules)
 	const engine = useEngine(objectifs)

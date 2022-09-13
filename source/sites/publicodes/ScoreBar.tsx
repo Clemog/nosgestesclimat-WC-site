@@ -8,10 +8,7 @@ import { correctValue, splitName } from '../../components/publicodesUtils'
 import ScoreExplanation from '../../components/ScoreExplanation'
 import { buildEndURL } from '../../components/SessionBar'
 import { lightenColor } from '../../components/utils/colors'
-import {
-	objectifsSelector,
-	situationSelector,
-} from '../../selectors/simulationSelectors'
+import { objectifsSelector } from '../../selectors/simulationSelectors'
 import HumanWeight, { DiffHumanWeight } from './HumanWeight'
 import PetrolScore from './PetrolScore'
 import { TrackerContext } from '../../components/utils/withTracker'
@@ -19,11 +16,10 @@ import { TrackerContext } from '../../components/utils/withTracker'
 export default ({ }) => {
 	const objectif = useSelector(objectifsSelector)[0],
 		// needed for this component to refresh on situation change :
-		situation = useSelector(situationSelector),
 		engine = useEngine(),
 		rules = useSelector((state) => state.rules),
 		evaluation = engine.evaluate(objectif),
-		{ nodeValue: rawNodeValue, dottedName, unit, rawNode } = evaluation
+		{ nodeValue: rawNodeValue, dottedName, unit } = evaluation
 	const actionChoices = useSelector((state) => state.actionChoices)
 
 	const nodeValue = correctValue({ nodeValue: rawNodeValue, unit })
@@ -170,23 +166,3 @@ export default ({ }) => {
 		</div>
 	)
 }
-
-const DocumentationLink = ({ dottedName }) => (
-	<div>
-		<Link to={'/documentation/' + utils.encodeRuleName(dottedName)}>
-			<span css="font-size: 140%" alt="Comprendre le calcul">
-				{emoji('❔ ')}
-			</span>
-			<small
-				css={`
-					color: var(--textColor);
-					@media (max-width: 800px) {
-						display: none;
-					}
-				`}
-			>
-				Comprendre le calcul
-			</small>
-		</Link>
-	</div>
-)

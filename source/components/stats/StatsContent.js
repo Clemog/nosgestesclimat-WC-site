@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 
 import {
@@ -6,7 +6,6 @@ import {
 	useSimulationsTerminees,
 	useVisitsDuration,
 	useVisitsAvgDuration,
-	useSimulationAvgDuration,
 	useWebsites,
 	useOldWebsites,
 	useSocials,
@@ -63,7 +62,9 @@ export default function Data(props) {
 
 	return (
 		<div>
-			<Section.TopTitle>Statistiques</Section.TopTitle>
+			<Section.TopTitle>
+				<Trans>Statistiques</Trans>
+			</Section.TopTitle>
 			{total &&
 			websites &&
 			oldWebsites &&
@@ -77,7 +78,9 @@ export default function Data(props) {
 			allTime ? (
 				<>
 					<Section>
-						<Section.Title>Stats générales</Section.Title>
+						<Section.Title>
+							<Trans>Stats générales</Trans>
+						</Section.Title>
 						<Wrapper>
 							<Evolution
 								period={period.value}
@@ -173,6 +176,7 @@ export default function Data(props) {
 				</>
 			) : (
 				<div>Chargement</div>
+				//TODO: what should we do here?
 				// <Loader />
 			)}
 		</div>

@@ -80,7 +80,8 @@ export default ({}) => {
 				{persona && (
 					<p>
 						<em>
-							{emoji('👤')}&nbsp; Vous utilisez actuellement le persona{' '}
+							{emoji('👤')}&nbsp;{' '}
+							<Trans>Vous utilisez actuellement le persona</Trans>{' '}
 							<code>{persona}</code>
 						</em>
 					</p>

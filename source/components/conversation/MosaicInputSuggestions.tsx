@@ -16,7 +16,7 @@ export default function MosaicInputSuggestions({
 	relatedRuleNames,
 	suggestions: rawSuggestions = {},
 }: InputSuggestionsProps) {
-	const { t, i18n } = useTranslation()
+	const { t } = useTranslation()
 	const dispatch = useDispatch()
 
 	const suggestNothing =

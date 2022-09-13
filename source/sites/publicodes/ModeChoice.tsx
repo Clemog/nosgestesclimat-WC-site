@@ -1,7 +1,7 @@
 import IllustratedButton from 'Components/IllustratedButton'
+import { Trans } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { setActionMode } from '../../actions/actions'
-import { useSafePreviousSimulation } from '../../components/SessionBar'
 
 export default ({}) => {
 	const dispatch = useDispatch()
@@ -15,9 +15,15 @@ export default ({}) => {
 			`}
 		>
 			<div>
-				<h1>Passer à l'action</h1>
-				<p>Votre mission : réduire votre empreinte.</p>
-				<p>Comment voulez-vous procéder ?</p>
+				<h1>
+					<Trans>Passer à l'action</Trans>
+				</h1>
+				<p>
+					<Trans>Votre mission : réduire votre empreinte.</Trans>
+				</p>
+				<p>
+					<Trans>Comment voulez-vous procéder ?</Trans>
+				</p>
 			</div>
 			<div>
 				<IllustratedButton

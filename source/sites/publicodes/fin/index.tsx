@@ -74,13 +74,19 @@ export default ({ }) => {
 			<IframeDataShareModal data={rehydratedDetails} />
 			<Link to="/simulateur/bilan" css="display: block; text-align: center">
 				{!answeredQuestions.length ? (
-					<button class="ui__ button plain cta"> Faire mon test</button>
+					<button class="ui__ button plain cta">
+						{' '}
+						<Trans>Faire mon test</Trans>
+					</button>
 				) : nextQuestions.length > 1 ? (
-					<button class="ui__ button plain"> ← Terminer ma simulation</button>
+					<button class="ui__ button plain">
+						{' '}
+						← <Trans>Terminer ma simulation</Trans>
+					</button>
 				) : (
 					<button className="ui__ simple small push-left button">
 						{' '}
-						← Revenir à ma simulation
+						← <Trans>Revenir à ma simulation</Trans>
 					</button>
 				)}
 			</Link>

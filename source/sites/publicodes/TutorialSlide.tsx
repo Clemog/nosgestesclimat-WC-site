@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 export default ({ children, last, skip }) => {
+	const { t } = useTranslation()
 	return (
 		<div
 			className="ui__ card light colored content"

@@ -1,6 +1,7 @@
 import { Markdown } from 'Components/utils/markdown'
 import content from 'raw-loader!./privacy.md'
 import Meta from '../../../components/utils/Meta'
+import { useTranslation } from 'react-i18next'
 
 export default () => (
 	<section className="ui__ container">

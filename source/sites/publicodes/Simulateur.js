@@ -13,7 +13,6 @@ import { Redirect } from 'react-router'
 import { setTrackingVariable } from '../../actions/actions'
 import { FullName } from '../../components/publicodesUtils'
 import Meta from '../../components/utils/Meta'
-import { situationSelector } from '../../selectors/simulationSelectors'
 import BandeauContribuer from './BandeauContribuer'
 import Chart from './chart/index.js'
 import { questionConfig } from './questionConfig'
@@ -23,7 +22,7 @@ const equivalentTargetArrays = (array1, array2) =>
 	array1.length === array2.length &&
 	array1.every((value, index) => value === array2[index])
 
-const Simulateur = (props) => {
+const Simulateur = () => {
 	const urlParams = useParams()
 	const objectif = urlParams['*'],
 		decoded = utils.decodeRuleName(objectif),
@@ -96,7 +95,6 @@ const TutorialRedirection = () => {
 
 const MainSimulationEnding = ({ rules, engine }) => {
 	// Necessary to call 'buildEndURL' with the latest situation
-	const situation = useSelector(situationSelector)
 
 	return (
 		<div
@@ -133,5 +131,7 @@ const MainSimulationEnding = ({ rules, engine }) => {
 export default Simulateur
 
 const EndingCongratulations = () => (
-	<h3>{emoji('🌟')} Vous avez complété cette simulation</h3>
+	<h3>
+		{emoji('🌟')} <Trans>Vous avez complété cette simulation</Trans>
+	</h3>
 )

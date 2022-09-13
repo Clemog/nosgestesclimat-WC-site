@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import emoji from 'react-easy-emoji'
-import { Trans } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { Navigate, useParams } from 'react-router'
 import { useNavigate } from 'react-router-dom'
@@ -74,7 +74,6 @@ export default () => {
 					setThreshold,
 				}}
 			/>
-
 			{room && (
 				<div>
 					<UserBlock {...{ users, extremes, username, room }} />
@@ -88,7 +87,7 @@ export default () => {
 					dispatch({ type: 'UNSET_CONFERENCE' })
 				}}
 			>
-				{emoji('🚪') + t('Quitter la conférence')}
+				{emoji('🚪')} {t('Quitter la conférence')}
 			</button>
 			<Instructions {...{ room, started: true }} />
 			<h2>Et mes données ?</h2>
