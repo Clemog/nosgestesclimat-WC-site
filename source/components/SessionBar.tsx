@@ -20,6 +20,7 @@ import { backgroundConferenceAnimation } from '../sites/publicodes/conference/co
 import SurveyBarLazy from '../sites/publicodes/conference/SurveyBarLazy'
 import { omit } from '../utils'
 import CardGameIcon from './CardGameIcon'
+import { getSupportedFlag } from './localisation/useLocalisation'
 import ProgressCircle from './ProgressCircle'
 import { usePersistingState } from './utils/persistState'
 
@@ -136,6 +137,8 @@ export default function SessionBar({
 	const rules = useSelector((state) => state.rules)
 	const engine = useEngine(objectifs)
 	const localisation = useLocalisation()
+	const flag = getSupportedFlag(localisation)
+	console.log(flag)
 
 	const location = useLocation(),
 		path = location.pathname
@@ -190,9 +193,9 @@ export default function SessionBar({
 					css="width: 2rem"
 					aria-hidden="true"
 				/>
-				{localisation && (
+				{flag && (
 					<img
-						src={getFlagImgSrc(localisation?.country.code)}
+						src={flag}
 						css={`
 							position: absolute;
 							left: 1.45rem;
