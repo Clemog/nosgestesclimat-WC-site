@@ -167,7 +167,7 @@ export default function SessionBar({
 
 	const [chosenIp, chooseIp] = usePersistingState('IP', undefined)
 
-	const { i18n } = useTranslation()
+	const { t, i18n } = useTranslation()
 
 	let elements = [
 		<div>
