@@ -167,19 +167,9 @@ export default function SessionBar({
 
 	const [chosenIp, chooseIp] = usePersistingState('IP', undefined)
 
-	const { t, i18n } = useTranslation()
+	const { t } = useTranslation()
 
 	let elements = [
-		<div>
-			{Object.keys(Lang)
-				.filter((l) => l != Lang.Default)
-				.map((l) => getLangInfos(Lang[l]))
-				.map((info: LangInfos) => (
-					<Button url={location} onClick={() => i18n.changeLanguage(info.abrv)}>
-						{info.name}
-					</Button>
-				))}
-		</div>,
 		<Button
 			className="simple small"
 			url={'/simulateur/bilan'}
@@ -304,6 +294,7 @@ export default function SessionBar({
 				<SurveyBarLazy />
 			</GroupModeMenuEntry>
 		),
+		<LangSwitcher className="simple small" />,
 	]
 
 	if (path === '/tutoriel') return null
