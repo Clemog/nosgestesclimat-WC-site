@@ -10,7 +10,7 @@ import {
 
 import useBranchData from 'Components/useBranchData'
 import Engine from 'publicodes'
-import { useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 /* This component gets the publicode rules from the good URL,
