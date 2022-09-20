@@ -13,12 +13,14 @@ import Illustration from 'Images/ecolab-climat-dessin.svg'
 import { useProfileData } from './Profil'
 import landingMd from 'raw-loader!./landing.md'
 import Markdown from 'markdown-to-jsx'
+import useMediaQuery from '../../components/utils/useMediaQuery'
 
 const SurveyModal = React.lazy(() => import('./SurveyModal'))
 
 export default () => {
 	const tracker = useContext(TrackerContext)
 	const [showSurveyModal, setShowSurveyModal] = useState(false)
+	const mobile = useMediaQuery('(max-width: 800px)')
 
 	return (
 		<div
