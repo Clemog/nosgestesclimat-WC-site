@@ -12,6 +12,7 @@ import DocumentationButton from './DocumentationButton'
 import Illustration from 'Images/ecolab-climat-dessin.svg'
 import { useProfileData } from './Profil'
 import landingMd from 'raw-loader!./landing.md'
+import avantages from './avantages.yaml'
 import Markdown from 'markdown-to-jsx'
 import useMediaQuery from '../../components/utils/useMediaQuery'
 
