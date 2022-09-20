@@ -76,7 +76,9 @@ export default ({}) => {
 					'Explorez et modifiez les informations que vous avez saisies dans le parcours nosgestesclimat.'
 				)}
 			/>
-			<Title>Mon profil</Title>
+			<Title>
+				<Trans>Mon profil</Trans>
+			</Title>
 			<div className="ui__ container" css="padding-top: 1rem">
 				<ScrollToTop />
 				{persona && (
