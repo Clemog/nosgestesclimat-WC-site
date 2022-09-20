@@ -92,7 +92,6 @@ const Router = ({ }) => {
 
 	return (
 		<div
-			className="ui__ container"
 			css={`
 				@media (min-width: 800px) {
 					display: flex;
@@ -116,7 +115,6 @@ const Router = ({ }) => {
 					outline: none !important;
 					@media (min-width: 800px) {
 						flex-grow: 1;
-						padding: 1rem;
 					}
 				`}
 			>

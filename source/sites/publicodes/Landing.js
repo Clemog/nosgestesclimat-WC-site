@@ -23,7 +23,6 @@ export default () => {
 	return (
 		<div
 			css={`
-				max-width: 850px;
 				margin: 0 auto;
 				border-radius: 1rem;
 				padding: 0.4rem;
@@ -38,7 +37,6 @@ export default () => {
 				}
 				> div > a {
 				}
-				text-align: center;
 				display: flex;
 				flex-direction: column;
 				justify-content: space-evenly;
@@ -65,7 +63,6 @@ export default () => {
 				</div>  Suppression mode conférence pour le moment */}
 				{/* <NewsBanner /> Suppression Bannières nouveautés*/}
 			</div>
-			<Markdown>{landingMd}</Markdown>
 
 			<footer>
 				<div
