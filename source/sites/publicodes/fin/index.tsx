@@ -89,7 +89,7 @@ export default ({ }) => {
 						← <Trans>Revenir à ma simulation</Trans>
 					</button>
 				)}
-			</Link>
+			</LinkWithQuery>
 			<animate.appear>
 				<SlidesLayout
 					length={componentKeys.length}

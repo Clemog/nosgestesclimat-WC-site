@@ -73,7 +73,7 @@ const Button = (props) => {
 		path = location.pathname
 	const isCurrent = path.includes(props.url)
 	return (
-		<Link
+		<LinkWithQuery
 			to={props.url}
 			css="text-decoration: none"
 			{...(isCurrent
@@ -83,7 +83,7 @@ const Button = (props) => {
 				: {})}
 		>
 			<MenuButton {...props} />{' '}
-		</Link>
+		</LinkWithQuery>
 	)
 }
 
@@ -172,7 +172,7 @@ export default function SessionBar({
 	let elements = [
 		<Button
 			className="simple small"
-			url={'/simulateur/bilan'}
+			url="/simulateur/bilan"
 			css={`
 				${buttonStyle('simulateur')};
 			`}

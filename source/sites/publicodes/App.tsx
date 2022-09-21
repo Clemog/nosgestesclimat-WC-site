@@ -5,7 +5,7 @@ import 'Components/ui/index.css'
 import React, { Suspense, useContext, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useSearchParams } from 'react-router-dom'
 import { TrackerContext } from '../../components/utils/withTracker'
 import Provider from '../../Provider'
 import { WithEngine } from '../../RulesProvider'
@@ -13,7 +13,11 @@ import {
 	persistSimulation,
 	retrievePersistedSimulation,
 } from '../../storage/persistSimulation'
-import { changeLangTo, defaultLang } from './../../locales/translation'
+import {
+	changeLangTo,
+	defaultLang,
+	getLangFromAbreviation,
+} from './../../locales/translation'
 import Tracker, { devTracker } from '../../Tracker'
 import Actions from './Actions'
 import Fin from './fin'
@@ -90,9 +94,16 @@ const Router = ({ }) => {
 	const largeScreen = useMediaQuery('(min-width: 800px)')
 
 	useEffect(() => {
-		changeLangTo(i18n, currentLang)
 		tracker.track(location)
-	}, [location, currentLang])
+		const lang = searchParams.get('lang')
+		changeLangTo(
+			i18n,
+			lang
+				? getLangFromAbreviation(lang)
+				: // NOTE(@EmileRolley): I don't know why currentLang is nested inside the state...
+				  currentLangState.currentLang
+		)
+	}, [location, currentLangState, searchParams])
 
 	const fluidLayout = isFluidLayout(location.pathname)
 

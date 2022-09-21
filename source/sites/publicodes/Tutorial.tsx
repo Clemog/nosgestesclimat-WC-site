@@ -347,7 +347,7 @@ const slides = [
 				</blockquote>
 				<blockquote>
 					{'❓️'} D'autres questions ? Consultez notre{' '}
-					<Link to="/contribuer">FAQ</Link> à tout moment.
+					<LinkWithQuery to="/contribuer">FAQ</LinkWithQuery> à tout moment.
 				</blockquote>
 			</Trans>
 		</>

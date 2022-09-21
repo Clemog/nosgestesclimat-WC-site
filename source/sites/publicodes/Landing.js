@@ -3,7 +3,7 @@ import animate from 'Components/ui/animate'
 import LogoADEME from 'Images/logoADEME.svg'
 import React, { useContext, useState } from 'react'
 import emoji from 'react-easy-emoji'
-import { Link } from 'react-router-dom'
+import { LinkWithQuery } from 'Components/LinkWithQuery'
 import NewsBanner from '../../components/NewsBanner'
 import { CircleSVG } from '../../components/ProgressCircle'
 import { openmojiURL } from '../../components/SessionBar'
@@ -169,7 +169,7 @@ const ProfileLink = () => {
 					margin-top: 1rem;
 				`}
 			>
-				<Link
+				<LinkWithQuery
 					to="/profil"
 					title="Page profil"
 					className=""
