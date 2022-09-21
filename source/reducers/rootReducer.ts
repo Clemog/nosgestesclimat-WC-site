@@ -160,6 +160,10 @@ function actionChoices(state = {}, { type, action, choice }) {
 	} else return state
 }
 
+function currentLang(state = {}, { type, currentLang }) {
+	return type === 'SET_LANGUAGE' ? { ...state, currentLang } : state
+}
+
 function survey(state = null, { type, room, answers, contextFile }) {
 	if (type === 'UNSET_SURVEY') return {}
 	if (type === 'SET_SURVEY') {

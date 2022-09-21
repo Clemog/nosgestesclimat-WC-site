@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import Logo from '../../components/Logo'
 import { IframeOptionsContext } from '../../components/utils/IframeOptionsProvider'
 import useMediaQuery from '../../components/utils/useMediaQuery'
+import { changeLangTo } from '../../locales/translation'
 import SkipLinks from './SkipLinks'
 
 export default ({ fluidLayout }) => {

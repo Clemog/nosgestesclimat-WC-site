@@ -13,6 +13,7 @@ import {
 	persistSimulation,
 	retrievePersistedSimulation,
 } from '../../storage/persistSimulation'
+import { changeLangTo, defaultLang } from './../../locales/translation'
 import Tracker, { devTracker } from '../../Tracker'
 import Actions from './Actions'
 import Fin from './fin'
@@ -89,8 +90,9 @@ const Router = ({ }) => {
 	const largeScreen = useMediaQuery('(min-width: 800px)')
 
 	useEffect(() => {
+		changeLangTo(i18n, currentLang)
 		tracker.track(location)
-	}, [location])
+	}, [location, currentLang])
 
 	const fluidLayout = isFluidLayout(location.pathname)
 
