@@ -2,7 +2,7 @@ import { utils } from 'publicodes'
 import { useContext } from 'react'
 import emoji from 'react-easy-emoji'
 import { useDispatch, useSelector } from 'react-redux'
-import { LinkWithQuery } from 'Components/LinkWithQuery'
+import { Link } from 'Components/Link'
 import { setActionChoice } from '../../actions/actions'
 import NotificationBubble from '../../components/NotificationBubble'
 import {
@@ -300,7 +300,7 @@ export const ActionGameCard = ({ evaluation, total, rule }) => {
 		disabled = disabledAction(flatRule, nodeValue)
 
 	return (
-		<LinkWithQuery
+		<Link
 			css={`
 				${disabled ? disabledStyle : ''}
 				text-decoration: none;
@@ -325,7 +325,7 @@ export const ActionGameCard = ({ evaluation, total, rule }) => {
 					</div>
 				</div>
 			</div>
-		</LinkWithQuery>
+		</Link>
 	)
 }
 export const ActionValue = ({

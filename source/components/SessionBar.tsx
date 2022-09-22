@@ -73,7 +73,7 @@ const Button = (props) => {
 		path = location.pathname
 	const isCurrent = path.includes(props.url)
 	return (
-		<LinkWithQuery
+		<Link
 			to={props.url}
 			css="text-decoration: none"
 			{...(isCurrent
@@ -83,7 +83,7 @@ const Button = (props) => {
 				: {})}
 		>
 			<MenuButton {...props} />{' '}
-		</LinkWithQuery>
+		</Link>
 	)
 }
 

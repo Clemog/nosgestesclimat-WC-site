@@ -1,6 +1,6 @@
 import emoji from 'react-easy-emoji'
 import { Trans, useTranslation } from 'react-i18next'
-import { LinkWithQuery } from 'Components/LinkWithQuery'
+import { Link } from 'Components/Link'
 import lastRelease from '../data/last-release.json'
 import { usePersistingState } from './utils/persistState'
 import styled from 'styled-components'

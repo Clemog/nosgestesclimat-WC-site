@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { LinkWithQuery } from 'Components/LinkWithQuery'
+import { Link } from 'Components/Link'
 import animate from 'Components/ui/animate'
 import { Trans } from 'react-i18next'
 
