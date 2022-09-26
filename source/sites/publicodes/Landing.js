@@ -1,5 +1,6 @@
 import Illustration from 'Components/AnimatedIllustration'
 import animate from 'Components/ui/animate'
+import LogoADEME from 'Images/logoADEME.svg'
 import React, { Suspense, useContext, useState } from 'react'
 import emoji from 'react-easy-emoji'
 import { Link } from 'react-router-dom'
@@ -9,6 +10,8 @@ import { IframeOptionsContext } from '../../components/utils/IframeOptionsProvid
 import Meta from '../../components/utils/Meta'
 import useMediaQuery from '../../components/utils/useMediaQuery'
 import { TrackerContext } from '../../components/utils/withTracker'
+import DocumentationButton from './DocumentationButton'
+import LandingContent from './LandingContent'
 import LandingExplanations from './LandingExplanations'
 import { useProfileData } from './Profil'
 
