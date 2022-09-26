@@ -1,21 +1,16 @@
-import React, { useState } from 'react'
+import Illustration from 'Components/AnimatedIllustration'
 import animate from 'Components/ui/animate'
-import LogoADEME from 'Images/logoADEME.svg'
-import { useContext, Suspense } from 'react'
+import React, { Suspense, useContext, useState } from 'react'
 import emoji from 'react-easy-emoji'
 import { Link } from 'react-router-dom'
 import NewsBanner from '../../components/NewsBanner'
 import { openmojiURL } from '../../components/SessionBar'
+import { IframeOptionsContext } from '../../components/utils/IframeOptionsProvider'
 import Meta from '../../components/utils/Meta'
-import { TrackerContext } from '../../components/utils/withTracker'
-import DocumentationButton from './DocumentationButton'
-import Illustration from 'Components/AnimatedIllustration'
-import { useProfileData } from './Profil'
-import landingMd from 'raw-loader!./landing.md'
-import avantages from './avantages.yaml'
-import Markdown from 'markdown-to-jsx'
 import useMediaQuery from '../../components/utils/useMediaQuery'
-import LandingContent from './LandingContent'
+import { TrackerContext } from '../../components/utils/withTracker'
+import LandingExplanations from './LandingExplanations'
+import { useProfileData } from './Profil'
 
 const SurveyModal = React.lazy(() => import('./SurveyModal'))
 
@@ -25,6 +20,7 @@ export default () => {
 	const tracker = useContext(TrackerContext)
 	const [showSurveyModal, setShowSurveyModal] = useState(false)
 	const mobile = useMediaQuery(`(max-width: ${fluidLayoutMinWidth})`)
+	const { isIframe } = useContext(IframeOptionsContext)
 
 	return (
 		<div
