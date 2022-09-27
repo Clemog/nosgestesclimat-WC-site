@@ -1,4 +1,3 @@
-import emoji from 'Components/emoji'
 import { Markdown } from 'Components/utils/markdown'
 import { useState } from 'react'
 import { renderToString } from 'react-dom/server'

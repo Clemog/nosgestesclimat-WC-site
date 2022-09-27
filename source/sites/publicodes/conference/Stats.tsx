@@ -71,7 +71,7 @@ export default ({
 		<div>
 			<div css=" text-align: center">
 				<p role="heading" aria-level="2">
-					Avancement du groupe{' '}
+					<Trans>Avancement du groupe</Trans>{' '}
 					<span role="status">
 						({elements.length} participant
 						{elements.length > 1 ? 's' : ''})
@@ -171,7 +171,7 @@ export default ({
 										onClick={() => setSpotlight(currentUser)}
 									>
 										<span css="background: #fff45f;">
-											Afficher ma simulation
+											<Trans>Afficher ma simulation</Trans>
 										</span>
 									</button>
 								)}
