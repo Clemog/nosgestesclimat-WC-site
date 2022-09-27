@@ -51,7 +51,6 @@ export default function NumberedMosaic({
 					]) => {
 						const situationValue = situation[question.dottedName],
 							evaluation = engine.evaluate(question.dottedName),
-							nodeValue = evaluation.nodeValue,
 							value =
 								situationValue != null
 									? situationValue
@@ -78,10 +77,8 @@ export default function NumberedMosaic({
 											!value ? 'disabled' : ''
 										}`}
 										onClick={() =>
-											nodeValue > 0 &&
-											dispatch(
-												updateSituation(question.dottedName, nodeValue - 1)
-											)
+											value > 0 &&
+											dispatch(updateSituation(question.dottedName, value - 1))
 										}
 										title={`Enlever ${title.toLowerCase()}`}
 									>
@@ -109,9 +106,9 @@ export default function NumberedMosaic({
 												? undefined
 												: situationValue === 0 // if situation value is 0 (2 options : input is filled in with a 0 or inout is empty), value become an empty string and placeholder (0) is visible..
 												? ''
-												: nodeValue
+												: value
 										}
-										placeholder={nodeValue}
+										placeholder={value}
 										onChange={(e) =>
 											dispatch(
 												updateSituation(question.dottedName, +e.target.value)
@@ -121,9 +118,7 @@ export default function NumberedMosaic({
 									<button
 										className="ui__ button small plain"
 										onClick={() =>
-											dispatch(
-												updateSituation(question.dottedName, nodeValue + 1)
-											)
+											dispatch(updateSituation(question.dottedName, value + 1))
 										}
 										title={`Ajouter ${title.toLowerCase()}`}
 									>
