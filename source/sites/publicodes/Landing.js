@@ -16,6 +16,7 @@ import LandingContent from './LandingContent'
 import LandingExplanations from './LandingExplanations'
 import { useProfileData } from './Profil'
 import { useTranslation, Trans } from 'react-i18next'
+import LangSwitcher from 'Components/LangSwitcher'
 
 const fluidLayoutMinWidth = '1200px'
 
