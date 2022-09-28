@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
 import {
 	AreaChart,
 	Area,
@@ -74,7 +75,7 @@ export default function AreaWeekly(props) {
 											month: 'long',
 											year: 'numeric',
 									  })
-									: date.toLocaleDateString('fr-fr', {
+									: date.toLocaleDateString(currentLangInfos.abrvLocale, {
 											day: '2-digit',
 											month: '2-digit',
 									  })

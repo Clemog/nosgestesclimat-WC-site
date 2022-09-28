@@ -4,6 +4,7 @@ import lastRelease from '../data/last-release.json'
 import { usePersistingState } from './utils/persistState'
 import styled from 'styled-components'
 import { capitalise0 } from '../utils'
+import { getLangFromAbreviation, getLangInfos } from '../locales/translation'
 
 export const localStorageKey = 'last-viewed-release'
 
