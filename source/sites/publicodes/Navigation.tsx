@@ -1,5 +1,6 @@
 import SessionBar from 'Components/SessionBar'
 import { useContext } from 'react'
+import LangSwitcher from '../../components/LangSwitcher'
 import Logo from '../../components/Logo'
 import { IframeOptionsContext } from '../../components/utils/IframeOptionsProvider'
 import useMediaQuery from '../../components/utils/useMediaQuery'

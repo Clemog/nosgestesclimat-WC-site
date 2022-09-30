@@ -294,7 +294,6 @@ export default function SessionBar({
 				<SurveyBarLazy />
 			</GroupModeMenuEntry>
 		),
-		<LangSwitcher className="simple small" />,
 	]
 
 	if (path === '/tutoriel') return null
