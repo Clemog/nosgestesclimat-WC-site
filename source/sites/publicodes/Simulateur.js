@@ -1,14 +1,12 @@
 import { setSimulationConfig } from 'Actions/actions'
-import { useParams, useLocation } from 'react-router-dom'
 import { extractCategories } from 'Components/publicodesUtils'
 import { buildEndURL } from 'Components/SessionBar'
 import Simulation from 'Components/Simulation'
 import Title from 'Components/Title'
 import { useEngine } from 'Components/utils/EngineContext'
 import { Markdown } from 'Components/utils/markdown'
-import { TrackerContext } from 'Components/utils/withTracker'
 import { utils } from 'publicodes'
-import React, { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 import emoji from 'react-easy-emoji'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router'
@@ -70,7 +68,7 @@ const Simulateur = (props) => {
 					orderByCategories={categories}
 					customEnd={
 						isMainSimulation ? (
-							<RedirectionToEndPage {...{ rules, engine }} />
+							<MainSimulationEnding {...{ rules, engine }} />
 						) : rule.description ? (
 							<Markdown children={rule.description} />
 						) : (
@@ -96,11 +94,11 @@ const TutorialRedirection = () => {
 	return <Navigate to="/tutoriel" replace />
 }
 
-const RedirectionToEndPage = ({ rules, engine }) => {
+const MainSimulationEnding = ({ rules, engine }) => {
 	// Necessary to call 'buildEndURL' with the latest situation
 	const situation = useSelector(situationSelector)
 
-	return <Navigate to={buildEndURL(rules, engine)} replace />
+	return <Link to={buildEndURL(rules, engine)}>Voir mon résultat</Link>
 }
 
 export default Simulateur
