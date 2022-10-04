@@ -72,13 +72,7 @@ export default ({ }) => {
 	return (
 		<div>
 			<IframeDataShareModal data={rehydratedDetails} />
-			<Link
-				to="/simulateur/bilan"
-				css="display: block; text-align: center"
-				onClick={() => {
-					dispatch(goToQuestion(last(answeredQuestions)))
-				}}
-			>
+			<Link to="/simulateur/bilan" css="display: block; text-align: center">
 				{!answeredQuestions.length ? (
 					<button class="ui__ button plain cta"> Faire mon test</button>
 				) : nextQuestions.length > 1 ? (
