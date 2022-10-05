@@ -85,11 +85,14 @@ const Router = ({ }) => {
 	const location = useLocation()
 	const isHomePage = location.pathname === '/',
 		isTuto = location.pathname.indexOf('/tutoriel') === 0
+
 	const tracker = useContext(TrackerContext)
 
 	useEffect(() => {
 		tracker.track(location)
 	}, [location])
+
+	const fluidLayout = isFluidLayout(location.pathname)
 
 	return (
 		<div
@@ -101,16 +104,16 @@ const Router = ({ }) => {
 				}
 
 				@media (min-width: 1200px) {
-					${!isHomePage &&
+					${!fluidLayout &&
 					`
 						transform: translateX(-4vw);
 						`}
 				}
-				${!isHomePage && !isTuto && sessionBarMargin}
+				${!fluidLayout && !isTuto && sessionBarMargin}
 			`}
-			className={isHomePage ? '' : 'ui__ container'}
+			className={fluidLayout ? '' : 'ui__ container'}
 		>
-			<Navigation isHomePage={isHomePage} />
+			<Navigation fluidLayout={fluidLayout} />
 			<main
 				tabIndex="0"
 				id="mainContent"
