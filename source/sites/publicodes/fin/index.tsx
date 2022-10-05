@@ -54,7 +54,6 @@ export default ({ }) => {
 	const details = query.get('details')
 
 	const rehydratedDetails = rehydrateDetails(encodedDetails)
-	console.log(rehydratedDetails)
 
 	const score = sumFromDetails(rehydratedDetails)
 	const headlessMode =
