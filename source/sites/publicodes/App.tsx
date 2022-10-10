@@ -87,6 +87,7 @@ const Router = ({ }) => {
 		isTuto = location.pathname.indexOf('/tutoriel') === 0
 
 	const tracker = useContext(TrackerContext)
+	const largeScreen = useMediaQuery('(min-width: 800px)')
 
 	useEffect(() => {
 		tracker.track(location)
