@@ -10,8 +10,12 @@ import {
 
 import useBranchData from 'Components/useBranchData'
 import Engine from 'publicodes'
-import { useState, useEffect, useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
+
+import rulesFr from './locales/co2-fr.json'
+import rulesEn from './locales/co2-en-us.json'
 
 /* This component gets the publicode rules from the good URL,
  * then gives them
@@ -28,6 +32,7 @@ import { useDispatch, useSelector } from 'react-redux'
  * */
 
 export default ({ children }) => {
+	const { i18n } = useTranslation()
 	const branchData = useBranchData()
 	const rules = useSelector((state) => state.rules)
 
@@ -78,7 +83,12 @@ export default ({ children }) => {
 					setRules(json, branchData.deployURL)
 				})
 		}
-	}, [branchData.deployURL, branchData.loaded, branchData.shouldUseLocalFiles])
+	}, [
+		branchData.deployURL,
+		branchData.loaded,
+		branchData.shouldUseLocalFiles,
+		i18n.language,
+	])
 
 	return <EngineWrapper rules={rules}>{children}</EngineWrapper>
 }
