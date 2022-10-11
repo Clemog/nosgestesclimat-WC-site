@@ -5,10 +5,11 @@ import {
 	resetSimulation,
 	resetStoredTrajets,
 } from 'Actions/actions'
+import { Link } from 'Components/Link'
 import Localisation from 'Components/localisation/Localisation'
 import emoji from 'react-easy-emoji'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { resetCategoryTutorials } from '../../actions/actions'
 import AnswerList from '../../components/conversation/AnswerList'
 import Title from '../../components/Title'
@@ -35,6 +36,7 @@ export const useProfileData = () => {
 }
 
 export default ({}) => {
+	const { t } = useTranslation()
 	const dispatch = useDispatch()
 	const persona = useSelector((state) => state.simulation?.persona)
 	const { hasData, answeredQuestionsLength, tutorials, answeredQuestions } =
