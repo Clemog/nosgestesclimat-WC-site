@@ -13,12 +13,12 @@ import {
 	persistSimulation,
 	retrievePersistedSimulation,
 } from '../../storage/persistSimulation'
+import Tracker, { devTracker } from '../../Tracker'
 import {
 	changeLangTo,
 	defaultLang,
 	getLangFromAbreviation,
 } from './../../locales/translation'
-import Tracker, { devTracker } from '../../Tracker'
 import Actions from './Actions'
 import Fin from './fin'
 import Landing from './Landing'
@@ -95,15 +95,15 @@ const Router = ({ }) => {
 
 	useEffect(() => {
 		tracker.track(location)
+	}, [location])
+
+	useEffect(() => {
 		const lang = searchParams.get('lang')
 		changeLangTo(
 			i18n,
-			lang
-				? getLangFromAbreviation(lang)
-				: // NOTE(@EmileRolley): I don't know why currentLang is nested inside the state...
-				  currentLangState.currentLang
+			lang ? getLangFromAbreviation(lang) : currentLangState.currentLang
 		)
-	}, [location, currentLangState, searchParams])
+	}, [currentLangState, searchParams])
 
 	const fluidLayout = isFluidLayout(location.pathname)
 

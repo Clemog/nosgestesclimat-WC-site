@@ -74,7 +74,7 @@ export default ({ openExplanation, setOpenExplanation }) => {
 							padding: 0.3rem !important;
 						`}
 					>
-						J'ai compris
+						<Trans>J'ai compris</Trans>
 					</button>
 				</div>
 			</div>
