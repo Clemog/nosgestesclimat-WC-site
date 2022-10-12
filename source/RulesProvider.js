@@ -14,8 +14,7 @@ import { useEffect, useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
-import rulesEn from './locales/co2-en-us.json'
-import rulesFr from './locales/co2-fr.json'
+import { addTranslationToBaseRules } from '../nosgestesclimat/scripts/i18n/addTranslationToBaseRules'
 import { getCurrentLangAbrv } from './locales/translation'
 
 /* This component gets the publicode rules from the good URL,
