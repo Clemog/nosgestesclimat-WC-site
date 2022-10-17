@@ -16,7 +16,6 @@ import {
 import Tracker, { devTracker } from '../../Tracker'
 import {
 	changeLangTo,
-	defaultLang,
 	getLangFromAbreviation,
 } from './../../locales/translation'
 import Actions from './Actions'
@@ -54,6 +53,9 @@ export default function Root({ }) {
 	).get('shareData')
 
 	const persistedSimulation = retrievePersistedSimulation()
+
+	const navigatorLanguage = window.navigator.language
+
 	return (
 		<Provider
 			tracker={tracker}
@@ -99,11 +101,15 @@ const Router = ({ }) => {
 
 	useEffect(() => {
 		const lang = searchParams.get('lang')
-		changeLangTo(
-			i18n,
-			lang ? getLangFromAbreviation(lang) : currentLangState.currentLang
-		)
-	}, [currentLangState, searchParams])
+
+		if (lang) {
+			changeLangTo(i18n, getLangFromAbreviation(lang))
+		} else {
+			changeLangTo(i18n, currentLang)
+			searchParams.set('lang', i18n.language)
+			setSearchParams(searchParams)
+		}
+	}, [currentLang, searchParams])
 
 	const fluidLayout = isFluidLayout(location.pathname)
 
