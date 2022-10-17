@@ -9,7 +9,7 @@ import { useNextQuestions } from 'Components/utils/useNextQuestion'
 import { TrackerContext } from 'Components/utils/withTracker'
 import { motion } from 'framer-motion'
 import React, { Suspense, useContext, useEffect, useState } from 'react'
-import { Trans, useTranslation } from 'react-i18next'
+import { Trans } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {
@@ -331,7 +331,7 @@ export default function Conversation({
 			</motion.div>
 			<p>
 				<Trans>Vous avez complété la catégorie</Trans>{' '}
-				{t(focusedCategory as string, { ns: 'categories' })}
+				<i>{focusedCategoryTitle}</i>
 			</p>
 			<Link to="/profil">
 				<Trans>Modifier mes réponses</Trans>
