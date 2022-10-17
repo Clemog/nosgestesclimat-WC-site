@@ -55,7 +55,8 @@ export default function Root({ }) {
 	const persistedSimulation = retrievePersistedSimulation()
 
 	const navigatorLanguage = getLangFromAbreviation(
-		window.navigator.language.toLowerCase()
+		'en-us'
+		// window.navigator.language.toLowerCase()
 	)
 
 	return (
