@@ -54,7 +54,9 @@ export default function Root({ }) {
 
 	const persistedSimulation = retrievePersistedSimulation()
 
-	const navigatorLanguage = window.navigator.language
+	const navigatorLanguage = getLangFromAbreviation(
+		window.navigator.language.toLowerCase()
+	)
 
 	return (
 		<Provider
@@ -106,6 +108,10 @@ const Router = ({ }) => {
 			changeLangTo(i18n, getLangFromAbreviation(lang))
 		} else {
 			changeLangTo(i18n, currentLang)
+			dispatch({
+				type: 'SET_LANGUAGE',
+				currentLang,
+			})
 			searchParams.set('lang', i18n.language)
 			setSearchParams(searchParams)
 		}
