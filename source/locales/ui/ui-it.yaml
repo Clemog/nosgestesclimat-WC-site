@@ -503,9 +503,10 @@ entries:
   publicodes.Profil.recap: Avete completato il test su {{percentFinished}} %
     ({{answeredQuestionsLength}} questions) et choisi {{actionChoicesLength}}
     azioni.
-  publicodes.Profil.recap.lock: Vous avez terminé le test à
-    <ignore>percentFinished}} % ({{answeredQuestionsLength}} questions) et
-    choisi {{actionChoicesLength</ignore> actions.
+  publicodes.Profil.recap.lock:
+    Vous avez terminé le test à {{percentFinished}} %
+    ({{answeredQuestionsLength}} questions) et choisi {{actionChoicesLength}}
+    actions.
   publicodes.SimulationMissing.personnas: 💡 Potete anche vedere il percorso
     d'azione come se foste uno di questi profili tipici.
   publicodes.SimulationMissing.personnas.lock: 💡 Vous pouvez aussi voir le
@@ -786,7 +787,7 @@ entries:
   simulation-end.title.lock: 🌟 Vous avez complété cette simulation
   simulations terminées depuis le lancement: simulazioni completate dal lancio
   site.publicodes.conferences.Stats.explication1: '<0>In giallo</0>: la mia simulazione a {{spotlightValue}} t.'
-  site.publicodes.conferences.Stats.explication1.lock: '<0>En jaune</0> : ma simulation à <ignore>spotlightValue</ignore> t.'
+  site.publicodes.conferences.Stats.explication1.lock: '<0>En jaune</0> : ma simulation à {{spotlightValue}} t.'
   sites.publicodes.Landing.description: In 10 minuti, potrete ottenere una stima della vostra impronta di carbonio.
   sites.publicodes.Landing.description.lock:
     En 10 minutes, obtenez une estimation
