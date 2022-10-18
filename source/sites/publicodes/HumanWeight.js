@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 
 import { correctValue } from '../../components/publicodesUtils'
 import { getLangFromAbreviation, getLangInfos } from '../../locales/translation'
@@ -41,7 +41,11 @@ const HumanWeight = ({
 	const currentLangInfos = getLangInfos(getLangFromAbreviation(i18n.language))
 
 	if (!unitSuffix) {
-		unitSuffix = t('de') + ' CO₂-e / ' + t('an')
+		unitSuffix = (
+			<span>
+				<Trans i18nKey="humanWeight.unitSuffix" /> CO₂-e / {t('an')}
+			</span>
+		)
 	}
 
 	const [value, unit] =
