@@ -34,19 +34,16 @@ const HumanWeight = ({
 	nodeValue,
 	overrideValue,
 	metric = 'climat',
-	unitSuffix = undefined,
-	longUnitSuffix,
+	unitText: givenUnitText,
+	longUnitText,
 }) => {
 	const { t, i18n } = useTranslation()
 	const currentLangInfos = getLangInfos(getLangFromAbreviation(i18n.language))
-
-	if (!unitSuffix) {
-		unitSuffix = (
-			<span>
-				<Trans i18nKey="humanWeight.unitSuffix" /> CO₂-e / {t('an')}
-			</span>
-		)
-	}
+	const unitText = givenUnitText || (
+		<span>
+			<Trans i18nKey="humanWeight.unitSuffix" /> CO₂-e / {t('an')}
+		</span>
+	)
 
 	const [value, unit] =
 		metric === 'climat'
@@ -116,7 +113,7 @@ const HumanWeight = ({
 				<span
 					className="unitSuffix"
 					css={
-						longUnitSuffix &&
+						longUnitText &&
 						`
 						@media (min-width: 800px) {
 							display: none;
@@ -124,9 +121,9 @@ const HumanWeight = ({
 					`
 					}
 				>
-					{unitSuffix}
+					{unitText}
 				</span>
-				{longUnitSuffix && (
+				{longUnitText && (
 					<span
 						className="unitSuffix"
 						css={`
@@ -135,7 +132,7 @@ const HumanWeight = ({
 							}
 						`}
 					>
-						{longUnitSuffix}
+						{longUnitText}
 					</span>
 				)}
 			</span>
