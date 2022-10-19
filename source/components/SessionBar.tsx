@@ -2,6 +2,7 @@ import { loadPreviousSimulation } from 'Actions/actions'
 import useLocalisation from 'Components/localisation/useLocalisation'
 import { extractCategories } from 'Components/publicodesUtils'
 import { useEffect } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { RootState } from 'Reducers/rootReducer'
@@ -11,11 +12,12 @@ import { resetLocalisation } from '../actions/actions'
 import ConferenceBarLazy from '../sites/publicodes/conference/ConferenceBarLazy'
 import { backgroundConferenceAnimation } from '../sites/publicodes/conference/conferenceStyle'
 import SurveyBarLazy from '../sites/publicodes/conference/SurveyBarLazy'
+import { omit } from '../utils'
 import CardGameIcon from './CardGameIcon'
 import {
+	getFlagImgSrc,
 	getLocalisationPullRequest,
 	getSupportedFlag,
-	getFlagImgSrc,
 	isRegionSupported,
 } from './localisation/useLocalisation'
 import ProgressCircle from './ProgressCircle'

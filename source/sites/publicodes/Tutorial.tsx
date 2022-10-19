@@ -1,4 +1,3 @@
-import { Link } from 'Components/Link'
 import AbacusFrance from 'Images/abacus-france.svg'
 import CO2e from 'Images/co2e.svg'
 import GreenhouseEffect from 'Images/greenhouse-effect.svg'
