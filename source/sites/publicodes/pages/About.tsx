@@ -7,6 +7,7 @@ import contentEs from 'raw-loader!../../../locales/pages/es/about.md'
 import contentIt from 'raw-loader!../../../locales/pages/it/about.md'
 
 export default () => {
+	const { t } = useTranslation()
 	return (
 		<MarkdownPage
 			markdownFiles={[
@@ -15,8 +16,8 @@ export default () => {
 				[Lang.Es, contentEs],
 				[Lang.It, contentIt],
 			]}
-			title={'À propos'}
-			descriptionId="About"
+			title={t('meta.publicodes.About.title')}
+			description={t('meta.publicodes.About.description')}
 		/>
 	)
 }
