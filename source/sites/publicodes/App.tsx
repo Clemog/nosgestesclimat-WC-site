@@ -18,6 +18,7 @@ import {
 	changeLangTo,
 	getLangFromAbreviation,
 	getLangInfos,
+	Lang,
 } from './../../locales/translation'
 import Actions from './Actions'
 import Fin from './fin'
