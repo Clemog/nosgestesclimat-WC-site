@@ -1,5 +1,4 @@
 import Logo from 'Components/Logo'
-import LogoADEME from 'Images/logoADEME.svg'
 import Route404 from 'Components/Route404'
 import { sessionBarMargin } from 'Components/SessionBar'
 import 'Components/ui/index.css'
