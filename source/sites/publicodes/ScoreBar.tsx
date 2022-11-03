@@ -1,6 +1,6 @@
 import { useEngine } from 'Components/utils/EngineContext'
 import { utils } from 'publicodes'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import emoji from 'react-easy-emoji'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -14,6 +14,7 @@ import {
 } from '../../selectors/simulationSelectors'
 import HumanWeight, { DiffHumanWeight } from './HumanWeight'
 import PetrolScore from './PetrolScore'
+import { TrackerContext } from '../../components/utils/withTracker'
 
 export default ({ }) => {
 	const objectif = useSelector(objectifsSelector)[0],
@@ -47,6 +48,8 @@ export default ({ }) => {
 				}
 				text-align: center;
 				box-shadow: 2px 2px 10px #bbb;
+
+	const tracker = useContext(TrackerContext)
 
 	return (
 		<div>
@@ -130,7 +133,10 @@ export default ({ }) => {
 						{!demoMode && (
 							<button
 								title="Afficher l'explication du score"
-								onClick={() => setOpenExplanation(!openExplanation)}
+								onClick={() => {
+									setOpenExplanation(!openExplanation)
+									tracker.push(['trackEvent', 'NGC', 'Clic explication score'])
+								}}
 								css={`
 									position: relative;
 									right: 0.5rem;
