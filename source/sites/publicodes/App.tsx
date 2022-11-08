@@ -93,7 +93,7 @@ export default function Root({ }) {
 
 const Router = ({ }) => {
 	const location = useLocation()
-	const [searchParams, setSearchParams] = useSearchParams()
+	const [searchParams, _] = useSearchParams()
 	const isHomePage = location.pathname === '/',
 		isTuto = location.pathname.indexOf('/tutoriel') === 0
 
@@ -107,9 +107,12 @@ const Router = ({ }) => {
 	const currentLangState = useSelector((state) => state.currentLang)
 	const currentLangParam = searchParams.get('lang')
 
-	useEffect(() => {
-		const currentLangAbrv = getLangInfos(currentLangState).abrv
+	if (i18n.language !== getLangInfos(currentLangState).abrv) {
+		// sync up the [i18n.language] with the current lang stored in the persisiting state.
+		changeLangTo(i18n, currentLangState)
+	}
 
+	useEffect(() => {
 		if (currentLangParam && currentLangParam !== i18n.language) {
 			// The 'lang' search param has been modified.
 			const currentLang = getLangFromAbreviation(currentLangParam)
@@ -118,14 +121,6 @@ const Router = ({ }) => {
 				type: 'SET_LANGUAGE',
 				currentLang,
 			})
-			searchParams.set('lang', i18n.language)
-			setSearchParams(searchParams, { replace: true })
-		} else if (!currentLangParam) {
-			// There is no 'lang' search param,
-			// -> set it up from the one stored in the persisting state.
-			searchParams.set('lang', currentLangAbrv)
-			changeLangTo(i18n, currentLangState)
-			setSearchParams(searchParams, { replace: true })
 		}
 	}, [currentLangParam])
 
