@@ -20,7 +20,7 @@ entries:
   'Ajouter ': 'Add '
   Aller au contenu: Go to content
   Annuler: Cancel
-  Aucun: No
+  Aucun: None
   Autonome: Autonomous
   Avancement du groupe: Group progress
   Bientôt disponible !: Available soon !
@@ -241,15 +241,12 @@ entries:
   components.TranslationAlertBanner.wikiLink:
     This page has <1>been automatically
     translated</1>. If you have a suggestion, please <4>refer to the wiki</4>.
-  components.TranslationAlertBanner.wikiLink.lock:
-    Cette page a <1>été traduite de
+  components.TranslationAlertBanner.wikiLink.lock: Cette page a <1>été traduite de
     façons automatique</1>. Si vous avez une suggestion, <4>reportez vous au
     wiki</4>.
-  components.conversation.estimate.KmHelp.resultatKmParcouruMoyenne:
-    You travel {{kmParcouru}} km avec en moyenne {{nbPersonnes}} people in the
+  components.conversation.estimate.KmHelp.resultatKmParcouruMoyenne: You travel {{kmParcouru}} km avec en moyenne {{nbPersonnes}} people in the
     car.
-  components.conversation.estimate.KmHelp.resultatKmParcouruMoyenne.lock:
-    Vous parcourez {{kmParcouru}} km avec en moyenne {{nbPersonnes}} personnes
+  components.conversation.estimate.KmHelp.resultatKmParcouruMoyenne.lock: Vous parcourez {{kmParcouru}} km avec en moyenne {{nbPersonnes}} personnes
     dans la voiture.
   components.conversation.select.NumberedMosaic.choixAFaire: ' You still have {{nbChoix}} to choose from.'
   components.conversation.select.NumberedMosaic.choixAFaire.lock: ' Il vous reste {{nbChoix}} choix à faire.'
