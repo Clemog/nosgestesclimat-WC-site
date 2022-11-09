@@ -127,6 +127,7 @@ entries:
   Nbre de personnes: Nbre de personnes
   Nom de la salle: Nom de la salle
   Nombre de personnes: Nombre de personnes
+  Nombre de visites pour les: Nombre de visites pour les
   Non: Non
   Non applicable: Non applicable
   Non chiffré: Non chiffré
@@ -274,6 +275,8 @@ entries:
   de: de
   de <1>pétrole brut par an</1>.: de <1>pétrole brut par an</1>.
   de visites ce mois ci<1>&nbsp;(par rapport au mois d'avant)</1>: de visites ce mois ci<1>&nbsp;(par rapport au mois d'avant)</1>
+  derniers: derniers
+  dernières: dernières
   dernières nouveautés: dernières nouveautés
   en moyenne sur le site: en moyenne sur le site
   et: et
@@ -290,6 +293,7 @@ entries:
   habitants: habitants
   humanWeight.unitSuffix: de
   jour: jour
+  jours: jours
   la page à partager à l'étape 3: la page à partager à l'étape 3
   le + d'impact climat: le + d'impact climat
   le - d'impact climat: le - d'impact climat
