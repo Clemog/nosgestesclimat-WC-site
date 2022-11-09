@@ -22,6 +22,8 @@ export const humanWeight = (
 
 	const abrvLocale = getCurrentLangInfos(i18n).abrvLocale
 
+	const abrvLocale = getCurrentLangInfos(i18n).abrvLocale
+
 	const signedValue = raw * (possiblyNegativeValue < 0 ? -1 : 1),
 		resultValue = noSign ? raw : signedValue,
 		value = resultValue.toLocaleString('fr-FR', {
