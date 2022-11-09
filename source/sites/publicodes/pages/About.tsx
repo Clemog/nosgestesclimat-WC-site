@@ -13,8 +13,8 @@ export default () => {
 			markdownFiles={[
 				[Lang.Fr, contentFr],
 				[Lang.En, contentEn],
-				[Lang.Es, contentEs],
-				[Lang.It, contentIt],
+				// [Lang.Es, contentEs],
+				// [Lang.It, contentIt],
 			]}
 			title={t('meta.publicodes.About.title')}
 			description={t('meta.publicodes.About.description')}
