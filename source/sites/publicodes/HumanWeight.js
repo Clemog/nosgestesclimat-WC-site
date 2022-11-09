@@ -1,13 +1,12 @@
 import { Trans, useTranslation } from 'react-i18next'
 
 import { correctValue } from '../../components/publicodesUtils'
-import { getLangFromAbreviation, getLangInfos } from '../../locales/translation'
+import { getCurrentLangInfos } from '../../locales/translation'
 import { disabledAction, supersededAction } from './ActionVignette'
 
 export const humanWeight = (
-	t, // Needs to be passed as an argument instead of calling useTranslation inside the body, to avoid 'Rendered more hooks than during the previous render.'
+	{ t, i18n }, // We need to be passed as an argument instead of calling useTranslation inside the body, to avoid 'Rendered more hooks than during the previous render.'
 	possiblyNegativeValue,
-	abrvLocale,
 	concise = false,
 	noSign
 ) => {
@@ -20,6 +19,8 @@ export const humanWeight = (
 			: v < 1000
 			? [v, 'kg', 0]
 			: [v / 1000, concise ? 't' : v > 2000 ? 'tonnes' : 'tonne', 1]
+
+	const abrvLocale = getCurrentLangInfos(i18n).abrvLocale
 
 	const signedValue = raw * (possiblyNegativeValue < 0 ? -1 : 1),
 		resultValue = noSign ? raw : signedValue,
@@ -38,7 +39,6 @@ const HumanWeight = ({
 	longUnitText,
 }) => {
 	const { t, i18n } = useTranslation()
-	const currentLangInfos = getLangInfos(getLangFromAbreviation(i18n.language))
 	const unitText = givenUnitText || (
 		<span>
 			<Trans i18nKey="humanWeight.unitSuffix">de</Trans> CO₂-e /{' '}
@@ -48,7 +48,7 @@ const HumanWeight = ({
 
 	const [value, unit] =
 		metric === 'climat'
-			? humanWeight(t, nodeValue, currentLangInfos.abrvLocale)
+			? humanWeight({ t, i18n }, nodeValue)
 			: metric === 'pétrole'
 			? [nodeValue, '']
 			: [null]
@@ -95,15 +95,7 @@ const HumanWeight = ({
 					<>
 						<del css="">{value}</del>
 						&nbsp;
-						<ins>
-							{
-								humanWeight(
-									t,
-									nodeValue - overrideValue,
-									currentLangInfos.abrvLocale
-								)[0]
-							}
-						</ins>
+						<ins>{humanWeight({ t, i18n }, nodeValue - overrideValue)[0]}</ins>
 					</>
 				) : (
 					value
