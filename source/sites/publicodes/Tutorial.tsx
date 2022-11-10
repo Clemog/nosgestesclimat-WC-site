@@ -1,4 +1,3 @@
-import AbacusFrance from 'Images/abacus-france.svg'
 import CO2e from 'Images/co2e.svg'
 import GreenhouseEffect from 'Images/greenhouse-effect.svg'
 import ObjectifClimat from 'Images/objectif-climat.svg'
@@ -16,7 +15,6 @@ import { TrackerContext } from '../../components/utils/withTracker'
 import { WithEngine } from '../../RulesProvider'
 import Chart from './chart/index.js'
 import HorizontalSwipe from './HorizontalSwipe'
-import ScoreBar from './ScoreBar'
 import Slide from './TutorialSlide'
 
 export default ({}) => {
