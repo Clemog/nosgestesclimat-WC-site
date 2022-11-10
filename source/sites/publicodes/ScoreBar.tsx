@@ -57,6 +57,10 @@ export default ({ }) => {
 
 	const blur = Object.keys(situation).length === 0
 
+	useEffect(() => {
+		if (!blur) setTimeout(() => setOpenExplanation(true), 2000)
+	}, [blur])
+
 	return (
 		<div>
 			<div
