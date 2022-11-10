@@ -55,6 +55,8 @@ export default ({ }) => {
 
 	const tracker = useContext(TrackerContext)
 
+	const blur = Object.keys(situation).length === 0
+
 	return (
 		<div>
 			<div
@@ -123,6 +125,7 @@ export default ({ }) => {
 								<HumanWeight
 									nodeValue={nodeValue}
 									overrideValue={actionMode && actionTotal !== 0 && actionTotal}
+									blur={blur}
 								/>
 							) : (
 								<DiffHumanWeight

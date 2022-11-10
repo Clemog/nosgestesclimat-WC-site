@@ -39,6 +39,7 @@ const HumanWeight = ({
 	metric = 'climat',
 	unitText: givenUnitText,
 	longUnitText,
+	blur,
 }) => {
 	const { t, i18n } = useTranslation()
 	const unitText = givenUnitText || (
@@ -93,16 +94,24 @@ const HumanWeight = ({
 					font-weight: 600;
 				`}
 			>
-				{overrideValue ? (
-					<>
-						<del css="">{value}</del>
-						&nbsp;
-						<ins>{humanWeight({ t, i18n }, nodeValue - overrideValue)[0]}</ins>
-					</>
-				) : (
-					value
-				)}
-				&nbsp;{unit}
+				<span
+					css={`
+						${blur && `filter: blur(5px);`}
+					`}
+				>
+					{overrideValue ? (
+						<>
+							<del css="">{value}</del>
+							&nbsp;
+							<ins>
+								{humanWeight({ t, i18n }, nodeValue - overrideValue)[0]}
+							</ins>
+						</>
+					) : (
+						value
+					)}
+				</span>
+				<span>&nbsp;{unit}</span>
 			</strong>{' '}
 			<span>
 				<span
