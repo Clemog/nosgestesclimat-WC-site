@@ -163,7 +163,6 @@ entries:
   Point d'interrogation: Point d'interrogation
   Pompe à pétrole: Pompe à pétrole
   Pour aller plus loin: Pour aller plus loin
-  'Pour en savoir plus, tout est expliqué <1></1>dans ': 'Pour en savoir plus, tout est expliqué <1></1>dans '
   'Pour en savoir plus, tout est expliqué dans ': 'Pour en savoir plus, tout est expliqué dans '
   Problème de traduction: Problème de traduction
   Progression dans les diapo: Progression dans les diapo
@@ -285,7 +284,6 @@ entries:
   dernières nouveautés: dernières nouveautés
   des visites affichées en iframe: des visites affichées en iframe
   des visites en iframe sont actives: des visites en iframe sont actives
-  des vistes affichées en iframe: des vistes affichées en iframe
   en moyenne sur le site: en moyenne sur le site
   et: et
   et visualisez les résultats du groupe: et visualisez les résultats du groupe
@@ -370,6 +368,7 @@ entries:
   nouveautés: nouveautés
   ont utilisé l'aide à la saisie des km: ont utilisé l'aide à la saisie des km
   ou: ou
+  pages.News.determinant: of
   pages.News.premierParagraphe: Nous améliorons le site en continu à partir de vos retours. Découvrez ici les
   participant: participant
   pleins: pleins
