@@ -54,11 +54,13 @@ export default ({ }) => {
 				box-shadow: 2px 2px 10px #bbb;
 
 	const tracker = useContext(TrackerContext)
+	const tutorials = useSelector((state) => state.tutorials)
 
 	const blur = Object.keys(situation).length === 0
 
 	useEffect(() => {
-		if (!blur) setTimeout(() => setOpenExplanation(true), 2000)
+		if (!blur && !tutorials['scoreExplanation'])
+			setTimeout(() => setOpenExplanation(true), 2000)
 	}, [blur])
 
 	return (

@@ -2,6 +2,11 @@ import emoji from './emoji'
 import DefaultFootprint from '../sites/publicodes/DefaultFootprint'
 
 export default ({ openExplanation, setOpenExplanation }) => {
+	const dispatch = useDispatch()
+	const close = () => {
+		dispatch(skipTutorial('scoreExplanation'))
+		setOpenExplanation(false)
+	}
 	return (
 		openExplanation && (
 			<motion.div
@@ -104,7 +109,7 @@ export default ({ openExplanation, setOpenExplanation }) => {
 						</Trans>
 					</p>
 					<button
-						onClick={() => setOpenExplanation(false)}
+						onClick={close}
 						css={`
 							border: none;
 							font-size: 200%;
@@ -124,10 +129,7 @@ export default ({ openExplanation, setOpenExplanation }) => {
 							justify-content: flex-end;
 						`}
 					>
-						<button
-							className="ui__ button plain small"
-							onClick={() => setOpenExplanation(false)}
-						>
+						<button className="ui__ button plain small" onClick={close}>
 							<Trans>J'ai compris</Trans>
 						</button>
 					</div>
