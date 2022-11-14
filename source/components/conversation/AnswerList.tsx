@@ -242,16 +242,14 @@ const Answer = ({ rule, dispatch, language, level }) => {
 	const path = parentName(rule.dottedName, ' · ', level)
 
 	if (rule.unit?.numerators) {
-		rule.unit.numerators = rule.unit.numerators.map((unit: string) =>
-			t(unit, { ns: 'units' })
-		)
+		rule.unit.numerators = translateUnits(rule.unit.numerators)
 	}
 
-	var formattedValue: string = formatValue(rule)
-	if (rule.type === 'boolean') {
-		// TODO: support all needed values
-		formattedValue = t(formattedValue, { ns: 'units' })
-	}
+	const formattedValue =
+		rule.type === 'string'
+			? // Retrieve the translated title of the rule implicated to a suggestion
+			  engine.getRule(rule.dottedName + ' . ' + rule.nodeValue)?.title
+			: t(formatValue(rule) as string, { ns: 'units' })
 
 	return (
 		<tr
