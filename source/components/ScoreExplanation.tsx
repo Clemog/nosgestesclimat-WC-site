@@ -1,11 +1,7 @@
 import emoji from './emoji'
 import DefaultFootprint from '../sites/publicodes/DefaultFootprint'
 
-export default ({
-	openExplanation,
-	setOpenExplanation,
-	answeredQuestionsLength,
-}) => {
+export default ({ openExplanation, setOpenExplanation, situationLength }) => {
 	const dispatch = useDispatch()
 	const close = () => {
 		dispatch(skipTutorial('scoreExplanation'))
@@ -91,7 +87,7 @@ export default ({
 						}
 					`}
 				>
-					{answeredQuestionsLength === 0 && (
+					{situationLength === 0 && (
 						<p>
 							<Trans i18nKey={'components.ScoreExplanation.text.p1'}>
 								🧮 Répondez à la première question pour afficher votre score, il
@@ -99,7 +95,7 @@ export default ({
 							</Trans>
 						</p>
 					)}
-					{answeredQuestionsLength === 1 && (
+					{situationLength === 1 && (
 						<p>
 							<Trans i18nKey={'components.ScoreExplanation.text.p2'}>
 								🧮 Voici votre score de départ calculé à partir de valeurs par
@@ -108,7 +104,7 @@ export default ({
 							</Trans>
 						</p>
 					)}
-					{answeredQuestionsLength > 1 && (
+					{situationLength > 1 && (
 						<p>
 							<Trans i18nKey={'components.ScoreExplanation.text.p3'}>
 								🧮 Voici votre score provisoire ! Il évolue à chaque nouvelle
