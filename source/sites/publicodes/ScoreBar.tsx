@@ -60,6 +60,12 @@ export default ({ }) => {
 
 	const blur = situationLength === 0
 
+	useEffect(() => {
+		if (!blur && !tutorials['scoreExplanation']) {
+			setTimeout(() => setOpenExplanation(true), 500)
+		}
+	}, [blur])
+
 	return (
 		<div>
 			<div
