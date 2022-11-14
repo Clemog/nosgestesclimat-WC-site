@@ -124,6 +124,10 @@ export default ({ }) => {
 								align-items: center;
 								justify-content: center;
 								color: white !important;
+								${blur &&
+								`
+											cursor: default;
+								}`}
 							`}
 							to={demoMode ? '#' : buildEndURL(rules, engine)}
 							title="Page de fin de simulation principale"
