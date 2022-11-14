@@ -239,6 +239,17 @@ const Answer = ({ rule, dispatch, language, level }) => {
 	const history = useHistory()
 	const path = parentName(rule.dottedName, ' · ', level)
 
+	if (rule.unit?.numerators) {
+		rule.unit.numerators = rule.unit.numerators.map((unit: string) =>
+			t(unit, { ns: 'units' })
+		)
+	}
+
+	var formattedValue: string = formatValue(rule)
+	if (rule.type === 'boolean') {
+		formattedValue = t(formattedValue, { ns: 'units' })
+	}
+
 	return (
 		<tr
 			key={rule.dottedName}
@@ -284,7 +295,7 @@ const Answer = ({ rule, dispatch, language, level }) => {
 							${rule.passedQuestion ? 'opacity: .5' : ''}
 						`}
 					>
-						{formatValue(rule)}
+						{formattedValue}
 						{rule.passedQuestion && emoji(' 🤷🏻')}
 					</span>
 				</button>
