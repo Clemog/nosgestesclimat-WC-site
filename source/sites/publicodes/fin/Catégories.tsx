@@ -3,7 +3,7 @@ import { motion, useSpring } from 'framer-motion'
 import { utils } from 'publicodes'
 import { useEffect, useState } from 'react'
 import { DocumentationEndButton, generateImageLink } from '.'
-import RavijenChart from '../chart/RavijenChart'
+import GridChart from '../chart/GridChart'
 import FinShareButton from './FinShareButton'
 
 export default ({ score, details, headlessMode, noQuestionsLeft }) => {
@@ -82,7 +82,7 @@ export default ({ score, details, headlessMode, noQuestionsLeft }) => {
 					title="Représentation visuelle en mosaïque de cubes. Chaque cube représente une part fixe de l'empreinte, et une sous-catégories (par exemple, voiture, moto, ou boisson. Sur cette mosaïque vient se placer une zone verte représentant le budget climat de 2 tonnes. "
 				>
 					<div css="padding: 0 1rem">
-						<RavijenChart
+						<GridChart
 							noAnimation
 							details={details}
 							linkTo="documentation"
