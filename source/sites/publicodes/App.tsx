@@ -154,7 +154,7 @@ const Router = ({ }) => {
 					padding-left: 0rem;
 					@media (min-width: 800px) {
 						flex-grow: 1;
-						padding-left: 0.6rem;
+						${!isHomePage ? 'padding-left: 0.6rem;' : ''}
 					}
 				`}
 			>
