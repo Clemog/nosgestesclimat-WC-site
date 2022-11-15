@@ -58,13 +58,11 @@ export default ({ }) => {
 
 	const situationLength = Object.keys(situation).length
 
-	const blur = situationLength === 0
-
 	useEffect(() => {
-		if (!blur && !tutorials['scoreExplanation']) {
-			setTimeout(() => setOpenExplanation(true), 500)
+		if (testStarted && !tutorials['scoreExplanation']) {
+			setTimeout(() => setOpenExplanation(true), 1500)
 		}
-	}, [blur])
+	}, [testStarted])
 
 	return (
 		<div>
@@ -134,7 +132,6 @@ export default ({ }) => {
 								<HumanWeight
 									nodeValue={nodeValue}
 									overrideValue={actionMode && actionTotal !== 0 && actionTotal}
-									blur={blur}
 								/>
 							) : (
 								<DiffHumanWeight

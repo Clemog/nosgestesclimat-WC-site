@@ -1,10 +1,11 @@
-import { setSimulationConfig } from 'Actions/actions'
+import { setSimulationConfig, skipTutorial } from 'Actions/actions'
 import { extractCategories } from 'Components/publicodesUtils'
 import { buildEndURL } from 'Components/SessionBar'
 import Simulation from 'Components/Simulation'
 import Title from 'Components/Title'
 import { useEngine } from 'Components/utils/EngineContext'
 import { Markdown } from 'Components/utils/markdown'
+import { motion, useAnimation } from 'framer-motion'
 import { utils } from 'publicodes'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -39,6 +40,31 @@ const Simulateur = () => {
 	const tutorials = useSelector((state) => state.tutorials)
 	const url = useLocation().pathname
 
+	const [testStarted, setTestStarted] = useState(false)
+
+	const animated = tutorials['scoreAnimation']
+
+	const controls = useAnimation()
+
+	useEffect(() => {
+		if (!testStarted) {
+			const tutoKey = 'testCategory-'
+			const firstRespirationSkipped = Object.keys(tutorials)
+				.map((elt) => elt.includes(tutoKey))
+				.some((bool) => bool === true)
+			if (firstRespirationSkipped) {
+				setTestStarted(true)
+			}
+		}
+	}, [tutorials, controls, testStarted])
+
+	useEffect(() => {
+		if (testStarted && !animated) {
+			controls.set('hidden')
+			dispatch(skipTutorial('scoreAnimation'))
+		}
+	}, [controls, animated, testStarted])
+
 	useEffect(() => {
 		!equivalentTargetArrays(config.objectifs, configSet?.objectifs || []) &&
 			dispatch(setSimulationConfig(config, url))
@@ -49,15 +75,26 @@ const Simulateur = () => {
 		return null
 	}
 
-	const introPassed = tutorials.testIntro
-
 	return (
 		<div>
 			<Meta title={evaluation.title} />
 			<Title>
 				<Trans>Le test</Trans>
 			</Title>
-			{introPassed && <ScoreBar />}
+			{testStarted && (
+				<motion.div
+					initial="visible"
+					whileInView="visible"
+					animate={controls}
+					variants={{
+						hidden: { opacity: 0, scale: 0.8 },
+						visible: { opacity: 1, scale: 1 },
+					}}
+					transition={{ duration: 0.3, delay: 0.3 }}
+				>
+					<ScoreBar testStarted={testStarted} />
+				</motion.div>
+			)}
 			{!isMainSimulation && (
 				<h1>
 					{evaluation.rawNode.title || (
