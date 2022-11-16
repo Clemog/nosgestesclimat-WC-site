@@ -632,6 +632,13 @@ entries:
   publicodes.SimulationMissing.simulationManquante.lock: Vous n'avez pas encore
     fait le test. Pour débloquer ce parcours, vous devez nous en dire un peu
     plus sur votre mode de vie.
+  publicodes.TranslationContribution.commentaireAugmenté: >-
+
+    > This ticket was created automatically by our robot from our [contribution page for translation](https://nosgestesclimat.fr/contribuer-traduction).
+  publicodes.TranslationContribution.commentaireAugmenté.lock: >-
+
+
+    > Ce ticket a été créé automatiquement par notre robot depuis notre [page de contribution pour la traduction](https://nosgestesclimat.fr/contribuer-traduction).
   publicodes.Tutorial.slide1.p1: <0>Do not worry, we'll briefly explain what it
     is.</0><1>The planet is <1>warming up dangerously</1>, as we emit more and
     more greenhouse gases.</1>
