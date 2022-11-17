@@ -87,7 +87,7 @@ export default ({
 								onChange={(e) => setMode(e.target.value)}
 							/>
 							<h3>
-								<Trans>Sondage</Trans>
+								💾 <Trans>Sondage</Trans>
 							</h3>
 							<p>
 								<Trans
@@ -95,9 +95,9 @@ export default ({
 										'publicodes.conference.Instructions.descriptionModeSondage'
 									}
 								>
-									Mode persistant : l'interface est presque la même, mais les
-									données sont stockées sur notre serveur et ainsi restent
-									accessibles <strong>pendant deux mois</strong>.
+									Mode persistant : les données des participants sont stockées
+									sur notre serveur et restent accessibles et téléchargeables
+									<strong>pendant deux mois</strong>.
 								</Trans>
 							</p>
 						</label>
@@ -114,7 +114,7 @@ export default ({
 								onChange={(e) => setMode(e.target.value)}
 							/>
 							<h3>
-								<Trans>Conférence</Trans>
+								🌠 <Trans>Conférence</Trans>
 							</h3>
 							<p>
 								<Trans
@@ -124,7 +124,7 @@ export default ({
 								>
 									Mode éphémère : parfait pour l'animation d'un atelier, une
 									présentation interactive ou entre amis. Les données restent
-									entre les participants (pair-à-pair), sans serveur,{' '}
+									entre les participants (pair-à-pair sans serveur),{' '}
 									<strong>juste le temps de la conférence</strong>.
 								</Trans>
 							</p>
@@ -132,12 +132,14 @@ export default ({
 					</div>
 					{mode == 'conférence' && (
 						<p>
+							⚠️{' '}
 							<Trans
 								i18nKey={`publicodes.conference.Instructions.avertissementModeConference`}
 							>
-								🔒️ Votre organisation peut bloquer l'utilisation du mode
-								conférence. Faites le test au préalable en duo : en cas de
-								problème, vous pouvez utiliser le mode sondage.
+								Attention, il est possible que votre organisation bloque le
+								pair-à-pair, et donc l'utilisation du mode conférence. Faites le
+								test au préalable sur site et en duo : en cas de problème, vous
+								pouvez utiliser le mode sondage.
 							</Trans>
 						</p>
 					)}
