@@ -1,31 +1,10 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 
-import {
-	useTotal,
-	useSimulationsTerminees,
-	useVisitsDuration,
-	useVisitsAvgDuration,
-	useWebsites,
-	useOldWebsites,
-	useSocials,
-	useKeywords,
-	usePeriod,
-	useReference,
-	useEntryPages,
-	useActiveEntryPages,
-	usePages,
-	useAllTime,
-	useKmHelp,
-	useSimulationsfromKmHelp,
-	useRidesNumber,
-} from './matomo'
-import Section from './utils/Section'
-import Evolution from './content/Evolution'
-import Sources from './content/Sources'
 import Chart from './content/Chart'
 import DurationChart from './content/DurationChart'
 import DurationFigures from './content/DurationFigures'
+import Evolution from './content/Evolution'
 import IframeFigures from './content/IframeFigures'
 import KmFigures from './content/KmFigures'
 import ScoreFromURL from './content/ScoreFromURL'

@@ -258,12 +258,12 @@ entries:
   components.stats.StatsContent.integrationEtIframes:
     <0>En savoir plus</0><1>Les
     intégrations en iframe sont détéctées via le paramètre 'iframe' dans l'URL,
-    ceci seulement si l'intégrateur a utilisé le&nbsp;<1>script dédié</1>.
-    Ainsi, les visites via les iframes d'intégrateurs qui n'ont pas utilisé ce
-    script sont dispersées dans les visites générales de Nos Gestes Climat. Dans
-    l'attente de chiffres plus précis, ce taux est donc potentiellement
-    sous-estimé par rapport à la réalité.<3>(Données valables pour les 30
-    derniers jours)</3></1>
+    ceci seulement si l'intégrateur a utilisé le <1>script dédié</1>. Ainsi, les
+    visites via les iframes d'intégrateurs qui n'ont pas utilisé ce script sont
+    dispersées dans les visites générales de Nos Gestes Climat. Dans l'attente
+    de chiffres plus précis, ce taux est donc potentiellement sous-estimé par
+    rapport à la réalité. <4>(Données valables pour les 30 derniers
+    jours)</4></1>
   components.stats.StatsContent.scoreUtilisateurs: "<0>En savoir plus</0><1>Bien
     sûr, nous ne collectons pas <2>les données utlisateurs</2>. Néanmoins, le
     score total ainsi que l'empreinte par catégorie est présente dans l'URL de
@@ -441,7 +441,7 @@ entries:
     Vous n'avez pas encore fait le
     test. Pour débloquer ce parcours, vous devez nous en dire un peu plus sur
     votre mode de vie.
-  publicodes.TranslationContribution.commentaireAugmenté: >-
+  publicodes.TranslationContribution.commentaireAugmenté: |-
 
     > Ce ticket a été créé automatiquement par notre robot depuis notre [page de contribution pour la traduction](https://nosgestesclimat.fr/contribuer-traduction).
   publicodes.TranslationContribution.remerciements:
@@ -583,9 +583,8 @@ entries:
   site.publicodes.conferences.Stats.explication1: '<0>En jaune</0> : ma simulation à {{spotlightValue}} t.'
   sites.publicodes.Landing.description: En 10 minutes, obtenez une estimation de
     votre empreinte carbone de consommation.
-  sites.publicodes.LandingExplanations.faqLink: >-
+  sites.publicodes.LandingExplanations.faqLink: |-
     ## Des questions ?
-
 
 
     Retrouvez les réponses aux questions courantes sur notre page [FAQ](/contribuer).
