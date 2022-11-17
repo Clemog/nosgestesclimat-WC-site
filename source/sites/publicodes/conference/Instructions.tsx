@@ -61,7 +61,7 @@ export default ({
 			{!started && newRoom !== '' && !room && (
 				<InstructionBlock
 					index="2"
-					title={<span>{t(`⏲️  Choississez votre mode de simulation`)}</span>}
+					title={<span>{t(`⏲️  Choisissez votre mode de simulation`)}</span>}
 				>
 					<div
 						css={`
@@ -165,7 +165,7 @@ export default ({
 			>
 				{!newRoom && !room ? (
 					<p>
-						<Trans>Choississez d'abord un nom</Trans>
+						<Trans>Choisissez d'abord un nom</Trans>
 					</p>
 				) : (
 					<div
