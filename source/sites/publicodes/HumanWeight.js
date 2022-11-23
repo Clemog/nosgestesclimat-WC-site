@@ -15,7 +15,7 @@ export const humanWeight = (
 		v === 0
 			? [v, '', 0]
 			: v < 1
-			? [v * 1000, 'g', 0]
+			? [v * 1000, 'g', 1]
 			: v < 1000
 			? [v, 'kg', 0]
 			: [v / 1000, concise ? 't' : v > 2000 ? 'tonnes' : 'tonne', 1]
