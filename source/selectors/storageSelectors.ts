@@ -7,7 +7,7 @@ export type SavedSimulation = {
 	foldedSteps: Array<DottedName> | undefined
 	actionChoices: Object
 	persona: string
-	introTutorials: Object
+	tutorials: Object
 	storedTrajets: Object
 	url: string
 	localisation: Object | undefined
@@ -21,7 +21,7 @@ export const currentSimulationSelector = (
 		foldedSteps: state.simulation?.foldedSteps,
 		actionChoices: state.actionChoices,
 		persona: state.simulation?.persona,
-		introTutorials: state.tutorials.testIntro,
+		tutorials: state.tutorials,
 		storedTrajets: state.storedTrajets,
 		url: state.simulation?.url,
 		localisation: state.localisation,
