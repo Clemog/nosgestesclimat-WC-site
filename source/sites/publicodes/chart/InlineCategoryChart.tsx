@@ -22,7 +22,7 @@ export default ({}) => {
 	const [categories, setCategories] = useState(
 		extractCategories(rules, engine).map((category) => ({
 			...category,
-			abbreviation: rules[category.dottedName].abbréviation,
+			abbreviation: rules[category.dottedName].abréviation,
 		}))
 	)
 	const tutorials = useSelector((state) => state.tutorials)
@@ -31,7 +31,7 @@ export default ({}) => {
 		setCategories(
 			extractCategories(rules, engine).map((category) => ({
 				...category,
-				abbreviation: rules[category.dottedName].abbréviation,
+				abbreviation: rules[category.dottedName].abréviation,
 			}))
 		)
 	}, [rules])
