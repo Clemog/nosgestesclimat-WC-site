@@ -59,10 +59,10 @@ export default ({ }) => {
 	const situationLength = Object.keys(situation).length
 
 	useEffect(() => {
-		if (testStarted && !tutorials['scoreExplanation']) {
-			setTimeout(() => setOpenExplanation(true), 1500)
+		if (!tutorials['scoreExplanation']) {
+			setTimeout(() => setOpenExplanation(true), 1200)
 		}
-	}, [testStarted])
+	}, [tutorials])
 
 	return (
 		<div>

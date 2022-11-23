@@ -1,4 +1,4 @@
-import { setSimulationConfig, skipTutorial } from 'Actions/actions'
+import { setSimulationConfig } from 'Actions/actions'
 import { extractCategories } from 'Components/publicodesUtils'
 import { buildEndURL } from 'Components/SessionBar'
 import Simulation from 'Components/Simulation'
@@ -40,30 +40,7 @@ const Simulateur = () => {
 	const tutorials = useSelector((state) => state.tutorials)
 	const url = useLocation().pathname
 
-	const [testStarted, setTestStarted] = useState(false)
-
-	const animated = tutorials['scoreAnimation']
-
 	const controls = useAnimation()
-
-	useEffect(() => {
-		if (!testStarted) {
-			const tutoKey = 'testCategory-'
-			const firstRespirationSkipped = Object.keys(tutorials)
-				.map((elt) => elt.includes(tutoKey))
-				.some((bool) => bool === true)
-			if (firstRespirationSkipped) {
-				setTestStarted(true)
-			}
-		}
-	}, [tutorials, controls, testStarted])
-
-	useEffect(() => {
-		if (testStarted && !animated) {
-			controls.set('hidden')
-			dispatch(skipTutorial('scoreAnimation'))
-		}
-	}, [controls, animated, testStarted])
 
 	useEffect(() => {
 		!equivalentTargetArrays(config.objectifs, configSet?.objectifs || []) &&
@@ -81,18 +58,13 @@ const Simulateur = () => {
 			<Title>
 				<Trans>Le test</Trans>
 			</Title>
-			{testStarted && (
+			{tutorials.testIntro && (
 				<motion.div
-					initial="visible"
-					whileInView="visible"
-					animate={controls}
-					variants={{
-						hidden: { opacity: 0, scale: 0.8 },
-						visible: { opacity: 1, scale: 1 },
-					}}
-					transition={{ duration: 0.3, delay: 0.3 }}
+					initial={{ opacity: 0, scale: 0.8 }}
+					animate={{ opacity: 1, scale: 1 }}
+					transition={{ duration: 0.5 }}
 				>
-					<ScoreBar testStarted={testStarted} />
+					<ScoreBar />
 				</motion.div>
 			)}
 			{!isMainSimulation && (
@@ -103,19 +75,21 @@ const Simulateur = () => {
 				</h1>
 			)}
 			{tutorials.testIntro ? (
-				<Simulation
-					orderByCategories={categories}
-					customEnd={
-						isMainSimulation ? (
-							<MainSimulationEnding {...{ rules, engine }} />
-						) : rule.description ? (
-							<Markdown children={rule.description} />
-						) : (
-							<EndingCongratulations />
-						)
-					}
-					explanations={<InlineCategoryChart />}
-				/>
+				tutorials.scoreExplanation && (
+					<Simulation
+						orderByCategories={categories}
+						customEnd={
+							isMainSimulation ? (
+								<MainSimulationEnding {...{ rules, engine }} />
+							) : rule.description ? (
+								<Markdown children={rule.description} />
+							) : (
+								<EndingCongratulations />
+							)
+						}
+						explanations={<InlineCategoryChart />}
+					/>
+				)
 			) : (
 				<TutorialRedirection />
 			)}
