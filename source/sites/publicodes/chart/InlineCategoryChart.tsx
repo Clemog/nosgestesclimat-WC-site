@@ -57,6 +57,25 @@ export default ({}) => {
 		displayedCategory &&
 		(!focusedCategory || focusedCategory === displayedCategory.dottedName)
 
+	const specializedVisualisationShown =
+		activatedSpecializedVisualisations.includes(currentQuestion)
+
+	if (!inRespiration && specializedVisualisationShown)
+		return (
+			<div
+				css={`
+					padding: 1rem 0.2rem;
+					height: 40rem;
+					width: 40rem;
+					margin: 0 auto;
+				`}
+			>
+				<SpecializedVisualisation
+					{...{ currentQuestion, categoryColor, value }}
+				/>
+			</div>
+		)
+
 	return (
 		<div
 			css={`
@@ -84,11 +103,6 @@ export default ({}) => {
 				}}
 			/>
 			{traditionalChartShown && <Chart />}
-			{!inRespiration && (
-				<SpecializedVisualisation
-					{...{ currentQuestion, categoryColor, value }}
-				/>
-			)}
 		</div>
 	)
 }
