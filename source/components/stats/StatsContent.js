@@ -44,37 +44,44 @@ export default function Data(props) {
 			<Section.TopTitle>
 				<Trans>Statistiques</Trans>
 			</Section.TopTitle>
-			{total &&
-			websites &&
-			oldWebsites &&
-			socials &&
-			keywords &&
-			period &&
-			reference &&
-			pages &&
-			activeEntryPages &&
-			entryPages &&
-			allTime ? (
-				<>
-					<Section>
-						<Section.Title>
-							<Trans>Stats générales</Trans>
-						</Section.Title>
+			<Section>
+				<Section.Title>
+					<Trans>Stats générales</Trans>
+				</Section.Title>
+				<UseQueryResultHandler
+					requestResults={[period, reference, allTime, simulations]}
+					toRenderWithRequestData={([
+						periodData,
+						referenceData,
+						allTimeData,
+						simulationsData,
+					]) => (
 						<Wrapper>
 							<Evolution
-								period={period.value}
-								reference={reference.value}
-								allTime={allTime.value}
-								simulations={simulations}
+								period={periodData.value}
+								reference={referenceData.value}
+								allTime={allTimeData.value}
+								simulations={simulationsData}
 							/>
 							<Chart />
 						</Wrapper>
+					)}
+				/>
+				<UseQueryResultHandler
+					requestResults={[total, websites, oldWebsites, socials, keywords]}
+					toRenderWithRequestData={([
+						totalData,
+						websitesData,
+						oldWebsitesData,
+						socialsData,
+						keywordsData,
+					]) => (
 						<Sources
-							total={total.value}
-							websites={websites}
-							oldWebsites={oldWebsites}
-							socials={socials}
-							keywords={keywords}
+							total={totalData.value}
+							websites={websitesData}
+							oldWebsites={oldWebsitesData}
+							socials={socialsData}
+							keywords={keywordsData}
 						/>
 					</Section>
 					<Section>
@@ -94,8 +101,8 @@ export default function Data(props) {
 						</Section.Intro>
 						<Wrapper>
 							<IframeFigures
-								pages={entryPages}
-								activePages={activeEntryPages}
+								pages={entryPagesData}
+								activePages={activeEntryPagesData}
 							/>
 						</Wrapper>
 					</Section>
@@ -113,8 +120,8 @@ export default function Data(props) {
 							</p>
 						</Section.Intro>
 						<Wrapper>
-							<DurationFigures avgduration={avgduration} />
-							{duration && <DurationChart duration={duration} />}
+							<DurationFigures avgduration={avgdurationData} />
+							{duration.isSuccess && <DurationChart duration={duration.data} />}
 						</Wrapper>
 					</Section>
 					<Section>
@@ -141,15 +148,15 @@ export default function Data(props) {
 							</p>
 						</Section.Intro>
 						<Wrapper>
-							<ScoreFromURL pages={pages} />
+							<ScoreFromURL pages={pagesData} />
 						</Wrapper>
 					</Section>
 					<Section>
 						<Section.Title>La voiture en chiffres</Section.Title>
 						<KmFigures
-							kmhelp={kmhelp}
-							simulationsfromhelp={simulationsfromhelp?.nb_visits}
-							ridesnumber={ridesnumber?.nb_events}
+							kmhelp={kmhelpData}
+							simulationsfromhelp={simulationsfromhelpData?.nb_visits}
+							ridesnumber={ridesnumberData?.nb_events}
 						/>
 					</Section>
 				</>
