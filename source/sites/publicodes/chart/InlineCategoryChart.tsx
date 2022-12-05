@@ -14,11 +14,11 @@ import useContinuousCategory from './useContinuousCategory'
 import Chart from './index.js'
 import { useQuery } from '../../../utils'
 
-export default ({}) => {
+export default ({ givenEngine }) => {
 	// needed for this component to refresh on situation change :
 	const objectifs = useSelector(objectifsSelector)
 	const rules = useSelector((state) => state.rules)
-	const engine = useEngine(objectifs)
+	const engine = givenEngine || useEngine(objectifs)
 	const [categories, setCategories] = useState(
 		extractCategories(rules, engine).map((category) => ({
 			...category,
