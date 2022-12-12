@@ -78,9 +78,11 @@ export const ActionListCard = ({
 		pluralSuffix = remainingQuestions.length > 1 ? 's' : '',
 		remainingQuestionsText = `${remainingQuestions.length} question${pluralSuffix} restante${pluralSuffix}`
 	const categories = extractCategoriesNamespaces(rules, engine)
-	const categoryColor = categories.find(
+	const foundCategory = categories.find(
 		(cat) => cat.dottedName === splitName(dottedName)[0]
-	).color
+	)
+
+	const categoryColor = foundCategory?.color
 
 	const { t } = useTranslation()
 
