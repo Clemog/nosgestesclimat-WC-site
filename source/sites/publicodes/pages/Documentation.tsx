@@ -43,6 +43,9 @@ export default function () {
 	const url = useParams()['*']
 
 	const [loadEngine, setLoadEngine] = useState(false)
+
+	const engineReady = useSelector((state) => state.engineState) === 'ready'
+
 	if (!rules)
 		return (
 			<div css="height: 10vh; background: purple">
@@ -83,7 +86,7 @@ export default function () {
 				<SearchButton key={pathname} />
 			</div>
 
-			{!loadEngine && (
+			{!engineReady && !loadEngine && (
 				<div>
 					<QuickDocPage
 						rule={rule}
@@ -92,7 +95,7 @@ export default function () {
 					/>
 				</div>
 			)}
-			{loadEngine && (
+			{(engineReady || loadEngine) && (
 				<WithEngine>
 					<DocPage dottedName={dottedName} />
 				</WithEngine>
