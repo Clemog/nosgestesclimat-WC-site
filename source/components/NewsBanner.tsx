@@ -25,7 +25,7 @@ export default function NewsBanner() {
 		return null
 	}
 
-	const showBanner = lastViewedRelease !== lastRelease.name
+	const showBanner = lastRelease.name && lastViewedRelease !== lastRelease.name
 
 	const date = new Date(lastRelease.date).toLocaleDateString('fr-FR', {
 		weekday: 'long',
