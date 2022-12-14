@@ -1,4 +1,3 @@
-import Illustration from 'Components/AnimatedIllustration'
 import animate from 'Components/ui/animate'
 import LogoADEME from 'Images/logoADEME.svg'
 import React, { useContext, useState } from 'react'
@@ -19,6 +18,12 @@ import { useTranslation, Trans } from 'react-i18next'
 import LangSwitcher from 'Components/LangSwitcher'
 
 const fluidLayoutMinWidth = '1200px'
+
+const Illustration = () => (
+	<Suspense fallback={null}>
+		<LazyIllustration />
+	</Suspense>
+)
 
 export default () => {
 	const tracker = useContext(TrackerContext)
