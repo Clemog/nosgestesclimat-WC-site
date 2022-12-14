@@ -564,16 +564,16 @@ entries:
     elles, <3></3> règles sont des questions à poser à l'utilisateur pour
     calculer un résultat précis.
   model.stats2: It consists of a combination of hundreds of "bottom-up" micro
-    models for the carbon consumption of our daily life, and a "top-down" model
+    models for the carbon consumption of our daily lives, and a "top-down" model
     derived from the work of the SDES to estimate the per capita footprint of
-    so-called societal services (utilities and basic services such as telecom).
-    TODO link to the explanation realease.
+    so-called societal services (public services and basic services such as
+    telecommunications). <2>Learn more about this hybridization</2>.
   model.stats2.lock: Il est constitué d'une combinaison de centaines de modèles
     micro "bottom-up" pour les consommations carbonées de notre vie quotidienne,
     et d'un modèle "top-down" dérivé des travaux du SDES pour estimer
     l'empreinte par personne des services dits sociétaux (services publics et
-    services de base tels les télécom). TODO lien vers la realease
-    d'explication.
+    services de base tels les télécom). <2>En savoir plus sur cette
+    hybridation</2>.
   mois: month
   mon empreinte annuelle: my annual footprint
   mon objectif: my goal
@@ -624,7 +624,7 @@ entries:
     quelques pistes pour agir autrement ⏬</1>
   publicodes.Contribution.bugQuestion: 🐛 You have a bug that prevents you from using Nos Gestes Climat?
   publicodes.Contribution.bugQuestion.lock: 🐛 Vous avez un bug qui vous empêche d'utiliser Nos Gestes Climat ?
-  publicodes.Contribution.commentaireAugmenté: >-
+  publicodes.Contribution.commentaireAugmenté: |-
 
     &gt; This ticket was created automatically by our robot from our [contribution page](https://nosgestesclimat.fr/contribuer).
   publicodes.Contribution.commentaireAugmenté.lock: >-
@@ -732,11 +732,10 @@ entries:
   publicodes.SimulationMissing.simulationManquante.lock: Vous n'avez pas encore
     fait le test. Pour débloquer ce parcours, vous devez nous en dire un peu
     plus sur votre mode de vie.
-  publicodes.TranslationContribution.commentaireAugmenté: >-
+  publicodes.TranslationContribution.commentaireAugmenté: |-
 
     &gt; This ticket was created automatically by our robot from our [translation contribution page](https://nosgestesclimat.fr/contribuer-traduction).
-  publicodes.TranslationContribution.commentaireAugmenté.lock: >-
-
+  publicodes.TranslationContribution.commentaireAugmenté.lock: |-
 
     > Ce ticket a été créé automatiquement par notre robot depuis notre [page de contribution pour la traduction](https://nosgestesclimat.fr/contribuer-traduction).
   publicodes.TranslationContribution.remerciements: Thank you 😍! Follow the
@@ -762,11 +761,9 @@ entries:
     méthane&nbsp;<1></1> et le protoxyde d'azote <5></5> réchauffent aussi la
     planète : on convertit leur potentiel de réchauffement en équivalent CO₂
     pour simplifier la mesure. "
-  publicodes.Tutorial.slide2.p1: >
+  publicodes.Tutorial.slide2.p1: |
     Through a unit with a barbaric name: the CO₂
-
     equivalent. You already know carbon dioxide<1></1>, it's what we breathe out all day,
-
     but without influence on the climate.
   publicodes.Tutorial.slide2.p1.lock: "Avec une unité au nom barbare :
     l'équivalent CO₂. Le dioxyde de carbone<1></1>, vous le connaissez : on
@@ -1013,15 +1010,13 @@ entries:
   sites.publicodes.Landing.description.lock:
     En 10 minutes, obtenez une estimation
     de votre empreinte carbone de consommation.
-  sites.publicodes.LandingExplanations.faqLink: >-
+  sites.publicodes.LandingExplanations.faqLink: |-
     ## Any questions?
 
 
-
     Find answers to common questions on our [FAQ](/contribuer) page.
-  sites.publicodes.LandingExplanations.faqLink.lock: >-
+  sites.publicodes.LandingExplanations.faqLink.lock: |-
     ## Des questions ?
-
 
 
     Retrouvez les réponses aux questions courantes sur notre page [FAQ](/contribuer).
