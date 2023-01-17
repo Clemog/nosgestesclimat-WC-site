@@ -154,6 +154,7 @@ const Router = ({ }) => {
 				css={`
 					outline: none !important;
 					padding-left: 0rem;
+					overflow: auto;
 					@media (min-width: 800px) {
 						flex-grow: 1;
 						${!isHomePage ? 'padding-left: 0.6rem;' : ''}
