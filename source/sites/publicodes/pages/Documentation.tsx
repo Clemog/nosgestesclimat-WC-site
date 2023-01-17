@@ -90,6 +90,7 @@ export default function () {
 						rule={rule}
 						dottedName={dottedName}
 						setLoadEngine={setLoadEngine}
+						rules={rules}
 					/>
 				</div>
 			)}
