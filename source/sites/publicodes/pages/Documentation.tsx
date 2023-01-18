@@ -1,30 +1,19 @@
 import SearchButton from 'Components/SearchButton'
-import { Markdown } from 'Components/utils/markdown'
 import { ScrollToTop } from 'Components/utils/Scroll'
 import { utils } from 'publicodes'
-import { RulePage } from 'publicodes-react'
-import { useState } from 'react'
-import { Helmet } from 'react-helmet'
-import { Trans, useTranslation } from 'react-i18next'
+import React, { Suspense, useState } from 'react'
+import { Trans } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import {
-	Link,
-	Navigate,
-	useLocation,
-	useNavigate,
-	useParams,
-} from 'react-router-dom'
+import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { RootState } from 'Reducers/rootReducer'
-import styled from 'styled-components'
-import { useEngine } from '../../../components/utils/EngineContext'
+import AnimatedLoader from '../../../AnimatedLoader'
 import { WithEngine } from '../../../RulesProvider'
 import { currentSimulationSelector } from '../../../selectors/storageSelectors'
 import BandeauContribuer from '../BandeauContribuer'
-import RavijenChart from '../chart/RavijenChart'
-import References from '../DocumentationReferences'
 import DocumentationLanding from './DocumentationLanding'
-import DocumentationStyle from './DocumentationStyle'
 import QuickDocumentationPage from './QuickDocumentationPage'
+
+const DocumentationPageLazy = React.lazy(() => import('./DocumentationPage'))
 
 export default function () {
 	console.log('Rendering Documentation')
@@ -99,7 +88,9 @@ export default function () {
 			)}
 			{(engineReady || loadEngine) && (
 				<WithEngine>
-					<DocPage dottedName={dottedName} />
+					<Suspense fallback={AnimatedLoader}>
+						<DocumentationPageLazy dottedName={dottedName} />
+					</Suspense>
 				</WithEngine>
 			)}
 
@@ -166,13 +157,6 @@ const GithubContributionLink = ({ dottedName }) => (
 		✏️ Contribuer
 	</a>
 )
-
-const GraphContainer = styled.div`
-	height: 45rem;
-	width: 90%;
-	margin: 2rem 1rem;
-	overflow: scroll;
-`
 
 function BackToSimulation() {
 	const url = useSelector(currentSimulationSelector)?.url
