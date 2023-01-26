@@ -13,7 +13,6 @@ import { ReactNode, useEffect, useMemo } from 'react'
 import { Trans } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { options } from 'yargs'
 import useRules, { UseRulesOptions } from './components/useRules'
 
 export default ({ children }) => {
@@ -87,11 +86,10 @@ export default ({ children }) => {
 
 const EngineWrapper = ({ children }) => {
 	const engineState = useSelector((state) => state.engineState)
-	const rules = engineState.parse && useRules(engineState.options)
+	const engineRequested = engineState.parse !== null
+	const rules = useSelector((state) => state.rules)
 	const dispatch = useDispatch()
 	const branchData = useBranchData()
-
-	const engineRequested = engineState !== null
 
 	const engine = useMemo(() => {
 		const shouldParse = engineRequested && rules
@@ -112,7 +110,7 @@ const EngineWrapper = ({ children }) => {
 		// goes back to the test component : the Engine shouldn't be parsed again
 		// but picked from the hook'e memo.
 		// TODO : test this : React says we shouldn't rely on this feature
-	}, [engineRequested, branchData.deployURL, rules, options.optimized])
+	}, [engineRequested, branchData.deployURL, rules, engineState.options])
 
 	useEffect(() => {
 		if (engine) dispatch({ type: 'SET_ENGINE', to: { parse: 'ready' } })
@@ -139,9 +137,10 @@ const EngineWrapper = ({ children }) => {
 export const WithEngine = ({ children, fallback = null }) => {
 	const dispatch = useDispatch()
 	const engineState = useSelector((state) => state.engineState)
+	useRules(options)
 
 	useEffect(() => {
-		if (!engineState)
+		if (!engineState.parse)
 			dispatch({ type: 'SET_ENGINE', to: { parse: 'requested', options } })
 		return
 	}, [])
