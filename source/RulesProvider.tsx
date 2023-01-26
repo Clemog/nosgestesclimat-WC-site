@@ -9,11 +9,12 @@ import {
 
 import useBranchData from 'Components/useBranchData'
 import Engine from 'publicodes'
-import { useEffect, useMemo } from 'react'
+import { ReactNode, useEffect, useMemo } from 'react'
 import { Trans } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
-import useRules from './components/useRules'
+import { options } from 'yargs'
+import useRules, { UseRulesOptions } from './components/useRules'
 
 export default ({ children }) => {
 	const { i18n } = useTranslation()
@@ -84,9 +85,9 @@ export default ({ children }) => {
 	return <EngineWrapper rules={rules}>{children}</EngineWrapper>
 }
 
-const EngineWrapper = ({ options = { optimized: true }, children }) => {
+const EngineWrapper = ({ children }) => {
 	const engineState = useSelector((state) => state.engineState)
-	const rules = engineState && useRules(options)
+	const rules = engineState.parse && useRules(engineState.options)
 	const dispatch = useDispatch()
 	const branchData = useBranchData()
 
@@ -114,7 +115,7 @@ const EngineWrapper = ({ options = { optimized: true }, children }) => {
 	}, [engineRequested, branchData.deployURL, rules, options.optimized])
 
 	useEffect(() => {
-		if (engine) dispatch({ type: 'SET_ENGINE', to: 'ready' })
+		if (engine) dispatch({ type: 'SET_ENGINE', to: { parse: 'ready' } })
 		return
 	}, [engine])
 
@@ -140,7 +141,8 @@ export const WithEngine = ({ children, fallback = null }) => {
 	const engineState = useSelector((state) => state.engineState)
 
 	useEffect(() => {
-		if (!engineState) dispatch({ type: 'SET_ENGINE', to: 'requested' })
+		if (!engineState)
+			dispatch({ type: 'SET_ENGINE', to: { parse: 'requested', options } })
 		return
 	}, [])
 
