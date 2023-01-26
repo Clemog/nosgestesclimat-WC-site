@@ -10,27 +10,11 @@ import {
 import useBranchData from 'Components/useBranchData'
 import Engine from 'publicodes'
 import { useEffect, useMemo } from 'react'
-import { Trans, useTranslation } from 'react-i18next'
+import { Trans } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { constantFolding, getRawNodes } from 'publiopti'
-import { addTranslationToBaseRules } from '../nosgestesclimat/scripts/i18n/addTranslationToBaseRules'
-import { getCurrentLangAbrv } from './locales/translation'
-
-/* This component gets the publicode rules from the good URL,
- * then gives them
- * to the engine to parse, and hence makes it available to the whole component tree
- * through the state (state.rules) as unparsed, or through the useEngine hook as parsed, but only for component that are enclosed in WithEngine
- * to trigger the parsing only for components that need this heavy operation.
- *
- * This component triggers loading rules as soon as possible, BUT the components that use
- * the engine should wait for it to be available. Hence the use of the WithRules
- * component that returns null if rules are not ready in the state.
- *
- * This logic is a handmade and basic implementation of react 18's Suspense for data loading
- * principles. Switching to this experimental feature could be great if we had concurrent
- * loading problems. Here, we only have one block of data (co2.json) at a time.
- * */
+import useRules from './components/useRules'
 
 export default ({ children }) => {
 	const { i18n } = useTranslation()
@@ -101,7 +85,8 @@ export default ({ children }) => {
 	return <EngineWrapper rules={rules}>{children}</EngineWrapper>
 }
 
-const EngineWrapper = ({ rules, children }) => {
+const EngineWrapper = ({ children }) => {
+	const rules = useRules()
 	const engineState = useSelector((state) => state.engineState)
 	const dispatch = useDispatch()
 	const branchData = useBranchData()
