@@ -1,6 +1,6 @@
 import { extractCategories } from 'Components/publicodesUtils'
 import { useEngine } from 'Components/utils/EngineContext'
-import { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import {
 	objectifsSelector,
@@ -13,6 +13,10 @@ import SubCategoriesChart from './SubCategoriesChart'
 import useContinuousCategory from './useContinuousCategory'
 import Chart from './index.js'
 import { useQuery } from '../../../utils'
+
+const SpecializedVisualisation = React.lazy(
+	() => import('./SpecializedVisualisation')
+)
 
 export default ({ givenEngine }) => {
 	// needed for this component to refresh on situation change :
