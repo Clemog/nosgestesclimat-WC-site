@@ -13,7 +13,8 @@ import { ReactNode, useEffect, useMemo } from 'react'
 import { Trans } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
-import useRules, { UseRulesOptions } from './components/useRules'
+import useRules from './components/useRules'
+import { RulesOptions } from './reducers/rootReducer'
 
 export default ({ children }) => {
 	const { i18n } = useTranslation()
@@ -86,7 +87,7 @@ export default ({ children }) => {
 
 const EngineWrapper = ({ children }) => {
 	const engineState = useSelector((state) => state.engineState)
-	const engineRequested = engineState.parse !== null
+	const engineRequested = engineState !== null
 	const rules = useSelector((state) => state.rules)
 	const dispatch = useDispatch()
 	const branchData = useBranchData()
@@ -110,10 +111,10 @@ const EngineWrapper = ({ children }) => {
 		// goes back to the test component : the Engine shouldn't be parsed again
 		// but picked from the hook'e memo.
 		// TODO : test this : React says we shouldn't rely on this feature
-	}, [engineRequested, branchData.deployURL, rules, engineState.options])
+	}, [engineRequested, branchData.deployURL, rules])
 
 	useEffect(() => {
-		if (engine) dispatch({ type: 'SET_ENGINE', to: { parse: 'ready' } })
+		if (engine) dispatch({ type: 'SET_ENGINE', to: 'ready' })
 		return
 	}, [engine])
 
@@ -137,10 +138,13 @@ const EngineWrapper = ({ children }) => {
 export const WithEngine = ({ children, fallback = null }) => {
 	const dispatch = useDispatch()
 	const engineState = useSelector((state) => state.engineState)
+	const currentRulesOptions = useSelector((state) => state.rulesOptions)
+
 	useRules(options)
 
 	useEffect(() => {
-		dispatch({ type: 'SET_ENGINE', to: { parse: 'requested', options } })
+		if (engineState && currentRulesOptions?.optimized === false) return // if the full set of rules is loaded, don't reload the optimzed set, since the former includes the latter
+		dispatch({ type: 'SET_ENGINE', to: 'requested' })
 		return
 	}, [])
 
