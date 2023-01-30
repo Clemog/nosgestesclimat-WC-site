@@ -140,7 +140,7 @@ export const WithEngine = ({ children, fallback = null }) => {
 	useRules(options)
 
 	useEffect(() => {
-		dispatch({ type: 'SET_ENGINE', to: { options } })
+		dispatch({ type: 'SET_ENGINE', to: { parse: 'requested', options } })
 		return
 	}, [])
 
