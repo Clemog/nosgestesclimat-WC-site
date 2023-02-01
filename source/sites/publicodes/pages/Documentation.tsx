@@ -31,7 +31,8 @@ export default function () {
 
 	const [loadEngine, setLoadEngine] = useState(false)
 
-	const engineReady = useSelector((state) => state.engineState) === 'ready'
+	const engineReady =
+		useSelector((state) => state.engineState.state) === 'ready'
 
 	if (!rules)
 		return (
