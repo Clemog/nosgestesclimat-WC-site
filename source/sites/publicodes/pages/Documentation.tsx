@@ -31,8 +31,9 @@ export default function () {
 
 	const [loadEngine, setLoadEngine] = useState(false)
 
-	const engineReady =
-		useSelector((state) => state.engineState.state) === 'ready'
+	const engineState = useSelector((state) => state.engineState),
+		parsedEngineReady =
+			engineState.state === 'ready' && engineState.options.parsed
 
 	if (!rules)
 		return (
@@ -77,7 +78,7 @@ export default function () {
 				<SearchButton key={pathname} />
 			</div>
 
-			{!engineReady && !loadEngine && (
+			{!parsedEngineReady && !loadEngine && (
 				<div>
 					<QuickDocumentationPage
 						rule={rule}
