@@ -16,7 +16,6 @@ import QuickDocumentationPage from './QuickDocumentationPage'
 const DocumentationPageLazy = React.lazy(() => import('./DocumentationPage'))
 
 export default function () {
-	console.log('Rendering Documentation')
 	const currentSimulation = useSelector(
 		(state: RootState) => !!state.simulation?.url
 	)
@@ -34,13 +33,6 @@ export default function () {
 	const engineState = useSelector((state) => state.engineState),
 		parsedEngineReady =
 			engineState.state === 'ready' && engineState.options.parsed
-
-	if (!rules)
-		return (
-			<div css="height: 10vh; background: purple">
-				Chargement des règles page doc
-			</div>
-		)
 
 	if (pathname === '/documentation') {
 		return <DocumentationLanding />
@@ -84,7 +76,7 @@ export default function () {
 						rule={rule}
 						dottedName={dottedName}
 						setLoadEngine={setLoadEngine}
-						rules={rules}
+						rules={allPublicRules}
 					/>
 				</div>
 			)}
