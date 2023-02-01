@@ -161,6 +161,7 @@ entries:
   Notre serveur semble indisponible: Notre serveur semble indisponible
   Nous avons détecté que vous faites cette simulation depuis: Nous avons détecté que vous faites cette simulation depuis
   Nouveautés: Nouveautés
+  'Nouveautés - ': 'Nouveautés - '
   'Nouveautés - version ': 'Nouveautés - version '
   On la mesure comment ?: On la mesure comment ?
   On vous propose une sélection graduelle de gestes.: On vous propose une sélection graduelle de gestes.
@@ -426,7 +427,9 @@ entries:
   ont utilisé l'aide à la saisie des km: ont utilisé l'aide à la saisie des km
   ou: ou
   pages.News.determinant: of
-  pages.News.premierParagraphe: Nous améliorons le site en continu à partir de vos retours. Découvrez ici les
+  pages.News.premierParagraphe:
+    Nous améliorons le site en continu à partir de vos
+    retours. Découvrez ici les dernières nouveautés.
   participant: participant
   pleins: pleins
   pleins de pétrole: pleins de pétrole
@@ -594,7 +597,7 @@ entries:
   publicodes.conference.NamingBlock.nomSalleCourt: ⚠️ Votre nom de salle est
     court, il y a un petit risque que des inconnus puissent le deviner
   publicodes.conference.NamingBlock.nomSalleDoitContenirDesLettres:
-    💡 Votre nom de salle ne peut que contenir des lettres, des chifffres et des
+    💡 Votre nom de salle ne peut que contenir des lettres, des chiffres et des
     tirets
   publicodes.conference.NoTestMessage.bienvenue:
     Bienvenue dans le mode groupe de
