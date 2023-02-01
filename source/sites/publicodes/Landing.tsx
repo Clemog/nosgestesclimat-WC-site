@@ -10,8 +10,6 @@ import { IframeOptionsContext } from '../../components/utils/IframeOptionsProvid
 import Meta from '../../components/utils/Meta'
 import useMediaQuery from '../../components/utils/useMediaQuery'
 import { TrackerContext } from '../../components/utils/withTracker'
-import DocumentationButton from './DocumentationButton'
-import LandingContent from './LandingContent'
 import LandingExplanations from './LandingExplanations'
 import { useProfileData } from './Profil'
 import { useTranslation, Trans } from 'react-i18next'
