@@ -126,37 +126,24 @@ const Router = ({ }) => {
 	const fluidLayout = isFluidLayout(location.pathname)
 
 	return (
-		<div
-			css={`
-				@media (min-width: 800px) {
-					display: flex;
-					min-height: 100vh;
-					padding-top: 1rem;
-				}
+		<>
+			<div
+				css={`
+					@media (min-width: 800px) {
+						display: flex;
+						min-height: 100vh;
+						padding-top: 1rem;
+					}
 
-				@media (min-width: 1200px) {
-					${!fluidLayout &&
-					`
+					@media (min-width: 1200px) {
+						${!fluidLayout &&
+						`
 						transform: translateX(-4vw);
 						`}
-				}
-				${!fluidLayout && !isTuto && sessionBarMargin}
-			`}
-			className={fluidLayout ? '' : 'ui__ container'}
-		>
-			<Navigation fluidLayout={fluidLayout} />
-			<main
-				tabIndex="0"
-				id="mainContent"
-				css={`
-					outline: none !important;
-					padding-left: 0rem;
-					overflow: auto;
-					@media (min-width: 800px) {
-						flex-grow: 1;
-						${!isHomePage ? 'padding-left: 0.6rem;' : ''}
 					}
+					${!fluidLayout && !isTuto && sessionBarMargin}
 				`}
+				className={fluidLayout ? '' : 'ui__ container'}
 			>
 				{isHomePage && (
 					<nav
