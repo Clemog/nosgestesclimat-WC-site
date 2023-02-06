@@ -174,27 +174,6 @@ export default ({
 								<br />
 								chaque disque 👇️ un score sur une catégorie.
 							</p>
-							{spotlightValue && spotlight === currentUser ? (
-								<span>
-									<Trans
-										i18nKey={'site.publicodes.conferences.Stats.explication1'}
-									>
-										<span role="status" css="background: #fff45f;">
-											En jaune
-										</span>{' '}
-										: ma simulation à {{ spotlightValue }} t.
-									</Trans>
-								</span>
-							) : (
-								<button
-									className="ui__ link-button"
-									onClick={() => setSpotlight(currentUser)}
-								>
-									<span css="background: #fff45f;">
-										<Trans>Afficher ma simulation</Trans>
-									</span>
-								</button>
-							)}
 						</div>
 
 						<CategoryStats
