@@ -249,15 +249,11 @@ const Results = ({ room, existContext, contextRules }) => {
 // In case of survey with context, we only display result with context filled in.
 
 export const getElements = (
-	answerMap,
+	rawElements,
 	threshold,
 	existContext,
 	progressMin
 ) => {
-	const rawElements = Object.values(answerMap).map((el) => ({
-		...el.data,
-		username: el.id,
-	}))
 	const elementsWithinThreshold = rawElements.filter(
 		(el) => el.total > 0 && el.total < threshold && el.progress >= progressMin
 	)
