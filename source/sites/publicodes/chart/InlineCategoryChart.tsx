@@ -19,7 +19,7 @@ const SpecializedVisualisation = React.lazy(
 )
 
 export default ({ givenEngine }) => {
-	// needed for this component to refresh on situation change :
+	const situation = useSelector(situationSelector) // needed for this component to refresh on situation change :
 	const objectifs = useSelector(objectifsSelector)
 	const rules = useSelector((state) => state.rules)
 	const engine = givenEngine || useEngine(objectifs)
@@ -38,7 +38,7 @@ export default ({ givenEngine }) => {
 				abbreviation: rules[category.dottedName].abréviation,
 			}))
 		)
-	}, [rules])
+	}, [rules, situation])
 
 	const displayedCategory = useContinuousCategory(categories)
 
